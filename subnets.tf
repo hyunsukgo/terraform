@@ -30,3 +30,27 @@ resource "aws_subnet" "supex-glue-subnet" {
     Name = "supex-glue-subnet"
   }
 }
+resource "aws_subnet" "newworkplace-datalake-sftp-subnet-a" {
+  vpc_id     = aws_vpc.datalake-vpc.id
+  cidr_block = "10.30.0.0/28"
+
+  tags = {
+    Name = "newworkplace-datalake-sftp-subnet-a"
+  }
+}
+resource "aws_subnet" "newworkplace-datalake-sftp-subnet-b" {
+  vpc_id     = aws_vpc.datalake-vpc.id
+  cidr_block = "10.30.0.16/28"
+
+  tags = {
+    Name = "newworkplace-datalake-sftp-subnet-b"
+  }
+}
+resource "aws_subnet" "newworkplace-datalake-sftp-subnet-c" {
+  vpc_id     = aws_vpc.datalake-vpc.id
+  cidr_block = "10.30.0.32/28"
+
+  tags = {
+    Name = "newworkplace-datalake-sftp-subnet-c"
+  }
+}
