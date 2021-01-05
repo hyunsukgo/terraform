@@ -34,3 +34,12 @@ resource "aws_vpc" "supex-vpc" {
     Name = "supex-vpc"
   }
 }
+resource "aws_vpc" "datalake-vpc" {
+  cidr_block       = "10.30.0.0/24"
+  instance_tenancy = "default"
+  enable_dns_hostnames = "true"
+
+  tags = {
+    Name = "datalake-vpc"
+  }
+}
