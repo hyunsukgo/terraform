@@ -8,14 +8,3 @@ variable "amazon_linux" {
      # 파일에있는것
      #default = "ami-9bec36f5"
 }
-
-
-variable "dev_keyname" {
-# EC2 접속시 필요한 키 이름 설정
-    default = "user100-key"
-}
-
-# ALB 설정시 필요한 account id 설정
-variable "alb_account_id_ca" {
-    default = "600734575887"
-}
