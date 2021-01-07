@@ -17,26 +17,26 @@ resource "aws_vpn_connection" "skens-to-vdi" {
 ## SK 이노베이션과 VDI망 연결 ##
 resource "aws_vpn_connection" "skhc-to-vdi" {
   vpn_gateway_id      = aws_vpn_gateway.skhc-vpg.id
-  customer_gateway_id = aws_customer_gateway.skhc-cgw.id
+  customer_gateway_id = aws_customer_gateway.skhc-supex-cgw.id
   type                = "ipsec.1"
   static_routes_only  = true
-  depends_on = [aws_vpn_gateway.skhc-vpg, aws_customer_gateway.skhc-cgw]
+  depends_on = [aws_vpn_gateway.skhc-vpg, aws_customer_gateway.skhc-supex-cgw]
 }
 ## SK 이노베이션과 VDI망 연결 ##
 resource "aws_vpn_connection" "supex-to-vdi" {
   vpn_gateway_id      = aws_vpn_gateway.supex-vpg.id
-  customer_gateway_id = aws_customer_gateway.supex-cgw.id
+  customer_gateway_id = aws_customer_gateway.skhc-supex-cgw.id
   type                = "ipsec.1"
   static_routes_only  = true
-  depends_on = [aws_vpn_gateway.supex-vpg, aws_customer_gateway.supex-cgw]
+  depends_on = [aws_vpn_gateway.supex-vpg, aws_customer_gateway.skhc-supex-cgw]
 }
 ## SK 이노베이션과 VDI망 연결 ##
 resource "aws_vpn_connection" "skhc-to-datalake" {
   vpn_gateway_id      = aws_vpn_gateway.datalake-vpg.id
-  customer_gateway_id = aws_customer_gateway.skhc-cgw.id
+  customer_gateway_id = aws_customer_gateway.skhc-supex-cgw.id
   type                = "ipsec.1"
   static_routes_only  = true
-  depends_on = [aws_vpn_gateway.datalake-vpg, aws_customer_gateway.skhc-cgw]
+  depends_on = [aws_vpn_gateway.datalake-vpg, aws_customer_gateway.skhc-supex-cgw]
 }
 ## SK 이노베이션과 VDI망 연결 ##
 resource "aws_vpn_connection" "ski-to-datalake" {
