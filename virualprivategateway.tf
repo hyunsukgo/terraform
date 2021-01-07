@@ -6,15 +6,15 @@ resource "aws_vpn_gateway" "ski-vpg" {
     Name = "ski-vpg"
   }
 }
-## SK 이노베이션 Virtual Private Gateway ##
+## SK E&S Virtual Private Gateway ##
 resource "aws_vpn_gateway" "skens-vpg" {
-  vpc_id = aws_vpc.ski-vpc.id
+  vpc_id = aws_vpc.skens-vpc.id
 
   tags = {
     Name = "skens-vpg"
   }
 }
-## SK 이노베이션 Virtual Private Gateway ##
+## SK 홀딩스 Virtual Private Gateway ##
 resource "aws_vpn_gateway" "skhc-vpg" {
   vpc_id = aws_vpc.skhc-vpc.id
 
@@ -22,7 +22,7 @@ resource "aws_vpn_gateway" "skhc-vpg" {
     Name = "skhc-vpg"
   }
 }
-## SK 이노베이션 Virtual Private Gateway ##
+## SUPEX Virtual Private Gateway ##
 resource "aws_vpn_gateway" "supex-vpg" {
   vpc_id = aws_vpc.supex-vpc.id
 
@@ -30,7 +30,7 @@ resource "aws_vpn_gateway" "supex-vpg" {
     Name = "supex-vpg"
   }
 }
-## SK 이노베이션 Virtual Private Gateway ##
+## SK Data Lake Virtual Private Gateway ##
 resource "aws_vpn_gateway" "datalake-vpg" {
   vpc_id = aws_vpc.datalake-vpc.id
 
