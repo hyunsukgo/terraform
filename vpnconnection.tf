@@ -40,10 +40,11 @@ resource "aws_vpn_connection" "ski-to-datalake" {
   type                = "ipsec.1"
   static_routes_only  = true
 }
-## SK 이노베이션과 VDI망 연결 ##
+/*## SK 이노베이션과 VDI망 연결 ##
 resource "aws_vpn_connection" "skens-to-datalake" {
   vpn_gateway_id      = datalake-vpg.vpn_gateway.id
   customer_gateway_id = skens-cgw.customer_gateway.id
   type                = "ipsec.1"
   static_routes_only  = true
 }
+*/
