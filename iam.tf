@@ -97,6 +97,6 @@ resource "aws_iam_role" "glue_service_role" {
 EOF
 
   tags = {
-    tag-key = "tag-value"
+    Name = "glue_service_role"
   }
 }

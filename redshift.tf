@@ -14,16 +14,17 @@ module "redshift" {
   wlm_json_configuration = "[{\"query_concurrency\": 5}]"
 
   # DB Subnet Group Inputs
-  subnets = ["subnet-123456", "subnet-654321"]
+  subnets = [aws_redshift_subnet_group.ski-redshift-subnet-group.id]
 
   # IAM Roles
-  cluster_iam_roles = ["arn:aws:iam::225367859851:role/developer"]
+  cluster_iam_roles = ["arn:aws:iam::225367859851:role/glue_service_role"]
 }
-resource "aws_redshift_subnet_group" "foo" {
+resource "aws_redshift_subnet_group" "ski-redshift-subnet-group" {
   name       = "foo"
-  subnet_ids = [aws_subnet.foo.id, aws_subnet.bar.id]
+  subnet_ids = [aws_subnet.ski-redshift-subnet-a.id, aws_subnet.ski-redshift-subnet-c.id]
 
   tags = {
     environment = "Production"
+    name = "ski-redshift-subnet-group"
   }
 }
