@@ -9,7 +9,7 @@ resource "aws_security_group" "ski-redshift-sg" {
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [10.86.0.0/16]
+    cidr_blocks = ["10.86.0.0/16"]
   }
   ingress {
     description = "Redshift Access Self"
@@ -39,7 +39,7 @@ resource "aws_security_group" "skens-redshift-sg" {
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [192.9.176.0/21]
+    cidr_blocks = ["192.9.176.0/21"]
   }
   ingress {
     description = "Redshift Access Self"
@@ -69,14 +69,14 @@ resource "aws_security_group" "skhc-redshift-sg" {
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [10.245.40.0/21]
+    cidr_blocks = ["10.245.40.0/21"]
   }
   ingress {
     description = "SK HC SSL VPN"
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [10.116.2.0/24]
+    cidr_blocks = ["10.116.2.0/24"]
   }
   ingress {
     description = "Redshift Access Self"
@@ -106,14 +106,14 @@ resource "aws_security_group" "supex-redshift-sg" {
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [10.245.40.0/21]
+    cidr_blocks = ["10.245.40.0/21"]
   }
   ingress {
     description = "SUPEX SSL VPN"
     from_port   = 0
     to_port     = 5439
     protocol    = "tcp"
-    cidr_blocks = [10.116.2.0/24]
+    cidr_blocks = ["10.116.2.0/24"]
   }
   ingress {
     description = "Redshift Access Self"
@@ -142,27 +142,27 @@ resource "aws_security_group" "newworkplace-datalake-sftp-sg" {
     description = "SKHC Gathering Server"
     from_port   = 0
     protocol    = "ssh"
-    cidr_blocks = [10.245.75.115/32]
+    cidr_blocks = ["10.245.75.115/32"]
   ingress {
     description = "SK E&S Gathering Server"
     from_port   = 0
     protocol    = "ssh"
-    cidr_blocks = [192.9.100.58/32]
+    cidr_blocks = ["192.9.100.58/32"]
   ingress {
     description = "VPC Health Check"
     from_port   = 0
     protocol    = "ssh"
-    cidr_blocks = [10.30.0.0/24]
+    cidr_blocks = ["10.30.0.0/24"]
   ingress {
     description = "	SUPEX Gathering Server"
     from_port   = 0
     protocol    = "ssh"
-    cidr_blocks = [10.245.75.116/32]
+    cidr_blocks = ["10.245.75.116/32"]
   ingress {
     description = "SKI Gathering Server"
     from_port   = 0
     protocol    = "ssh"
-    cidr_blocks = [168.154.122.206/32]
+    cidr_blocks = ["168.154.122.206/32"]
 
   egress {
     from_port   = 0
