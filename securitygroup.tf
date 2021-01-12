@@ -45,7 +45,9 @@ resource "aws_security_group" "skens-redshift-sg" {
   }
   ingress {
     description = "Redshift Access Self"
-    protocol    = "All"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     self = true
   }
 
@@ -82,7 +84,9 @@ resource "aws_security_group" "skhc-redshift-sg" {
   }
   ingress {
     description = "Redshift Access Self"
-    protocol    = "All"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     self = true
   }
 
@@ -119,7 +123,9 @@ resource "aws_security_group" "supex-redshift-sg" {
   }
   ingress {
     description = "Redshift Access Self"
-    protocol    = "All"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     self = true
   }
 
