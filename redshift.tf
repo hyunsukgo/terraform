@@ -15,7 +15,7 @@ module "redshift" {
 
   # DB Subnet Group Inputs
   subnets = [aws_redshift_subnet_group.ski-redshift-subnet-group.id]
-
+  vpc_security_group_ids = aws_security_group.ski-redshift-sg.id
   # IAM Roles
   cluster_iam_roles = ["arn:aws:iam::225367859851:role/glue_service_role"]
 }
