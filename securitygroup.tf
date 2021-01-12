@@ -149,12 +149,14 @@ resource "aws_security_group" "newworkplace-datalake-sftp-sg" {
   ingress {
     description = "SKHC Gathering Server"
     from_port   = 0
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["10.245.75.115/32"]
   }
   ingress {
     description = "SK E&S Gathering Server"
     from_port   = 0
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["192.9.100.58/32"]
   }
@@ -167,12 +169,14 @@ resource "aws_security_group" "newworkplace-datalake-sftp-sg" {
   ingress {
     description = "SUPEX Gathering Server"
     from_port   = 0
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["10.245.75.116/32"]
   }
   ingress {
     description = "SKI Gathering Server"
     from_port   = 0
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["168.154.122.206/32"]
   }
