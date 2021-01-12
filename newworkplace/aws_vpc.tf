@@ -1,4 +1,4 @@
 
 data "aws_vpc" "vpc" {
-  id = "var.vpc_id".id
+  id = var.vpc_id
 }
