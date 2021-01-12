@@ -164,6 +164,7 @@ resource "aws_security_group" "newworkplace-datalake-sftp-sg" {
     description = "VPC Health Check"
     from_port   = 0
     protocol    = "tcp"
+    to_port     = 22
     cidr_blocks = ["10.30.0.0/24"]
   }
   ingress {
