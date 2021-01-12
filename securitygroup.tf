@@ -13,17 +13,19 @@ resource "aws_security_group" "ski-redshift-sg" {
   }
   ingress {
     description = "Redshift Access Self"
-    protocol    = "All"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     self = true
   }
-
+  /*
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+  */
   tags = {
     Name = "ski-redshift-sg"
   }
@@ -141,31 +143,31 @@ resource "aws_security_group" "newworkplace-datalake-sftp-sg" {
   ingress {
     description = "SKHC Gathering Server"
     from_port   = 0
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["10.245.75.115/32"]
   }
   ingress {
     description = "SK E&S Gathering Server"
     from_port   = 0
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["192.9.100.58/32"]
   }
   ingress {
     description = "VPC Health Check"
     from_port   = 0
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["10.30.0.0/24"]
   }
   ingress {
-    description = "	SUPEX Gathering Server"
+    description = "SUPEX Gathering Server"
     from_port   = 0
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["10.245.75.116/32"]
   }
   ingress {
     description = "SKI Gathering Server"
     from_port   = 0
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["168.154.122.206/32"]
   }
   egress {
