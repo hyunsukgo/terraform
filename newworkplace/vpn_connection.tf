@@ -4,7 +4,7 @@ resource "aws_vpn_connection" "customer-to-vdi" {
   type                = "ipsec.1"
   static_routes_only  = true
   depends_on = [aws_vpn_gateway.vpg, aws_customer_gateway.cgw]
-  tags {
+  tags = {
       Name = "${local.service_name}-vpn"
   }
 }
