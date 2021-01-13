@@ -8,3 +8,7 @@ resource "aws_vpn_connection" "customer-to-vdi" {
       Name = "${local.service_name}-vpn"
   }
 }
+resource "aws_vpn_gateway_route_propagation" "route_propagation" {
+  vpn_gateway_id = aws_vpn_gateway.vpg.id
+  route_table_id = aws_route_table.route_table.id
+}
