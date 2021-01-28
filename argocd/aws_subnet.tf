@@ -3,7 +3,7 @@ resource "aws_subnet" "eks-subnet-a" {
   cidr_block = "${substr("${local.cidr}", 0, 6)}.1.0/25"
   availability_zone = "ap-northeast-2a"
   tags = {
-    Name = "${local.service_name}-redshift-subnet-a"
+    Name = "${local.service_name}-eks-subnet-a"
   }
 }
 resource "aws_subnet" "eks-subnet-c" {
@@ -11,6 +11,6 @@ resource "aws_subnet" "eks-subnet-c" {
   cidr_block = "${substr("${local.cidr}", 0, 6)}.1.128/25"
   availability_zone = "ap-northeast-2c"
   tags = {
-    Name = "${local.service_name}-redshift-subnet-c"
+    Name = "${local.service_name}-eks-subnet-c"
   }
 }
