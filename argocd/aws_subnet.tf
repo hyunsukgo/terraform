@@ -25,6 +25,6 @@ resource "aws_subnet" "eks-nodes-group" {
   vpc_id            = aws_vpc.vpc.id
 
   tags = {
-    "kubernetes.io/cluster/${aws_eks_cluster.example.name}" = "shared"
+    "kubernetes.io/cluster/${aws_eks_cluster.eks.name}" = "shared"
   }
 }
