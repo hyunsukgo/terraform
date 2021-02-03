@@ -1,5 +1,6 @@
 locals {
-  service_name = "skcc"
+  service_name = "samyang"
   owner        = "Community Team"
-  cidr = "10.0.0.0/16"
+  workload = "SAP-ERP"
+  cidr = "10.200.0.0/16"
 }
