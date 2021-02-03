@@ -6,6 +6,6 @@ resource "aws_subnet" "sap-hana-group" {
   vpc_id            = aws_vpc.vpc.id
 
   tags = {
-    name = ${var.workload}-subnet
+    name = ${local.workload}-subnet
   }
 }
