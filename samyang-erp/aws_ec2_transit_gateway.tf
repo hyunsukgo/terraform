@@ -1,6 +1,6 @@
 resource "aws_ec2_transit_gateway" "samyang_tgw" {
-  description = "samyang_tgw"
+  description = "samyang-tgw"
   tags = {
-      Name = "samyang_tgw"
+      Name = "samyang-tgw"
   }
 }
