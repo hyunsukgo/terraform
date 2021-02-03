@@ -14,7 +14,7 @@ resource "aws_subnet" "s4hana-subnet" {
   vpc_id = aws_vpc.samyang_vpc.id
 
   tags = {
-    name = "${local.workload}-${op}-subnet"
+    name = "${local.workload}-subnet"
     op = "production"
   }
 }
