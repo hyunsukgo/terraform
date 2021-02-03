@@ -2,7 +2,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-resource "aws_subnet" "sap-hana-group" {
+resource "aws_subnet" "sap-hana-sb" {
   count = 2
 
   availability_zone = data.aws_availability_zones.available.names[count.index]
