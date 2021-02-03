@@ -1,5 +1,5 @@
 resource "aws_vpc" "samyang_vpc" {
-    cidr_block       = "${substr("${local.cidr}")"
+    cidr_block       = "${local.cidr}"
     instance_tenancy = "default"
     enable_dns_hostnames = "true"
     tags = {
