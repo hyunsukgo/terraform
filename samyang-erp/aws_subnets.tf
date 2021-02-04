@@ -2,7 +2,7 @@ data "aws_availability_zones" "available" {
   state = "available"
   filter {
     name   = "zone-name"
-    values = ["ap-northeast-2a", "ap-northeast-2c"]
+    values = ["ap-northeast-2a", "ap-northeast-2c","ap-northeast-2a", "ap-northeast-2c"]
   }
 }
 /*
