@@ -1,4 +1,4 @@
-resource "aws_iam_user" "architect" {           #담당 ㅁㄱㅊ
+resource "aws_iam_user" "architect" {           
   name = "skcc-sa"
   
   tags = {
