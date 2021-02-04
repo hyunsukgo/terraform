@@ -25,7 +25,7 @@ resource "aws_subnet" "Defalt-subnet" {
 
   availability_zone = data.aws_availability_zones.available.names[count.index]
   cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 12, count.index)
-  vpc_id = aws_vpc.samyang_vpc.id
+  vpc_id = aws_vpc.vpc.id
 
   tags = {
     name = "${local.workload}-subnet"
