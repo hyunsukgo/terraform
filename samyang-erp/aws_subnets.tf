@@ -18,7 +18,7 @@ resource "aws_subnet" "s4hana-subnet" {
     op = "production"
   }
 }
-*/
+
 
 resource "aws_subnet" "Defalt-subnet" {
   count = 2
@@ -32,3 +32,4 @@ resource "aws_subnet" "Defalt-subnet" {
     op = "production"
   }
 }
+*/
