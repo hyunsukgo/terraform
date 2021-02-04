@@ -1,4 +1,3 @@
 provider "aws" {
-  #region = "ap-northeast-2"
-  region = ""
+  region = "ap-northeast-2"
 }
