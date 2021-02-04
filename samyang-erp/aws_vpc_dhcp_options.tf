@@ -7,3 +7,8 @@ resource "aws_vpc_dhcp_options" "dhcp_option_set" {
     Name = "${local.service_name}-dhcp-option-set"
   }
 }
+
+resource "aws_vpc_dhcp_options_association" "dhcp_vpc" {
+  vpc_id          = aws_vpc.vpc.id
+  dhcp_options_id = aws_vpc_dhcp_options.dhcp_option_set.id
+}
