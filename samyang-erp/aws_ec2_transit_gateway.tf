@@ -1,6 +1,6 @@
-resource "aws_ec2_transit_gateway" "samyang_tgw" {
-  description = "samyang-tgw"
+resource "aws_ec2_transit_gateway" "tgw" {
+  description = "${local.service_name}-tgw"
   tags = {
-      Name = "samyang-tgw"
+      Name = "${local.service_name}-tgw"
   }
 }
