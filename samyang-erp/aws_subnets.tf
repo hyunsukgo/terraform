@@ -1,3 +1,4 @@
+
 data "aws_availability_zones" "available" {
   state = "available"
   filter {
@@ -33,3 +34,12 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 */
+resource "aws_subnet" "Defalt-subnet" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+  cidr_block        = "10.200.30.112/26"
+
+  tags  = {
+    Name = "SAPDEV_A"
+  }
+}
