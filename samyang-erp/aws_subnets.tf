@@ -37,7 +37,7 @@ resource "aws_subnet" "Defalt-subnet" {
 resource "aws_subnet" "Defalt-subnet" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
-  cidr_block        = "10.200.30.112/26"
+  cidr_block        = "10.200.30.64/26"
 
   tags  = {
     Name = "SAPDEV_A"
