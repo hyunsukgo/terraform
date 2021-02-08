@@ -1,7 +1,7 @@
 
 resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
-  instance_type = "m5.2xlarge"
+  instance_type = "r5.2xlarge"
   private_ip = "10.200.30.12"
   root_block_device {
     volume_size = 30
@@ -31,9 +31,9 @@ resource "aws_volume_attachment" "usrsaptrans_att" {
   volume_id   = aws_ebs_volume.usrsaptrans.id
   instance_id = aws_instance.sapap.id
 }
-resource "aws_volume_attachment" "sapcd_ap_att" {
+resource "aws_volume_attachment" "sapcd_att" {
   device_name = "/dev/sde"
-  volume_id   = aws_ebs_volume.sapcd-ap.id
+  volume_id   = aws_ebs_volume.sapcd.id
   instance_id = aws_instance.sapap.id
 }
 resource "aws_ebs_volume" "sapmnt" {
@@ -51,23 +51,8 @@ resource "aws_ebs_volume" "usrsaptrans" {
   size              = 100
   type              = "gp3"
 }
-resource "aws_ebs_volume" "sapcd-ap" {
+resource "aws_ebs_volume" "sapcd" {
   availability_zone = "${local.region}-a"
   size              = 2048
   type              = "gp3"
 }
-/*
-resource "aws_instance" "sapdb" {
-  ami           = "ami-097fc5cd098dd20d5"
-  instance_type = "m5.8xlarge"
-  private_ip = "10.200.30.11"
-  tags = {
-    Name = "sapdb1"
-    Enviroment = "Dev"
-  }
-  key_name = "samyangerp"
-  associate_public_ip_address = false
-  #user_data = "${file("sapinst.sh")}"
-  subnet_id = aws_subnet.SAPDEV_A.id
-}
-*/
