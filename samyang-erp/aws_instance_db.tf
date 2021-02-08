@@ -1,4 +1,4 @@
-/*
+
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "r5.8xlarge"
@@ -67,4 +67,3 @@ resource "aws_ebs_volume" "sapcd-db" {
   size              = 2048
   type              = "gp3"
 }
-*/
