@@ -6,7 +6,7 @@ resource "aws_security_group" "allow_tls" {
   ingress {
     description = "SSH from On-Prem"
     from_port   = 0
-    to_port     = 443
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16"]
   }
