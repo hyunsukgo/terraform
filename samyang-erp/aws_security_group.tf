@@ -1,4 +1,4 @@
-/*
+
 resource "aws_security_group" "allow_ssh_from_vpn" {
   name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
@@ -23,4 +23,3 @@ resource "aws_security_group" "allow_ssh_from_vpn" {
     Name = "allow_ssh"
   }
 }
-*/
