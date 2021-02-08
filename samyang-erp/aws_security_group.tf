@@ -22,4 +22,4 @@ resource "aws_security_group" "allow_ssh_from_vpn" {
   tags = {
     Name = "allow_ssh"
   }
-}
+} 
