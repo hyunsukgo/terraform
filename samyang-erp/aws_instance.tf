@@ -35,22 +35,22 @@ resource "aws_volume_attachment" "sapcd_ap_att" {
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}-a"
   size              = 10
-  iops              = gp3
+  type              = gp3
 }
 resource "aws_ebs_volume" "usrsap" {
   availability_zone = "${local.region}-a"
   size              = 20
-  iops              = gp3
+  type              = gp3
 }
 resource "aws_ebs_volume" "usrsaptrans" {
   availability_zone = "${local.region}-a"
   size              = 100
-  iops              = gp3
+  type              = gp3
 }
 resource "aws_ebs_volume" "sapcd-ap" {
   availability_zone = "${local.region}-a"
   size              = 2048
-  iops              = gp3
+  type              = gp3
 }
 /*
 resource "aws_instance" "sapdb" {
