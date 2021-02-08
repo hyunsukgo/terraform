@@ -16,6 +16,6 @@ resource "aws_default_security_group" "sy_d_sg" {
   }
 
   tags = {
-    Name = "dev-default_user03"
+    Name = "sy-default-sg"
   }
 }
