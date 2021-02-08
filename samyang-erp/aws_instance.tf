@@ -1,4 +1,4 @@
-
+/*
 resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "m5.2xlarge"
