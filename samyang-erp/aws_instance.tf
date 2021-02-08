@@ -5,7 +5,7 @@ resource "aws_instance" "sapap" {
   private_ip = "10.200.30.12"
   root_block_device {
     volume_size = 30
-    volume_type = gp3  
+    volume_type = "gp3"  
   }
   tags = {
     Name = "sapap1"
@@ -39,22 +39,22 @@ resource "aws_volume_attachment" "sapcd_ap_att" {
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}-a"
   size              = 10
-  type        = gp3
+  type        = "gp3"
 }
 resource "aws_ebs_volume" "usrsap" {
   availability_zone = "${local.region}-a"
   size              = 20
-  type              = gp3
+  type              = "gp3"
 }
 resource "aws_ebs_volume" "usrsaptrans" {
   availability_zone = "${local.region}-a"
   size              = 100
-  type              = gp3
+  type              = "gp3"
 }
 resource "aws_ebs_volume" "sapcd-ap" {
   availability_zone = "${local.region}-a"
   size              = 2048
-  type              = gp3
+  type              = "gp3"
 }
 /*
 resource "aws_instance" "sapdb" {
