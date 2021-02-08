@@ -12,6 +12,7 @@ resource "aws_instance" "sapap" {
   #user_data = "${file("sapinst.sh")}"
   subnet_id = aws_subnet.SAPDEV_A.id
 }
+/*
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "m5.8xlarge"
@@ -25,3 +26,4 @@ resource "aws_instance" "sapdb" {
   #user_data = "${file("sapinst.sh")}"
   subnet_id = aws_subnet.SAPDEV_A.id
 }
+*/
