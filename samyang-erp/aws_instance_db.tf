@@ -17,9 +17,9 @@ resource "aws_instance" "sapdb" {
   subnet_id = aws_subnet.SAPDEV_A.id
 }
 
-resource "aws_volume_attachment" "usrsap_att" {
+resource "aws_volume_attachment" "usrsap_db_att" {
   device_name = "/dev/sdb"
-  volume_id   = aws_ebs_volume.usrsap.id
+  volume_id   = aws_ebs_volume.usrsap_db.id
   instance_id = aws_instance.sapdb.id
 }
 resource "aws_volume_attachment" "hanadata_att" {
@@ -37,12 +37,12 @@ resource "aws_volume_attachment" "hanashared_att" {
   volume_id   = aws_ebs_volume.hanashared.id
   instance_id = aws_instance.sapdb.id
 }
-resource "aws_volume_attachment" "sapcd_att" {
+resource "aws_volume_attachment" "sapcd_db_att" {
   device_name = "/dev/sde"
-  volume_id   = aws_ebs_volume.sapcd.id
+  volume_id   = aws_ebs_volume.sapcd-db.id
   instance_id = aws_instance.sapdb.id
 }
-resource "aws_ebs_volume" "usrsap" {
+resource "aws_ebs_volume" "usrsap_db" {
   availability_zone = "${local.region}-a"
   size              = 20
   type              = "gp3"
@@ -62,7 +62,7 @@ resource "aws_ebs_volume" "hanashared" {
   size              = 256
   type              = "gp3"
 }
-resource "aws_ebs_volume" "sapcd" {
+resource "aws_ebs_volume" "sapcd-db" {
   availability_zone = "${local.region}-a"
   size              = 2048
   type              = "gp3"
