@@ -3,6 +3,8 @@ resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "m5.2xlarge"
   private_ip = "10.200.30.12"
+  volume_size = 30
+  volume_type = gp3
   tags = {
     Name = "sapap1"
     Enviroment = "Dev"
@@ -35,7 +37,7 @@ resource "aws_volume_attachment" "sapcd_ap_att" {
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}-a"
   size              = 10
-  type              = gp3
+  type        = gp3
 }
 resource "aws_ebs_volume" "usrsap" {
   availability_zone = "${local.region}-a"
