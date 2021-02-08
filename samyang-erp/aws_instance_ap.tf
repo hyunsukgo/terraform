@@ -3,6 +3,7 @@ resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "r5.2xlarge"
   private_ip = "10.200.30.12"
+  security_groups = [aws_security_group.allow_ssh_from_vpn.id]
   root_block_device {
     volume_size = 30
     volume_type = "gp3"  
