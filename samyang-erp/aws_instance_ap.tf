@@ -37,22 +37,22 @@ resource "aws_volume_attachment" "sapcd_ap_att" {
   instance_id = aws_instance.sapap.id
 }
 resource "aws_ebs_volume" "sapmnt" {
-  availability_zone = "${local.region}-a"
+  availability_zone = "${local.region}a"
   size              = 10
-  type        = "gp3"
+  type              = "gp3"
 }
 resource "aws_ebs_volume" "usrsap-ap" {
-  availability_zone = "${local.region}-a"
+  availability_zone = "${local.region}a"
   size              = 20
   type              = "gp3"
 }
 resource "aws_ebs_volume" "usrsaptrans" {
-  availability_zone = "${local.region}-a"
+  availability_zone = "${local.region}a"
   size              = 100
   type              = "gp3"
 }
 resource "aws_ebs_volume" "sapcd-ap" {
-  availability_zone = "${local.region}-a"
+  availability_zone = "${local.region}a"
   size              = 2048
   type              = "gp3"
 }
