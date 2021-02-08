@@ -23,7 +23,7 @@ resource "aws_volume_attachment" "sapmnt_att" {
 }
 resource "aws_volume_attachment" "usrsap_ap_att" {
   device_name = "/dev/sdc"
-  volume_id   = aws_ebs_volume.usrsap_ap.id
+  volume_id   = aws_ebs_volume.usrsap-ap.id
   instance_id = aws_instance.sapap.id
 }
 resource "aws_volume_attachment" "usrsaptrans_att" {
