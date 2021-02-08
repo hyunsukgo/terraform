@@ -1,4 +1,5 @@
-resource "aws_security_group" "allow_tls" {
+/*
+resource "aws_security_group" "allow_ssh_from_vpn" {
   name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
   vpc_id      = aws_vpc.vpc.id
@@ -22,3 +23,4 @@ resource "aws_security_group" "allow_tls" {
     Name = "allow_ssh"
   }
 }
+*/

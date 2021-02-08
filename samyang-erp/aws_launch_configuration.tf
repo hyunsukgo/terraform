@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "sedap" {
   /*위에서 생성한 PEM키를 어떻게 변환해야 되는지 확인 중*/
   #private_ips = ["10.200.30.12"] # aws_instance 리소스에 적용 가능
   associate_public_ip_address = false
-  user_data = "${file("sapinst.sh")}"
+  #user_data = "${file("sapinst.sh")}"
 
   lifecycle {
     create_before_destroy = true
