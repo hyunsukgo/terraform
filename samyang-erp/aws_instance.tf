@@ -7,6 +7,8 @@ resource "aws_instance" "sapap" {
     Name = "sapap1"
     Enviroment = "Dev"
   }
+  key_name = "samyangerp"
+  associate_public_ip_address = false
   #user_data = "${file("sapinst.sh")}"
   subnet_id = aws_subnet.SAPDEV_A.id
 }
@@ -18,6 +20,8 @@ resource "aws_instance" "sapdb" {
     Name = "sapdb1"
     Enviroment = "Dev"
   }
+  key_name = "samyangerp"
+  associate_public_ip_address = false
   #user_data = "${file("sapinst.sh")}"
   subnet_id = aws_subnet.SAPDEV_A.id
 }
