@@ -1,4 +1,4 @@
-/*
+
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "r5.8xlarge"
