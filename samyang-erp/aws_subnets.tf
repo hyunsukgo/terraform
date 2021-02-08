@@ -44,7 +44,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 */
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "SAPDB1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.10.0/26"
@@ -54,7 +54,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "SAPAP1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.20.0/26"
@@ -64,7 +64,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "SAPDB2_C" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2c"
   cidr_block        = "10.200.11.0/26"
@@ -74,7 +74,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "SAPAP2_C" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2c"
   cidr_block        = "10.200.21.0/26"
@@ -84,7 +84,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "SAPDEV_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.30.0/26"
@@ -94,7 +94,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "LEGADB1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.40.0/25"
@@ -104,7 +104,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "LEGAAP1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.50.0/25"
@@ -114,7 +114,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "LEGADMZ_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.50.240/28"
@@ -124,7 +124,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "LEGADEV_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.60.0/26"
@@ -134,7 +134,7 @@ resource "aws_subnet" "Defalt-subnet" {
   }
 }
 
-resource "aws_subnet" "Defalt-subnet" {
+resource "aws_subnet" "COMMON1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
   cidr_block        = "10.200.0.0/26"
