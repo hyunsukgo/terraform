@@ -15,7 +15,7 @@ resource "aws_instance" "sapap" {
 /*
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
-  instance_type = "m5.8xlarge"
+  instance_type = "r5.8xlarge"
   private_ip = "10.200.30.11"
   tags = {
     Name = "sapdb1"
