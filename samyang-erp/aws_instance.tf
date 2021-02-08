@@ -3,8 +3,10 @@ resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "m5.2xlarge"
   private_ip = "10.200.30.12"
-  volume_size = 30
-  volume_type = gp3
+  root_block_device = {
+    volume_size = 30
+    volume_type = gp3  
+  }
   tags = {
     Name = "sapap1"
     Enviroment = "Dev"
