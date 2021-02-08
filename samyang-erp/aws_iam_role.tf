@@ -96,3 +96,4 @@ resource "aws_iam_role" "ec2_ssm_role" {
         }
     ]
 }
+EOF
