@@ -65,10 +65,10 @@ resource "aws_ebs_volume" "hanashared" {
   size              = 256
   type              = "gp3"
 }
-/*
+
 resource "aws_ebs_volume" "sapcd-db" {
   availability_zone = "${local.region}a"
-  size              = 2048
+  size              = 300
   type              = "gp3"
 }
-*/
+

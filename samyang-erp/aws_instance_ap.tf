@@ -1,7 +1,7 @@
 
 resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
-  instance_type = "r5.2xlarge"
+  instance_type = "m5.2xlarge"
   private_ip = "10.200.30.12"
   security_groups = [aws_security_group.allow_ssh_from_vpn.id]
   root_block_device {
@@ -32,13 +32,13 @@ resource "aws_volume_attachment" "usrsaptrans_att" {
   volume_id   = aws_ebs_volume.usrsaptrans.id
   instance_id = aws_instance.sapap.id
 }
-/*
+
 resource "aws_volume_attachment" "sapcd_ap_att" {
   device_name = "/dev/sde"
   volume_id   = aws_ebs_volume.sapcd-ap.id
   instance_id = aws_instance.sapap.id
 }
-*/
+
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}a"
   size              = 10
@@ -54,10 +54,10 @@ resource "aws_ebs_volume" "usrsaptrans" {
   size              = 100
   type              = "gp3"
 }
-/*
+
 resource "aws_ebs_volume" "sapcd-ap" {
   availability_zone = "${local.region}a"
-  size              = 2048
+  size              = 300
   type              = "gp3"
 }
-*/
+
