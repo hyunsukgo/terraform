@@ -32,11 +32,13 @@ resource "aws_volume_attachment" "usrsaptrans_att" {
   volume_id   = aws_ebs_volume.usrsaptrans.id
   instance_id = aws_instance.sapap.id
 }
+/*
 resource "aws_volume_attachment" "sapcd_ap_att" {
   device_name = "/dev/sde"
   volume_id   = aws_ebs_volume.sapcd-ap.id
   instance_id = aws_instance.sapap.id
 }
+*/
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}a"
   size              = 10
@@ -52,8 +54,10 @@ resource "aws_ebs_volume" "usrsaptrans" {
   size              = 100
   type              = "gp3"
 }
+/*
 resource "aws_ebs_volume" "sapcd-ap" {
   availability_zone = "${local.region}a"
   size              = 2048
   type              = "gp3"
 }
+*/

@@ -38,11 +38,13 @@ resource "aws_volume_attachment" "hanashared_att" {
   volume_id   = aws_ebs_volume.hanashared.id
   instance_id = aws_instance.sapdb.id
 }
+/*
 resource "aws_volume_attachment" "sapcd_db_att" {
   device_name = "/dev/sdf"
   volume_id   = aws_ebs_volume.sapcd-db.id
   instance_id = aws_instance.sapdb.id
 }
+*/
 resource "aws_ebs_volume" "usrsap_db" {
   availability_zone = "${local.region}a"
   size              = 20
@@ -63,8 +65,10 @@ resource "aws_ebs_volume" "hanashared" {
   size              = 256
   type              = "gp3"
 }
+/*
 resource "aws_ebs_volume" "sapcd-db" {
   availability_zone = "${local.region}a"
   size              = 2048
   type              = "gp3"
 }
+*/
