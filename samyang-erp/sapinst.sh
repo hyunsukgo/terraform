@@ -34,7 +34,7 @@
     sysctl -w vm.max_map_count=2147483647 #커널 파라미터 수정
 
     # Amazon SSM Agent Installation
-    wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
+    wget https://s3.ap-northeast-2.amazonaws.com/amazon-ssm-ap-northeast-2/latest/linux_amd64/amazon-ssm-agent.rpm
     sudo rpm --install amazon-ssm-agent.rpm
     sudo systemctl enable amazon-ssm-agent
     sudo systemctl start amazon-ssm-agent
