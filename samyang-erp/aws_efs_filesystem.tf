@@ -1,4 +1,4 @@
-resource "aws_efs_file_system" "foo" {
+resource "aws_efs_file_system" "efs" {
   tags = {
     Name = "${local.service_name}-efs"
   }
