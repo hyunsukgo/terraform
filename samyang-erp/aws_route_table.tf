@@ -11,7 +11,7 @@ resource "aws_route_table" "r" {
   }
   route {
     cidr_block = "130.1.0.0/16"
-    gateway_id = aws_ec2_transit_gateway.tgw.id
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
   
 
