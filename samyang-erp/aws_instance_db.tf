@@ -1,4 +1,4 @@
-
+/*
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "r5.8xlarge"
@@ -50,7 +50,7 @@ resource "aws_volume_attachment" "swap_att" {
   volume_id   = aws_ebs_volume.swap-db.id
   instance_id = aws_instance.sapdb.id
 }
-
+*/
 resource "aws_ebs_volume" "usrsap_db" {
   availability_zone = "${local.region}a"
   size              = 20
