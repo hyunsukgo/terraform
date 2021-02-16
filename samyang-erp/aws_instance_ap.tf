@@ -1,4 +1,4 @@
-
+/*
 resource "aws_instance" "sapap" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "m5.2xlarge"
@@ -38,7 +38,7 @@ resource "aws_volume_attachment" "sapcd_ap_att" {
   volume_id   = aws_ebs_volume.sapcd-ap.id
   instance_id = aws_instance.sapap.id
 }
-
+*/
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}a"
   size              = 10
