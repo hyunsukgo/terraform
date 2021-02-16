@@ -119,6 +119,13 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
   }
+  ingress {
+    description = "SSH from On-Prem"
+    from_port   = 50000
+    to_port     = 59999
+    protocol    = "tcp"
+    cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
+  }
 
   egress {
     from_port   = 0
@@ -228,6 +235,13 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
   }
+  ingress {
+    description = "SSH from On-Prem"
+    from_port   = 50000
+    to_port     = 59999
+    protocol    = "tcp"
+    cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
+  }
 
   egress {
     from_port   = 0
@@ -334,6 +348,13 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     description = "SSH from On-Prem"
     from_port   = 30000
     to_port     = 39999
+    protocol    = "tcp"
+    cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
+  }
+  ingress {
+    description = "SSH from On-Prem"
+    from_port   = 50000
+    to_port     = 59999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
   }
