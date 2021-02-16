@@ -32,7 +32,6 @@ resource "aws_s3_bucket" "cloudtrailucket" {
     ]
 }
 POLICY
-}
   tags = {
     Name        = "${local.service_name}-bucket"
     Environment = "Prd"
