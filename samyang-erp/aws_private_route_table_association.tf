@@ -2,7 +2,7 @@ data "aws_subnet_ids" "private" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Tier = "private"
+    RT = "private"
   }
 }
 
