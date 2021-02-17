@@ -56,7 +56,7 @@ resource "aws_dlm_lifecycle_policy" "lifecycle_manager" {
   state              = "ENABLED"
 
   policy_details {
-    resource_types = ["VOLUME"]
+    resource_types = ["INSTANCE"]
 
     schedule {
       name = "1 weeks of daily snapshots"
@@ -64,7 +64,7 @@ resource "aws_dlm_lifecycle_policy" "lifecycle_manager" {
       create_rule {
         interval      = 24
         interval_unit = "HOURS"
-        times         = ["23:45"]
+        times         = ["22:30"] #KST 05:30
       }
 
       retain_rule {
