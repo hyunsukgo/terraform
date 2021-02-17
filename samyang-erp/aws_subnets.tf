@@ -87,7 +87,7 @@ resource "aws_subnet" "LEGAAP1_A" {
   tags  = {
     Name = "LEGAAP1_A"
     Enviroment = "PRD"
-    #RT   = "private"
+    RT   = "private"
   }
 }
 
