@@ -2,7 +2,7 @@ data "aws_subnet_ids" "private_subnets" {
   vpc_id = aws_vpc.vpc.id
   filter {
     name = "RT"
-    values = "private"
+    values = ["private"]
   }
 }
 
