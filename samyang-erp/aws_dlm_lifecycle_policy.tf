@@ -56,7 +56,7 @@ resource "aws_dlm_lifecycle_policy" "lifecycle_manager" {
   state              = "ENABLED"
 
   policy_details {
-    resource_types = ["Instance"]
+    resource_types = ["VOLUME"]
 
     schedule {
       name = "1 weeks of daily snapshots"
