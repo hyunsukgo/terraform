@@ -157,40 +157,11 @@ resource "aws_subnet" "INTERNAL2_C" {
     RT   = "private"
   }
 }
-resource "aws_subnet" "SAPDB1_A" {
-  vpc_id = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
-  cidr_block        = "10.200.10.0/26"
 
-  tags  = {
-    Name = "SAPDB1_A"
-    RT   = "private"
-  }
-}
 resource "aws_subnet" "SAPDB1_C" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "${local.region}c"
   cidr_block        = "10.200.11.0/26"
-
-  tags  = {
-    Name = "SAPDB1_C"
-    RT   = "private"
-  }
-}
-resource "aws_subnet" "SAPAP1_A" {
-  vpc_id = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
-  cidr_block        = "10.200.20.0/26"
-
-  tags  = {
-    Name = "SAPDB1_A"
-    RT   = "private"
-  }
-}
-resource "aws_subnet" "SAPAP2_C" {
-  vpc_id = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
-  cidr_block        = "10.200.21.0/26"
 
   tags  = {
     Name = "SAPDB1_C"
