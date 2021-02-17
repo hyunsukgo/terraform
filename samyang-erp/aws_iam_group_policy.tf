@@ -18,7 +18,7 @@ resource "aws_iam_group_policy" "ARCHITECT" {
 
 resource "aws_iam_group_policy" "SYSOPS" {
   name  = "SYSOPS"
-  group = aws_iam_group.ARCHITECT.name
+  group = aws_iam_group.SYSOPS.name
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
