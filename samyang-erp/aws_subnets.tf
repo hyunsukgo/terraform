@@ -6,44 +6,7 @@ data "aws_availability_zones" "available" {
     values = ["ap-northeast-2a", "ap-northeast-2c"]
   }
 }
-/*
-resource "aws_subnet" "s4hana-subnet" {
-  count = 2
 
-  availability_zone = data.aws_availability_zones.available.names[count.index]
-  cidr_block = cidrsubnet(aws_vpc.samyang_vpc.cidr_block, 12, count.index)
-  vpc_id = aws_vpc.samyang_vpc.id
-
-  tags = {
-    name = "${local.workload}-subnet"
-    op = "production"
-  }
-}
-
-
-resource "aws_subnet" "Defalt-subnet" {
-  count = 2
-
-  availability_zone = data.aws_availability_zones.available.names[count.index]
-  cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 12, count.index)
-  vpc_id = aws_vpc.vpc.id
-
-  tags = {
-    name = "${local.workload}-subnet"
-    op = "production"
-  }
-}
-
-resource "aws_subnet" "Defalt-subnet" {
-  vpc_id = aws_vpc.vpc.id
-  availability_zone = "ap-northeast-2a"
-  cidr_block        = "10.200.30.64/26"
-
-  tags  = {
-    Name = "SAPDEV_A"
-  }
-}
-*/
 resource "aws_subnet" "SAPDB1_A" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "ap-northeast-2a"
@@ -141,5 +104,96 @@ resource "aws_subnet" "COMMON1_A" {
 
   tags  = {
     Name = "COMMON1_A"
+    RT   = "public"
+  }
+}
+resource "aws_subnet" "COMMON2_C" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.0.64/26"
+
+  tags  = {
+    Name = "COMMON1_A"
+    RT   = "public"
+  }
+}
+resource "aws_subnet" "NAS1_A" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}a"
+  cidr_block        = "10.200.0.128/27"
+
+  tags  = {
+    Name = "NAS1_A"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "NAS2_C" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.11.160/27"
+
+  tags  = {
+    Name = "NAS2_C"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "INTERNAL1_A" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}a"
+  cidr_block        = "10.200.0.192/28"
+
+  tags  = {
+    Name = "INTERNAL1_A"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "INTERNAL2_C" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.0.208/28"
+
+  tags  = {
+    Name = "INTERNAL2_C"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "SAPDB1_A" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}a"
+  cidr_block        = "10.200.10.0/26"
+
+  tags  = {
+    Name = "SAPDB1_A"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "SAPDB1_C" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.11.0/26"
+
+  tags  = {
+    Name = "SAPDB1_C"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "SAPAP1_A" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}a"
+  cidr_block        = "10.200.20.0/26"
+
+  tags  = {
+    Name = "SAPDB1_A"
+    RT   = "private"
+  }
+}
+resource "aws_subnet" "SAPAP2_C" {
+  vpc_id = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.21.0/26"
+
+  tags  = {
+    Name = "SAPDB1_C"
+    RT   = "private"
   }
 }
