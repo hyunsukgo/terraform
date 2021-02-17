@@ -1,4 +1,4 @@
-data "aws_subnet_id" "private_subnets" {
+data "aws_subnet" "private_subnets" {
   filter {
     name = "tag:RT"
     values = ["private"]
@@ -6,7 +6,7 @@ data "aws_subnet_id" "private_subnets" {
 }
 
 resource "aws_route_table_association" "private_rta" {
-  count          = length(data.aws_subnet_id.private_subnets.ids)
-  subnet_id      = data.aws_subnet_ids.private_subnets.id[count.index]
+  count          = length(data.aws_subnet.private_subnets.ids)
+  subnet_id      = data.aws_subnet.private_subnets.ids[count.index]
   route_table_id = aws_route_table.private_route.id
 }
