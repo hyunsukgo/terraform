@@ -158,13 +158,13 @@ resource "aws_subnet" "INTERNAL2_C" {
   }
 }
 
-resource "aws_subnet" "SAPDB1_C" {
+resource "aws_subnet" "SAPDB2_C" {
   vpc_id = aws_vpc.vpc.id
   availability_zone = "${local.region}c"
   cidr_block        = "10.200.11.0/26"
 
   tags  = {
-    Name = "SAPDB1_C"
+    Name = "SAPDB2_C"
     RT   = "private"
   }
 }
