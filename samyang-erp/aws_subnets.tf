@@ -14,6 +14,7 @@ resource "aws_subnet" "SAPDB1_A" {
 
   tags  = {
     Name = "SAPDB1_A"
+    Enviroment = "PRD"
   }
 }
 
@@ -24,6 +25,7 @@ resource "aws_subnet" "SAPAP1_A" {
 
   tags  = {
     Name = "SAPAP1_A"
+    Enviroment = "PRD"
   }
 }
 
@@ -34,6 +36,7 @@ resource "aws_subnet" "SAPDB2_C" {
 
   tags  = {
     Name = "SAPDB2_C"
+    Enviroment = "PRD"
   }
 }
 
@@ -44,6 +47,7 @@ resource "aws_subnet" "SAPAP2_C" {
 
   tags  = {
     Name = "SAPAP2_C"
+    Enviroment = "PRD"
   }
 }
 
@@ -54,6 +58,7 @@ resource "aws_subnet" "SAPDEV_A" {
 
   tags  = {
     Name = "SAPDEV_A"
+    Enviroment = "DEV"
   }
 }
 
@@ -64,6 +69,7 @@ resource "aws_subnet" "LEGADB1_A" {
 
   tags  = {
     Name = "LEGADB1_A"
+    Enviroment = "PRD"
   }
 }
 
@@ -74,6 +80,7 @@ resource "aws_subnet" "LEGAAP1_A" {
 
   tags  = {
     Name = "LEGAAP1_A"
+    Enviroment = "PRD"
   }
 }
 
@@ -84,6 +91,7 @@ resource "aws_subnet" "LEGADMZ_A" {
 
   tags  = {
     Name = "LEGADMZ_A"
+    Enviroment = "PRD"
   }
 }
 
@@ -94,6 +102,7 @@ resource "aws_subnet" "LEGADEV_A" {
 
   tags  = {
     Name = "LEGADEV_A"
+    Enviroment = "DEV"
   }
 }
 
@@ -105,6 +114,7 @@ resource "aws_subnet" "COMMON1_A" {
   tags  = {
     Name = "COMMON1_A"
     RT   = "public"
+    Enviroment = "PRD_NW"
   }
 }
 resource "aws_subnet" "COMMON2_C" {
@@ -115,6 +125,7 @@ resource "aws_subnet" "COMMON2_C" {
   tags  = {
     Name = "COMMON1_A"
     RT   = "public"
+    Enviroment = "PRD_NW"
   }
 }
 resource "aws_subnet" "NAS1_A" {
@@ -125,6 +136,7 @@ resource "aws_subnet" "NAS1_A" {
   tags  = {
     Name = "NAS1_A"
     RT   = "private"
+    Enviroment = "PRD_NW"
   }
 }
 resource "aws_subnet" "NAS2_C" {
@@ -135,6 +147,7 @@ resource "aws_subnet" "NAS2_C" {
   tags  = {
     Name = "NAS2_C"
     RT   = "private"
+    Enviroment = "PRD_NW"
   }
 }
 resource "aws_subnet" "INTERNAL1_A" {
@@ -145,6 +158,7 @@ resource "aws_subnet" "INTERNAL1_A" {
   tags  = {
     Name = "INTERNAL1_A"
     RT   = "private"
+    Enviroment = "PRD_NW"
   }
 }
 resource "aws_subnet" "INTERNAL2_C" {
@@ -155,5 +169,6 @@ resource "aws_subnet" "INTERNAL2_C" {
   tags  = {
     Name = "INTERNAL2_C"
     RT   = "private"
+    Enviroment = "PRD_NW"
   }
 }
