@@ -18,5 +18,5 @@ resource "aws_iam_group_policy" "ARCHITECT" {
 
 resource "aws_iam_group_policy_attachment" "architect-attach" {
   group      = aws_iam_group.ARCHITECT.name
-  policy_arn = aws_iam_policy.ARCHITECT.arn
+  policy_arn = aws_iam_group_policy.ARCHITECT.arn
 }
