@@ -15,6 +15,7 @@ resource "aws_iam_group_policy" "ARCHITECT" {
     ]
 })
 }
+
 resource "aws_iam_group_policy" "SYSOPS" {
   name  = "SYSOPS"
   group = aws_iam_group.ARCHITECT.name
@@ -40,18 +41,6 @@ resource "aws_iam_group_policy" "SYSOPS" {
                 "cloudtrail:StartLogging",
                 "cloudtrail:StopLogging",
                 "cloudwatch:*",
-                "codecommit:BatchGetRepositories",
-                "codecommit:CreateBranch",
-                "codecommit:CreateRepository",
-                "codecommit:Get*",
-                "codecommit:GitPull",
-                "codecommit:GitPush",
-                "codecommit:List*",
-                "codecommit:Put*",
-                "codecommit:Test*",
-                "codecommit:Update*",
-                "codedeploy:*",
-                "codepipeline:*",
                 "config:*",
                 "ds:*",
                 "ec2:Allocate*",
