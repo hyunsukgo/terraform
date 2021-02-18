@@ -1,5 +1,5 @@
 eaccap01
-resource "aws_security_group" "allow_from_trust_to_eaccap" {
+resource "aws_security_group" "allow_from_trust_to_eaccdb" {
   name        = "allow_traffic_s4h_eacc"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id

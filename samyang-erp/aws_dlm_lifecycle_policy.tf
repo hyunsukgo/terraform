@@ -64,7 +64,7 @@ resource "aws_dlm_lifecycle_policy" "lifecycle_manager" {
       create_rule {
         interval      = 24
         interval_unit = "HOURS"
-        times         = ["22:30"] #KST 05:30
+        times         = ["20:30"] #KST 05:30
       }
 
       retain_rule {
