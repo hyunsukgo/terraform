@@ -71,7 +71,7 @@ resource "aws_iam_user_group_membership" "syc196561" {
 }
 
 resource "aws_iam_user_group_membership" "syc197128" {
-  user = aws_iam_user.syc196561.name
+  user = aws_iam_user.syc197128.name
 
   groups = [
     aws_iam_group.ARCHITECT.name,
@@ -81,7 +81,7 @@ resource "aws_iam_user_group_membership" "syc197128" {
 }
 
 resource "aws_iam_user_group_membership" "syc719860" {
-  user = aws_iam_user.syc196561.name
+  user = aws_iam_user.syc719860.name
 
   groups = [
     aws_iam_group.SYSOPS.name
@@ -89,7 +89,7 @@ resource "aws_iam_user_group_membership" "syc719860" {
 }
 
 resource "aws_iam_user_group_membership" "syc720059" {
-  user = aws_iam_user.syc196561.name
+  user = aws_iam_user.syc720059.name
 
   groups = [
     aws_iam_group.SYSOPS.name
