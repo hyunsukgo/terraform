@@ -2,7 +2,7 @@ resource "aws_iam_user" "architect" {
   name = "skcc-sa"
   
   tags = {
-    company = ""
+    company = "SKCC"
   }
 }
 resource "aws_iam_policy" "admin" {
@@ -28,4 +28,67 @@ resource "aws_iam_policy_attachment" "admin-attach" {
   users      = [aws_iam_user.architect.name]
   policy_arn = aws_iam_policy.admin.arn
 }
+resource "aws_iam_user" "syc196561" {           
+  name = "syc196561"
+  
+  tags = {
+    company = "Samyang"
+    Description = "이민숙"
+  }
+}resource "aws_iam_user" "syc197128" {           
+  name = "syc197128"
+  
+  tags = {
+    company = "Samyang"
+    Description = "김범술"
+  }
+}resource "aws_iam_user" "syc719860" {           
+  name = "syc719860"
+  
+  tags = {
+    company = "Samsung"
+    Description = "조원혁"
+  }
+}resource "aws_iam_user" "syc720059" {           
+  name = "syc720059"
+  
+  tags = {
+    company = "Samsung"
+    Description = "김제호"
+  }
+}
+resource "aws_iam_user_group_membership" "syc196561" {
+  user = aws_iam_user.syc196561.name
 
+  groups = [
+    aws_iam_group.ARCHITECT.name,
+    aws_iam_group.SYSOPS.name,
+    aws_iam_group.SECURITY.name
+  ]
+}
+
+resource "aws_iam_user_group_membership" "syc197128" {
+  user = aws_iam_user.syc196561.name
+
+  groups = [
+    aws_iam_group.ARCHITECT.name,
+    aws_iam_group.SYSOPS.name,
+    aws_iam_group.SECURITY.name
+  ]
+}
+
+resource "aws_iam_user_group_membership" "syc719860" {
+  user = aws_iam_user.syc196561.name
+
+  groups = [
+    aws_iam_group.SYSOPS.name
+  ]
+}
+
+resource "aws_iam_user_group_membership" "syc720059" {
+  user = aws_iam_user.syc196561.name
+
+  groups = [
+    aws_iam_group.SYSOPS.name
+  ]
+}
