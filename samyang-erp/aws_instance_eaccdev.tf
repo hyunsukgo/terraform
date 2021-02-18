@@ -4,11 +4,12 @@ resource "aws_instance" "eaccap01" {
 
   private_ip = "10.200.50.31"
   key_name  = "samyang-erp"
+
   root_block_device {
-    volume_type = gp2
-    volume_size = 30
+    volume_type = "gp3"
+    volume_size = 100
   }
-  
+
   security_groups = aws_security_group.allow_from_trust_to_eacc.id
   subnet_id = aws_subnet.LEGAAP1_A.id
 
