@@ -60,6 +60,22 @@ resource "aws_iam_user" "syc720059" {
     Description = "김제호"
   }
 }
+resource "aws_iam_user" "syc218389" {           
+  name = "syc218389"
+  
+  tags = {
+    company = "Samsung"
+    Description = "박훈"
+  }
+}
+resource "aws_iam_user" "syc221025" {           
+  name = "syc221025"
+  
+  tags = {
+    company = "Samsung"
+    Description = "백승훈"
+  }
+}
 resource "aws_iam_user_group_membership" "syc196561" {
   user = aws_iam_user.syc196561.name
 
@@ -69,7 +85,24 @@ resource "aws_iam_user_group_membership" "syc196561" {
     aws_iam_group.SECURITY.name
   ]
 }
+resource "aws_iam_user_group_membership" "syc218389" {
+  user = aws_iam_user.syc218389.name
 
+  groups = [
+    aws_iam_group.ARCHITECT.name,
+    aws_iam_group.SYSOPS.name,
+    aws_iam_group.SECURITY.name
+  ]
+}
+resource "aws_iam_user_group_membership" "syc221025" {
+  user = aws_iam_user.syc221025.name
+
+  groups = [
+    aws_iam_group.ARCHITECT.name,
+    aws_iam_group.SYSOPS.name,
+    aws_iam_group.SECURITY.name
+  ]
+}
 resource "aws_iam_user_group_membership" "syc197128" {
   user = aws_iam_user.syc197128.name
 
