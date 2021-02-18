@@ -35,6 +35,7 @@ resource "aws_ebs_volume" "eaccdb_add" {
     Snapshot = "true"
   }
 }
-output "instance_ip_addr" {
-  value = aws_instance.instance_type.id
+output "instance_type" {
+  value = aws_instance.eaccdb.instance_type
+  description = "EACCDB 인스턴스 타입"
 }
