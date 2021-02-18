@@ -10,8 +10,8 @@ resource "aws_instance" "eaccapdev" {
     volume_type = "gp2"
     volume_size = 40
   }
-
-  security_groups = [aws_security_group.allow_from_trust_to_eaccap.id]
+  disable_api_termination = "true"
+  #security_groups = [aws_security_group.allow_from_trust_to_eaccap.id]
   subnet_id = aws_subnet.LEGADEV_A.id
 
   tags = {
