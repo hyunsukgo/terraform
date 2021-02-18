@@ -35,21 +35,24 @@ resource "aws_iam_user" "syc196561" {
     company = "Samyang"
     Description = "이민숙"
   }
-}resource "aws_iam_user" "syc197128" {           
+}
+resource "aws_iam_user" "syc197128" {           
   name = "syc197128"
   
   tags = {
     company = "Samyang"
     Description = "김범술"
   }
-}resource "aws_iam_user" "syc719860" {           
+}
+resource "aws_iam_user" "syc719860" {           
   name = "syc719860"
   
   tags = {
     company = "Samsung"
     Description = "조원혁"
   }
-}resource "aws_iam_user" "syc720059" {           
+}
+resource "aws_iam_user" "syc720059" {           
   name = "syc720059"
   
   tags = {
