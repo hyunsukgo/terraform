@@ -6,7 +6,7 @@ resource "aws_instance" "eaccapdev" {
   key_name  = "samyang-erp"
 
   root_block_device {
-    volume_type = "gp"
+    volume_type = "gp2"
     volume_size = 40
   }
 
