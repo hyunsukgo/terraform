@@ -24,7 +24,7 @@ resource "aws_instance" "eaccapdev" {
 
 resource "aws_volume_attachment" "eaccapdev_att" {
   device_name = "/dev/sdb"
-  volume_id   = aws_ebs_volume.eaccdb_add.id
+  volume_id   = aws_ebs_volume.eaccapdev_add.id
   instance_id = aws_instance.eaccapdev.id
 }
 
