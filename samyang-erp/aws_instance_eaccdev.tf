@@ -10,7 +10,7 @@ resource "aws_instance" "eaccap01" {
     volume_size = 100
   }
 
-  security_groups = aws_security_group.allow_from_trust_to_eacc.id
+  security_groups = [aws_security_group.allow_from_trust_to_eacc.id]
   subnet_id = aws_subnet.LEGAAP1_A.id
 
   tags = {
