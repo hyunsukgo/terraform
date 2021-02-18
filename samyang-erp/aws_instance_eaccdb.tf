@@ -18,6 +18,7 @@ resource "aws_instance" "eaccdb"   {
       Description = "전자전표(DB)"
       Environment = "Dev"
       cz-product = "Non-SAP"
+      Schedule  = "samyang-office-hours"
   }
 }
 
