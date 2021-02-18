@@ -2,7 +2,7 @@ resource "aws_instance" "eaccdb"   {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "m5.2xlarge"
 
-  private_ip = "10.200.50.242"
+  private_ip = "10.200.50.251"
   key_name  = "samyangerp"
 
   root_block_device {
