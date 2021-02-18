@@ -3,7 +3,7 @@ resource "aws_instance" "eaccapdev" {
   instance_type = "m5.xlarge"
 
   private_ip = "10.200.60.31"
-  key_name  = "samyang-erp"
+  key_name  = "samyangerp"
 
   root_block_device {
     volume_type = "gp2"

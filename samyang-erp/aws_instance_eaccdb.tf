@@ -3,7 +3,7 @@ resource "aws_instance" "eaccdb"   {
   instance_type = "m5.2xlarge"
 
   private_ip = "10.200.50.241"
-  key_name  = "samyang-erp"
+  key_name  = "samyangerp"
 
   root_block_device {
     volume_type = "gp2"
