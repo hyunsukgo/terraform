@@ -75,8 +75,7 @@ resource "aws_iam_user_group_membership" "syc197128" {
 
   groups = [
     aws_iam_group.ARCHITECT.name,
-    aws_iam_group.SYSOPS.name,
-    aws_iam_group.SECURITY.name
+    aws_iam_group.SYSOPS.name
   ]
 }
 
