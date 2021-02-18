@@ -6,7 +6,7 @@ resource "aws_instance" "eaccap01" {
   key_name  = "samyang-erp"
 
   volume_type = gp3
-  volume_size = 10G
+  volume_size = 30
 
   security_groups = aws_security_group.allow_from_trust_to_eacc.id
   subnet_id = aws_subnet.LEGAAP1_A.id
