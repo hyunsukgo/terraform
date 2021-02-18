@@ -1,4 +1,4 @@
-/*resource "aws_instance" "eaccdb"   {
+resource "aws_instance" "eaccdb"   {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "m5.2xlarge"
 
@@ -35,4 +35,3 @@ resource "aws_ebs_volume" "eaccdb_add" {
     Snapshot = "true"
   }
 }
-*/
