@@ -101,3 +101,12 @@ resource "aws_ebs_volume" "swap-db" {
     Snapshot = "true"
   }
 }
+resource "aws_ebs_volume" "endb" {
+  availability_zone = "${local.region}a"
+  size              = 10
+  type              = "gp2"
+  tags = {
+    Name     = "${local.service_name}-endb"
+    Snapshot = "true"
+  }
+}
