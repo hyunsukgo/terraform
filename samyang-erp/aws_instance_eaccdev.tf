@@ -1,3 +1,4 @@
+/*
 resource "aws_instance" "eaccapdev" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "m5.xlarge"
@@ -35,3 +36,4 @@ resource "aws_ebs_volume" "eaccapdev_add" {
     Snapshot = "true"
   }
 }
+*/
