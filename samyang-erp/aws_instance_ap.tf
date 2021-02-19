@@ -1,4 +1,4 @@
-
+/*
 resource "aws_ebs_volume" "sapmnt" {
   availability_zone = "${local.region}a"
   size              = 10
@@ -32,3 +32,4 @@ resource "aws_ebs_volume" "sapcd-ap" {
     Snapshot = "true"
   }
 }
+*/
