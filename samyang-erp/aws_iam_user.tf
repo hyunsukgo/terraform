@@ -1,6 +1,6 @@
-resource "aws_iam_user" "architect" {           
+resource "aws_iam_user" "architect" {
   name = "skcc-sa"
-  
+
   tags = {
     company = "SKCC"
   }
@@ -28,51 +28,51 @@ resource "aws_iam_policy_attachment" "admin-attach" {
   users      = [aws_iam_user.architect.name]
   policy_arn = aws_iam_policy.admin.arn
 }
-resource "aws_iam_user" "syc196561" {           
+resource "aws_iam_user" "syc196561" {
   name = "syc196561"
-  
+
   tags = {
-    company = "Samyang"
+    company     = "Samyang"
     Description = "이민숙"
   }
 }
-resource "aws_iam_user" "syc197128" {           
+resource "aws_iam_user" "syc197128" {
   name = "syc197128"
-  
+
   tags = {
-    company = "Samyang"
+    company     = "Samyang"
     Description = "김범술"
   }
 }
-resource "aws_iam_user" "syc719860" {           
+resource "aws_iam_user" "syc719860" {
   name = "syc719860"
-  
+
   tags = {
-    company = "Samsung"
+    company     = "Samsung"
     Description = "조원혁"
   }
 }
-resource "aws_iam_user" "syc720059" {           
+resource "aws_iam_user" "syc720059" {
   name = "syc720059"
-  
+
   tags = {
-    company = "Samsung"
+    company     = "Samsung"
     Description = "김제호"
   }
 }
-resource "aws_iam_user" "syc218389" {           
+resource "aws_iam_user" "syc218389" {
   name = "syc218389"
-  
+
   tags = {
-    company = "Samsung"
+    company     = "Samsung"
     Description = "박훈"
   }
 }
-resource "aws_iam_user" "syc221025" {           
+resource "aws_iam_user" "syc221025" {
   name = "syc221025"
-  
+
   tags = {
-    company = "Samsung"
+    company     = "Samsung"
     Description = "백승훈"
   }
 }

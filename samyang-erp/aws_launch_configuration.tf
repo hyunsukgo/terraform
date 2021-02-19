@@ -1,8 +1,8 @@
 resource "aws_launch_configuration" "sedap" {
 
-  image_id = "ami-097fc5cd098dd20d5"
+  image_id      = "ami-097fc5cd098dd20d5"
   instance_type = "m5.2xlarge"
-  key_name = "test"
+  key_name      = "test"
   #vpc_id = aws_vpc.vpc.id
   #security_groups = "${aws_default_security_group.sy_d_sg.id}"
   #subnet_id = "${aws_subnet.SAPAP1_A.id}"

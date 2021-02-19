@@ -1,9 +1,9 @@
-resource "aws_instance" "eaccdb"   {
+resource "aws_instance" "eaccdb" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "m5.2xlarge"
 
   private_ip = "10.200.50.251"
-  key_name  = "samyangerp"
+  key_name   = "samyangerp"
 
   root_block_device {
     volume_type = "gp2"
@@ -14,11 +14,11 @@ resource "aws_instance" "eaccdb"   {
   subnet_id = aws_subnet.LEGADMZ_A.id
 
   tags = {
-      Name = "sy-eaccdb"
-      Description = "전자전표(DB)"
-      Environment = "Dev"
-      cz-product = "Non-SAP"
-      Schedule  = "samyang-office-hours"
+    Name        = "sy-eaccdb"
+    Description = "전자전표(DB)"
+    Environment = "Dev"
+    cz-product  = "Non-SAP"
+    Schedule    = "samyang-office-hours"
   }
 }
 

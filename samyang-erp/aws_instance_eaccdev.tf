@@ -4,7 +4,7 @@ resource "aws_instance" "eaccapdev" {
   instance_type = "m5.xlarge"
 
   private_ip = "10.200.60.31"
-  key_name  = "samyangerp"
+  key_name   = "samyangerp"
 
   root_block_device {
     volume_type = "gp2"
@@ -13,13 +13,13 @@ resource "aws_instance" "eaccapdev" {
   disable_api_termination = "true"
   #security_groups = [aws_security_group.allow_from_trust_to_eaccap.id]
   subnet_id = aws_subnet.LEGADEV_A.id
-  
+
   tags = {
-      Name = "sy-eaccdev"
-      Description = "전자전표(AP)"
-      Environment = "Dev"
-      cz-product = "Non-SAP"
-      Schedule  = "samyang-office-hours"
+    Name        = "sy-eaccdev"
+    Description = "전자전표(AP)"
+    Environment = "Dev"
+    cz-product  = "Non-SAP"
+    Schedule    = "samyang-office-hours"
   }
 }
 
