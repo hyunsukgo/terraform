@@ -4,7 +4,8 @@ resource "aws_instance" "eaccdb" {
 
   private_ip = "10.200.50.251"
   key_name   = "samyangerp"
-
+  iam_instance_profile =  "ssm"
+  
   root_block_device {
     volume_type = "gp2"
     volume_size = 50
