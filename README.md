@@ -1,7 +1,12 @@
-# terraform
-# 일방혁 프로젝트 Terraforming
-# AWS KEY는 Cloud에서 입력 Environment
-# 010620 VPN 연결 생성
 
-# Terraform Moudule
-# Terraform Directory 구조 생각해보기
+ - version: 4
+ - terraform_version: 0.13.0
+ - serial: 1
+ - lineage: df267168-0e49-9ae8-2a85-475c2698679c
+ - outputs
+    
+    
+ - resources
+    
+    
+
