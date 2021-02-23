@@ -70,11 +70,16 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        
+    - name: Install Terraform-Doc#1"
       run: curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.11.2/terraform-docs-v0.11.2-$(uname)-amd64.tar.gz
-tar -xzf terraform-docs.tar.gz
-chmod +x terraform-docs
-mv terraform-docs /some-dir-in-your-PATH/terraform-docs
 
+    - name: Install Terraform-Doc#2"
+      run: tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs
+
+    - name: Install Terraform-Doc#3"
+      run: mv terraform-docs /some-dir-in-your-PATH/terraform-docs
+   
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform -chdir=samyang-erp/ init
