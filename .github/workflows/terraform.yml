@@ -53,7 +53,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest
+    runs-on: quay.io/terraform-docs/terraform-docs:0.11.2
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -71,15 +71,6 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
         
-    - name: Install Terraform-Doc#1"
-      run: curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.11.2/terraform-docs-v0.11.2-$(uname)-amd64.tar.gz
-
-    - name: Install Terraform-Doc#2"
-      run: tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs
-
-    - name: Install Terraform-Doc#3"
-      run: mv terraform-docs /some-dir-in-your-PATH/terraform-docs
-   
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform -chdir=samyang-erp/ init
