@@ -317,6 +317,13 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
+    description = "ASE Cockpit"
+    from_port   = 4000
+    to_port     = 4999
+    protocol    = "tcp"
+    cidr_blocks = ["130.1.0.0/16"]
+  }
+  ingress {
     description = "SSH from On-Prem"
     from_port   = 4900
     to_port     = 4999
