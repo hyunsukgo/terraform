@@ -76,6 +76,9 @@ jobs:
 
     - name: Install Terraform-Doc#2"
       run: tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs
+
+    - name: Install Packages
+      run: apt install -y dot
     
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
