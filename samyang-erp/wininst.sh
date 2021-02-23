@@ -12,4 +12,6 @@ Invoke-WebRequest `
     -OutFile $env:USERPROFILE\Desktop\amazon-cloudwatch-agent.msi
 Start-Process `
     -FilePath $env:USERPROFILE\Desktop\amazon-cloudwatch-agent.msi `
+echo 
+& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:C:\Program Files\Amazon\AmazonCloudWatchAgent\config.json
 </powershell>
