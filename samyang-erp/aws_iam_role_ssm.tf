@@ -1,3 +1,5 @@
+
+
 resource "aws_iam_role" "EC2forSSM" {
   name = "EC2forSSM"
 
@@ -94,29 +96,6 @@ resource "aws_iam_role" "EC2forSSM" {
                 "s3:ListBucketMultipartUploads"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketLocation",
-                "s3:ListBucket",
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy"
-            ],
-            "Resource": [
-                "arn:aws:s3:::${local.service_name}-backint-bucket*"
-            ]
-        },
-        {
-              "Effect": "Allow",
-              "Action": [
-                  "s3:PutObjectTagging",
-                  "s3:PutObject",
-                  "s3:GetObject",
-                  "s3:DeleteObject"
-              ],
-              "Resource": "arn:aws:s3:::${local.service_name}-backint-bucket*"
         }
     ]
 })
