@@ -71,15 +71,12 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
         
-    - name: Install Terraform-Doc#1"
-      run: curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.11.2/terraform-docs-v0.11.2-$(uname)-amd64.tar.gz
-
-    - name: Install Terraform-Doc#2"
-      run: tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs
 
     - name: Install Packages
       run: go get github.com/pcasteran/terraform-graph-beautifier
-    
+
+    - name: Install Terraform-Doc#2"
+      run: cd samples/config1/ && ln -s terraform-graph-beautifier ../../terraform-graph-beautifier && cd ../..
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
