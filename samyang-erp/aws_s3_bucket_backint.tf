@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "backintbucket" {
                 "s3:GetBucketPolicy"
             ],
             "Resource": [
-                "arn:aws:s3:::sapimmersiondayenv*"
+                "arn:aws:s3:::${local.service_name}-backint-bucket*"
             ]
         },
         {
@@ -29,7 +29,7 @@ resource "aws_s3_bucket" "backintbucket" {
                   "s3:GetObject",
                   "s3:DeleteObject"
               ],
-              "Resource": "arn:aws:s3:::sapimmersiondayenv*"
+              "Resource": "arn:aws:s3:::${local.service_name}-backint-bucket*"
         }
     ]
 }
