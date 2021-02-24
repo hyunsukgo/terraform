@@ -111,7 +111,3 @@ jobs:
       run: |
         echo fmt
         test ${{ steps.fmt.outputs.exitcode }} -eq 0
-        echo init
-        test ${{ steps.init.outputs.exitcode }} -eq 0
-        echo validate
-        test ${{ steps.validate.outputs.exitcode }} -eq 0
