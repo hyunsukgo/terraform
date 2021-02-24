@@ -19,7 +19,7 @@ resource "aws_instance" "rptab01" {
     Description = "리포트서버"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
+    #Schedule    = "samyang-office-hours"
   }
 }
 
