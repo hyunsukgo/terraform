@@ -20,68 +20,60 @@ resource "aws_backup_plan" "backupplan" {
   }
 }
 
-/*
-resource "aws_iam_role" "backuprole" {
-  name               = "${local.service_name}-backup-role"
-  assume_role_policy = jsonencode({
-    Version:"2012-10-17",
-    statement {
-    sid       = ""
-    effect    = "Allow"
-    resources = ["arn:aws:ec2:*::snapshot/*"]
-    actions   = ["ec2:CreateTags"]
-    } 
+resource "aws_iam_role" "ebsbackuprole" {
+  name = "test-role"
 
-    statement {
-      sid    = ""
-      effect = "Allow"
-
-      resources = [
-        "arn:aws:ec2:*::snapshot/*",
-        "arn:aws:ec2:*:*:volume/*",
-      ]
-
-      actions = [
+  assume_role_policy = <<EOF
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Effect":"Allow",
+      "Action":"ec2:CreateTags",
+      "Resource":"arn:aws:ec2:*::snapshot/*"
+    },
+    {
+      "Effect":"Allow",
+      "Action":[
         "ec2:CreateSnapshot",
-        "ec2:DeleteSnapshot",
+        "ec2:DeleteSnapshot"
+      ],
+      "Resource":[
+        "arn:aws:ec2:*::snapshot/*",
+        "arn:aws:ec2:*:*:volume/*"
       ]
-    }
-
-    statement {
-      sid       = ""
-      effect    = "Allow"
-      resources = ["*"]
-
-      actions = [
+    },
+    {
+      "Effect":"Allow",
+      "Action":[
         "ec2:DescribeVolumes",
         "ec2:DescribeSnapshots",
-        "ec2:DescribeTags",
-      ]
-    }
-
-    statement {
-      sid       = ""
-      effect    = "Allow"
-      resources = ["*"]
-      actions   = ["tag:GetResources"]
-    }
-
-    statement {
-      sid       = ""
-      effect    = "Allow"
-      resources = ["arn:aws:backup:*:*:backup-vault:*"]
-
-      actions = [
+        "ec2:DescribeTags"
+      ],
+      "Resource":"*"
+    },
+    {
+      "Action":[
+        "tag:GetResources"
+      ],
+      "Resource":"*",
+      "Effect":"Allow"
+    },
+    {
+      "Effect":"Allow",
+      "Action":[
         "backup:DescribeBackupVault",
-        "backup:CopyIntoBackupVault",
-      ]
+        "backup:CopyIntoBackupVault"
+      ],
+      "Resource":"arn:aws:backup:*:*:backup-vault:*"
     }
-  }
-  )
+  ]
+}
+EOF
 }
 
-resource "aws_backup_selection" "backselection" {
-  iam_role_arn = aws_iam_role.backuprole.arn
+resource "aws_backup_selection" "ebsbackselection" {
+  iam_role_arn = aws_iam_role.ebsbackuprole.arn
   name         = "${local.service_name}-selection"
   plan_id      = aws_backup_plan.backupplan.id
 
@@ -90,4 +82,3 @@ resource "aws_backup_selection" "backselection" {
     key   = "foo"
     value = "bar"
   }
-*/
