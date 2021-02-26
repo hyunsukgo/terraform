@@ -29,7 +29,7 @@ resource "aws_iam_role" "backuprole" {
         Sid = "default",
         Effect = "Allow",
         Principal = {
-          Service = "backup.amazonaws.com"
+          AWS = "*"
         },
         Action = [
           "backup:DescribeBackupVault",
