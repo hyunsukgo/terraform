@@ -23,31 +23,31 @@ resource "aws_backup_plan" "backupplan" {
 resource "aws_iam_role" "backuprole" {
   name               = "${local.service_name}-backup-role"
   assume_role_policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "default",
-  "Statement": [
-    {
-      "Sid": "default",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": [
-        "backup:DescribeBackupVault",
-        "backup:DeleteBackupVault",
-        "backup:PutBackupVaultAccessPolicy",
-        "backup:DeleteBackupVaultAccessPolicy",
-        "backup:GetBackupVaultAccessPolicy",
-        "backup:StartBackupJob",
-        "backup:GetBackupVaultNotifications",
-        "backup:PutBackupVaultNotifications"
-      ],
-      "Resource": "${aws_backup_vault.backup.arn}"
-    }
-  ]
-}
-POLICY
+  {
+    Version: "2012-10-17",
+    Id: "default",
+    Statement: [
+      {
+        Sid: "default",
+        Effect: "Allow",
+        Principal: {
+          AWS: "*"
+        },
+        Action: [
+          "backup:DescribeBackupVault",
+          "backup:DeleteBackupVault",
+          "backup:PutBackupVaultAccessPolicy",
+          "backup:DeleteBackupVaultAccessPolicy",
+          "backup:GetBackupVaultAccessPolicy",
+          "backup:StartBackupJob",
+          "backup:GetBackupVaultNotifications",
+          "backup:PutBackupVaultNotifications"
+        ],
+        Resource: "${aws_backup_vault.backup.arn}"
+      }
+    ]
+  }
+  POLICY
 }
 resource "aws_backup_selection" "backselection" {
   iam_role_arn = aws_iam_role.backuprole.arn
