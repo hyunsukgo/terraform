@@ -36,6 +36,13 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
+    description = "SSH from On-Prem"
+    from_port   = 25
+    to_port     = 25
+    protocol    = "tcp"
+    cidr_blocks = ["130.1.0.0/16"]
+  }
+  ingress {
     description = "Host agent access"
     from_port   = 80
     to_port     = 80
