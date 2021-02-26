@@ -20,6 +20,7 @@ resource "aws_backup_plan" "backupplan" {
   }
 }
 
+/*
 resource "aws_iam_role" "backuprole" {
   name               = "${local.service_name}-backup-role"
   assume_role_policy = jsonencode({
@@ -89,4 +90,4 @@ resource "aws_backup_selection" "backselection" {
     key   = "foo"
     value = "bar"
   }
-}
+*/
