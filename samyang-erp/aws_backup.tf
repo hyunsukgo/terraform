@@ -22,10 +22,8 @@ resource "aws_backup_plan" "backupplan" {
 
 resource "aws_iam_role" "backuprole" {
   name               = "${local.service_name}-backup-role"
-  assume_role_policy = <<POLICY
-  {
+  assume_role_policy = jsonencode({
     Version: "2012-10-17",
-    Id: "default",
     Statement: [
       {
         Sid: "default",
@@ -46,8 +44,7 @@ resource "aws_iam_role" "backuprole" {
         Resource: "${aws_backup_vault.backup.arn}"
       }
     ]
-  }
-  POLICY
+  })
 }
 resource "aws_backup_selection" "backselection" {
   iam_role_arn = aws_iam_role.backuprole.arn
