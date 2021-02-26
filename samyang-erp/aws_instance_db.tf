@@ -50,7 +50,7 @@ resource "aws_volume_attachment" "swap_att" {
   volume_id   = aws_ebs_volume.swap-db.id
   instance_id = aws_instance.sapdb.id
 }
-*/
+
 resource "aws_ebs_volume" "usrsap_db" {
   availability_zone = "${local.region}a"
   size              = 20
@@ -59,6 +59,7 @@ resource "aws_ebs_volume" "usrsap_db" {
     Snapshot = "true"
   }
 }
+*/
 resource "aws_ebs_volume" "hanadata" {
   availability_zone = "${local.region}a"
   size              = 310
@@ -67,6 +68,8 @@ resource "aws_ebs_volume" "hanadata" {
     Snapshot = "true"
   }
 }
+
+/*
 resource "aws_ebs_volume" "hanalog" {
   availability_zone = "${local.region}a"
   size              = 128
@@ -83,7 +86,7 @@ resource "aws_ebs_volume" "hanashared" {
     Snapshot = "true"
   }
 }
-
+*/
 resource "aws_ebs_volume" "sapcd-db" {
   availability_zone = "${local.region}a"
   size              = 300
@@ -92,7 +95,7 @@ resource "aws_ebs_volume" "sapcd-db" {
     Snapshot = "true"
   }
 }
-
+/*
 resource "aws_ebs_volume" "swap-db" {
   availability_zone = "${local.region}a"
   size              = 160
@@ -101,6 +104,7 @@ resource "aws_ebs_volume" "swap-db" {
     Snapshot = "true"
   }
 }
+*/
 resource "aws_ebs_volume" "endb" {
   availability_zone = "${local.region}a"
   size              = 10
