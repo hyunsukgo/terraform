@@ -25,13 +25,25 @@ resource "aws_iam_role" "backuprole" {
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
+  "Id": "default",
   "Statement": [
     {
-      "Action": ["sts:AssumeRole"],
-      "Effect": "allow",
+      "Sid": "default",
+      "Effect": "Allow",
       "Principal": {
-        "Service": ["backup.amazonaws.com"]
-      }
+        "AWS": "*"
+      },
+      "Action": [
+        "backup:DescribeBackupVault",
+        "backup:DeleteBackupVault",
+        "backup:PutBackupVaultAccessPolicy",
+        "backup:DeleteBackupVaultAccessPolicy",
+        "backup:GetBackupVaultAccessPolicy",
+        "backup:StartBackupJob",
+        "backup:GetBackupVaultNotifications",
+        "backup:PutBackupVaultNotifications"
+      ],
+      "Resource": "${aws_backup_vault.example.arn}"
     }
   ]
 }
