@@ -31,7 +31,7 @@ resource "aws_iam_role" "backuprole" {
         Principal = {
           Service = "backup.amazonaws.com"
         }
-        Action = "sts:AssumeRole"
+        Action = "tag:GetResources"
       }
     ]
   })
