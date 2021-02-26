@@ -36,7 +36,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "SMTP"
     from_port   = 25
     to_port     = 25
     protocol    = "tcp"
