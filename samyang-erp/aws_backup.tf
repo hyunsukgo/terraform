@@ -43,7 +43,7 @@ resource "aws_iam_role" "backuprole" {
         "backup:GetBackupVaultNotifications",
         "backup:PutBackupVaultNotifications"
       ],
-      "Resource": "${aws_backup_vault.example.arn}"
+      "Resource": "${aws_backup_vault.backup.arn}"
     }
   ]
 }
