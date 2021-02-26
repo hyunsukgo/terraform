@@ -23,50 +23,60 @@ resource "aws_backup_plan" "backupplan" {
 resource "aws_iam_role" "backuprole" {
   name               = "${local.service_name}-backup-role"
   assume_role_policy = jsonencode({
-  "Version":"2012-10-17",
-  "Statement":[
-    {
-      "Effect":"Allow",
-      "Action":"ec2:CreateTags",
-      "Resource":"arn:aws:ec2:*::snapshot/*"
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
-        "ec2:CreateSnapshot",
-        "ec2:DeleteSnapshot"
-      ],
-      "Resource":[
+    Version:"2012-10-17",
+    statement {
+    sid       = ""
+    effect    = "Allow"
+    resources = ["arn:aws:ec2:*::snapshot/*"]
+    actions   = ["ec2:CreateTags"]
+    } 
+
+    statement {
+      sid    = ""
+      effect = "Allow"
+
+      resources = [
         "arn:aws:ec2:*::snapshot/*",
-        "arn:aws:ec2:*:*:volume/*"
+        "arn:aws:ec2:*:*:volume/*",
       ]
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
+
+      actions = [
+        "ec2:CreateSnapshot",
+        "ec2:DeleteSnapshot",
+      ]
+    }
+
+    statement {
+      sid       = ""
+      effect    = "Allow"
+      resources = ["*"]
+
+      actions = [
         "ec2:DescribeVolumes",
         "ec2:DescribeSnapshots",
-        "ec2:DescribeTags"
-      ],
-      "Resource":"*"
-    },
-    {
-      "Action":[
-        "tag:GetResources"
-      ],
-      "Resource":"*",
-      "Effect":"Allow"
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
-        "backup:DescribeBackupVault",
-        "backup:CopyIntoBackupVault"
-      ],
-      "Resource":"arn:aws:backup:*:*:backup-vault:*"
+        "ec2:DescribeTags",
+      ]
     }
-  ]
-})
+
+    statement {
+      sid       = ""
+      effect    = "Allow"
+      resources = ["*"]
+      actions   = ["tag:GetResources"]
+    }
+
+    statement {
+      sid       = ""
+      effect    = "Allow"
+      resources = ["arn:aws:backup:*:*:backup-vault:*"]
+
+      actions = [
+        "backup:DescribeBackupVault",
+        "backup:CopyIntoBackupVault",
+      ]
+    }
+  }
+  )
 }
 
 resource "aws_backup_selection" "backselection" {
