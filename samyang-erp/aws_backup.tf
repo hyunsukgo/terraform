@@ -31,17 +31,8 @@ resource "aws_iam_role" "backuprole" {
         Principal = {
           Service = "backup.amazonaws.com"
         },
-        Action = [
-          "backup:DescribeBackupVault",
-          "backup:DeleteBackupVault",
-          "backup:PutBackupVaultAccessPolicy",
-          "backup:DeleteBackupVaultAccessPolicy",
-          "backup:GetBackupVaultAccessPolicy",
-          "backup:StartBackupJob",
-          "backup:GetBackupVaultNotifications",
-          "backup:PutBackupVaultNotifications"
-        ],
-        Resource = aws_backup_vault.backup.arn
+        Action = "sts:AssumeRole",
+        #Resource = aws_backup_vault.backup.arn
       }
     ]
   })
