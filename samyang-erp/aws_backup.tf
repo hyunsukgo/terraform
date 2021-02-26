@@ -26,12 +26,12 @@ resource "aws_iam_role" "backuprole" {
     Version: "2012-10-17",
     Statement: [
       {
-        Sid: "default",
-        Effect: "Allow",
-        Principal: {
-          AWS: "*"
+        Sid = "default",
+        Effect = "Allow",
+        Principal = {
+          Service = "backup.amazonaws.com"
         },
-        Action: [
+        Action = [
           "backup:DescribeBackupVault",
           "backup:DeleteBackupVault",
           "backup:PutBackupVaultAccessPolicy",
@@ -41,7 +41,7 @@ resource "aws_iam_role" "backuprole" {
           "backup:GetBackupVaultNotifications",
           "backup:PutBackupVaultNotifications"
         ],
-        Resource: aws_backup_vault.backup.arn
+        Resource = aws_backup_vault.backup.arn
       }
     ]
   })
