@@ -82,3 +82,4 @@ resource "aws_backup_selection" "ebsbackselection" {
     key   = "foo"
     value = "bar"
   }
+}
