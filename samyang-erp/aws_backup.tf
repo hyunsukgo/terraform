@@ -30,7 +30,7 @@ resource "aws_iam_role" "ebsbackuprole" {
     {
       "Effect":"Allow",
       "Action":"ec2:CreateTags",
-      "Resource":"arn:aws:ec2:*::snapshot/*"
+      "Resource":"arn:aws:ec2:*::snapshot*"
     },
     {
       "Effect":"Allow",
@@ -39,8 +39,8 @@ resource "aws_iam_role" "ebsbackuprole" {
         "ec2:DeleteSnapshot"
       ],
       "Resource":[
-        "arn:aws:ec2:*::snapshot/*",
-        "arn:aws:ec2:*:*:volume/*"
+        "arn:aws:ec2:*::snapshot*",
+        "arn:aws:ec2:*:*:volume*"
       ]
     },
     {
