@@ -10,15 +10,15 @@ resource "aws_lb_target_group" "reporttg" {
 
 
 data "aws_instances" "report" {
-  filter {
-    name   = "tag:Name"
-    values = ["sy-rptab01","sy-rptab02"]
+  instance_tags ={
+    Description = "리포트서버"
   }
+  instance_state_names = ["running"]
 }
 
 resource "aws_lb_target_group_attachment" "reporttga" {
-  for_each         = data.aws_instances.report.id
+  count        = length(data.aws_instances.report.ids)
   target_group_arn = aws_lb_target_group.reporttg.arn
-  target_id        = each.value
+  target_id        = data.aws_instances.report.ids[count.index]
   port             = 80
 }
