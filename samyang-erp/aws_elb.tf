@@ -25,8 +25,9 @@ resource "aws_lb_target_group_attachment" "reporttga" {
 
 # Creater Load Balancer(ALB)
 data "aws_subnet" "internal" {
-  tags = {
-    LoadBalancing = "Private"
+  filter {
+    name   = "tag:LoadBalancing"
+    values = ["Private"] # insert values here
   }
 }
 /*
