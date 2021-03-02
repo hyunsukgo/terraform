@@ -19,7 +19,7 @@ resource "aws_backup_plan" "backupplan" {
     resource_type = "EC2"
   }
 }
-
+/*
 resource "aws_iam_role" "ebsbackuprole" {
   name = "test-role"
 
@@ -71,7 +71,7 @@ resource "aws_iam_role" "ebsbackuprole" {
 }
 EOF
 }
-
+*/
 resource "aws_backup_selection" "ebsbackselection" {
   iam_role_arn = aws_iam_role.ebsbackuprole.arn
   name         = "${local.service_name}-selection"
