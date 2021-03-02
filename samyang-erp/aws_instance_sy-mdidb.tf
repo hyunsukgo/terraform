@@ -31,7 +31,7 @@ resource "aws_volume_attachment" "mdidb_att" {
 
 resource "aws_ebs_volume" "mdidb_add" {
   availability_zone = "${local.region}a"
-  size              = 100
+  size              = 300
   type              = "gp2"
   tags = {
     Snapshot = "true"
