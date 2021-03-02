@@ -69,8 +69,6 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
     Name = "allow_from_trust_to_report_alb"
   }
 } 
-
-
 resource "aws_lb_listener" "reportlb" {
   load_balancer_arn = aws_lb.reportlb.arn
   port              = "80"
