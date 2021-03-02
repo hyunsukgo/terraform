@@ -10,7 +10,7 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
     to_port     = 3389
     protocol    = "tcp"
     #cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    security_groups = ["aws_security_group.allow_from_trust_to_report_alb.id"]
+    security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
   }
 
   egress {
