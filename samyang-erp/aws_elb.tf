@@ -31,7 +31,7 @@ data "aws_subnet_ids" "internal" {
     LoadBalancing = "Private"
   }
 }
-
+/*
 resource "aws_lb" "reportlb" {
   name               = "report-alb"
   internal           = true
@@ -42,7 +42,7 @@ resource "aws_lb" "reportlb" {
   subnets            = each.value
 
   tags = {
-    Environment = "production"
+    Environment = "Production"
   }
 }
 
@@ -80,3 +80,4 @@ resource "aws_lb_listener" "reportlb" {
     target_group_arn = aws_lb_target_group.reporttg.arn
   }
 }
+*/
