@@ -25,16 +25,17 @@ resource "aws_lb_target_group_attachment" "reporttga" {
 
 # Creater Load Balancer(ALB)
 data "aws_subnet_ids" "internal" {
-  vpc_id = aws_vpc.vpc.id
+  #vpc_id = aws_vpc.vpc.id
+  /*
   filter {
     name   = "tag:LoadBalancing"
     values = ["Private"] # insert values here
   }
-  /*
+  */
   tags = {
     LoadBalancing = "Private"
   }
-  */
+  
 }
 /*
 resource "aws_lb" "reportlb" {
