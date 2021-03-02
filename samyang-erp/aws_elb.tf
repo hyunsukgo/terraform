@@ -11,8 +11,8 @@ resource "aws_lb_target_group" "reporttg" {
 
 data "aws_instance" "report" {
   filter {
-    name   = "tag:Description"
-    values = ["리포트서버"]
+    name   = "tag:Name"
+    values = ["sy-rptab01","sy-rptab02"]
   }
 }
 
