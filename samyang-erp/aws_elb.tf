@@ -37,7 +37,7 @@ resource "aws_lb" "reportlb" {
   internal           = true
   load_balancer_type = "application"
   # Configure at next block
-  security_groups    = [aws_security_group.allow_from_trust_to_report_alb.id]
+  security_groups    = ["aws_security_group.allow_from_trust_to_report_alb.id"]
   subnets            = data.aws_subnet_ids.internal.ids
 
   tags = {
