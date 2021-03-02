@@ -51,11 +51,11 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "RDP from On-Prem"
+    description = "HTTP for Report"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["10.200.0.0/16"]
+    cidr_blocks = ["10.200.0.0/16","130.1.0.0/16"]
   }
   egress {
     from_port   = 0
