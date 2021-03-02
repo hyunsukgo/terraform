@@ -168,6 +168,7 @@ resource "aws_subnet" "INTERNAL1_A" {
     Name       = "INTERNAL1_A"
     RT         = "private"
     Enviroment = "PRD_NW"
+    LoadBalancing = "Private"
   }
 }
 resource "aws_subnet" "INTERNAL2_C" {
@@ -179,5 +180,6 @@ resource "aws_subnet" "INTERNAL2_C" {
     Name       = "INTERNAL2_C"
     RT         = "private"
     Enviroment = "PRD_NW"
+    LoadBalancing = "Private"
   }
 }
