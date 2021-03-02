@@ -23,7 +23,7 @@ resource "aws_instance" "mdidb" {
   }
 }
 
-resource "aws_volume_attachment" "rptab02_att" {
+resource "aws_volume_attachment" "mdidb_att" {
   device_name = "/dev/sdb"
   volume_id   = aws_ebs_volume.mdidb_add.id
   instance_id = aws_instance.mdidb.id
