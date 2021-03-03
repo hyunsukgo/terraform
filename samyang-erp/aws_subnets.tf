@@ -90,7 +90,17 @@ resource "aws_subnet" "LEGAAP1_A" {
     RT         = "private"
   }
 }
+resource "aws_subnet" "LEGAAP2_C" {
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = "${local.region}c"
+  cidr_block        = "10.200.51.0/25"
 
+  tags = {
+    Name       = "LEGAAP2_C"
+    Enviroment = "PRD"
+    RT         = "private"
+  }
+}
 resource "aws_subnet" "LEGADMZ_A" {
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "${local.region}a"
