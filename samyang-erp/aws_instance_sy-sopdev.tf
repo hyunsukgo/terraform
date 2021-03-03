@@ -17,7 +17,7 @@ resource "aws_instance" "sopdev" {
   tags = {
     Name        = "sy-sopdev"
     Description = "S&OP 인스턴스"
-    Environment = "Prd"
+    Environment = "Dev"
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
   }
