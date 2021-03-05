@@ -5,7 +5,7 @@ resource "aws_security_group" "allow_ssh_from_vpn" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH from On-Prem"
+    description = "SSH From On-Prem"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -29,7 +29,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH from On-Prem"
+    description = "SSH From On-Prem"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -64,70 +64,70 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3300
     to_port     = 3399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3600
     to_port     = 3699
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4237
     to_port     = 4237
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 8000
     to_port     = 8999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4300
     to_port     = 4399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Database client access to tenant database."
     from_port   = 30000
     to_port     = 39999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Allows access for HANA Studio from RDP instance."
     from_port   = 50000
     to_port     = 59999
     protocol    = "tcp"
@@ -152,7 +152,7 @@ resource "aws_security_group" "allow_from_trust_to_db" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH from On-Prem"
+    description = "SSH From On-Prem"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -180,70 +180,70 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3300
     to_port     = 3399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3600
     to_port     = 3699
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4237
     to_port     = 4237
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 8000
     to_port     = 8999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4300
     to_port     = 4399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Database client access to tenant database."
     from_port   = 30000
     to_port     = 39999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Allows access for HANA Studio from RDP instance."
     from_port   = 50000
     to_port     = 59999
     protocol    = "tcp"
@@ -268,7 +268,7 @@ resource "aws_security_group" "allow_from_trust_to_po" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -296,28 +296,28 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3300
     to_port     = 3399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 3600
     to_port     = 3699
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4237
     to_port     = 4237
     protocol    = "tcp"
@@ -331,42 +331,42 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     cidr_blocks = ["130.1.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "From On-Prem"
     from_port   = 8000
     to_port     = 8199
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "from On-Prem"
     from_port   = 4300
     to_port     = 4399
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "from On-Prem"
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Database client access to tenant database."
     from_port   = 30000
     to_port     = 39999
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "SSH from On-Prem"
+    description = "Allows access for HANA Studio from RDP instance."
     from_port   = 50000
     to_port     = 59999
     protocol    = "tcp"
