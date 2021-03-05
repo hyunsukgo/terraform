@@ -9,7 +9,7 @@ resource "aws_instance" "saprouter" {
     volume_size = 10
   }
   disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_saprouter.id]
+  #security_groups = [aws_security_group.allow_from_trust_to_saprouter.id]
   subnet_id = aws_subnet.COMMON1_A.id
 
   tags = {
