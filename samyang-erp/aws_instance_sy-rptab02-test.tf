@@ -11,7 +11,7 @@ resource "aws_instance" "rptab02c" {
     volume_size = 50
   }
   disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_rptab.id]
+  #security_groups = [aws_security_group.allow_from_trust_to_rptab.id]
   subnet_id = aws_subnet.LEGAAP2_C.id
 
   tags = {
