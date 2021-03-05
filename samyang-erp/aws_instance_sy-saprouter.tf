@@ -17,7 +17,7 @@ resource "aws_instance" "saprouter" {
     Description = "SAP Router 인스턴스"
     Environment = "Prd"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours"
+    #Schedule    = "samyang-office-hours"
   }
 }
 
