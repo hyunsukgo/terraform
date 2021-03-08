@@ -10,6 +10,10 @@ resource "aws_backup_plan" "backupplan" {
     rule_name         = "${local.service_name}_example_backup_rule"
     target_vault_name = aws_backup_vault.backup.name
     schedule          = "cron(0 20 * * ? *)"
+    lifecycle {
+        cold_storage_after = 0
+        delete_after       = 1
+    }
   }
 
   advanced_backup_setting {
@@ -17,10 +21,6 @@ resource "aws_backup_plan" "backupplan" {
       WindowsVSS = "enabled"
     }
     resource_type = "EC2"
-    lifecycle {
-        cold_storage_after = 0
-        delete_after       = 1
-    }
   }
 }
 /*
