@@ -23,3 +23,38 @@ resource "aws_backup_plan" "backupplan" {
     resource_type = "EC2"
   }
 }
+
+resource "aws_iam_role" "awsbackuprole" {
+  name               = "${local.service_name}-backup-role"
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": ["sts:AssumeRole"],
+      "Effect": "allow",
+      "Principal": {
+        "Service": ["backup.amazonaws.com"]
+      }
+    }
+  ]
+}
+POLICY
+}
+resource "aws_iam_role_policy_attachment" "awsbackup" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+  role       = aws_iam_role.awsbackuprole.name
+}
+
+
+resource "aws_backup_selection" "ebsbackselection" {
+  iam_role_arn = aws_iam_role.awsbackuprole.arn
+  name         = "${local.service_name}-selection"
+  plan_id      = aws_backup_plan.backupplan.id
+
+  selection_tag {
+    type  = "STRINGEQUALS"
+    key   = "Schedule"
+    value = "yes"
+  }
+}
