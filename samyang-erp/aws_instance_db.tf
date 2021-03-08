@@ -59,7 +59,7 @@ resource "aws_ebs_volume" "usrsap_db" {
     Snapshot = "true"
   }
 }
-*/
+
 resource "aws_ebs_volume" "hanadata" {
   availability_zone = "${local.region}a"
   size              = 310
@@ -86,7 +86,7 @@ resource "aws_ebs_volume" "hanashared" {
     Snapshot = "true"
   }
 }
-*/
+
 resource "aws_ebs_volume" "sapcd-db" {
   availability_zone = "${local.region}a"
   size              = 300
