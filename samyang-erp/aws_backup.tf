@@ -23,68 +23,33 @@ resource "aws_backup_plan" "backupplan" {
     resource_type = "EC2"
   }
 }
-/*
-resource "aws_iam_role" "ebsbackuprole" {
-  name = "test-role"
 
-  assume_role_policy = <<EOF
+resource "aws_iam_role" "awsbackuprole" {
+  name               = "${local.service_name}-role"
+  assume_role_policy = <<POLICY
 {
-  "Version":"2012-10-17",
-  "Statement":[
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Effect":"Allow",
-      "Action":"ec2:CreateTags",
-      "Resource":"arn:aws:ec2:*::snapshot*"
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
-        "ec2:CreateSnapshot",
-        "ec2:DeleteSnapshot"
-      ],
-      "Resource":[
-        "arn:aws:ec2:*::snapshot*",
-        "arn:aws:ec2:*:*:volume*"
-      ]
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
-        "ec2:DescribeVolumes",
-        "ec2:DescribeSnapshots",
-        "ec2:DescribeTags"
-      ],
-      "Resource":"*"
-    },
-    {
-      "Action":[
-        "tag:GetResources"
-      ],
-      "Resource":"*",
-      "Effect":"Allow"
-    },
-    {
-      "Effect":"Allow",
-      "Action":[
-        "backup:DescribeBackupVault",
-        "backup:CopyIntoBackupVault"
-      ],
-      "Resource":"arn:aws:backup:*:*:backup-vault:*"
+      "Action": ["sts:AssumeRole"],
+      "Effect": "allow",
+      "Principal": {
+        "Service": ["backup.amazonaws.com"]
+      }
     }
   ]
 }
-EOF
+POLICY
 }
 
 resource "aws_backup_selection" "ebsbackselection" {
-  iam_role_arn = aws_iam_role.ebsbackuprole.arn
+  iam_role_arn = aws_iam_role.awsbackuprole.arn
   name         = "${local.service_name}-selection"
   plan_id      = aws_backup_plan.backupplan.id
 
   selection_tag {
     type  = "STRINGEQUALS"
-    key   = "foo"
-    value = "bar"
+    key   = "Schedule"
+    value = "yes"
   }
 }
-*/
