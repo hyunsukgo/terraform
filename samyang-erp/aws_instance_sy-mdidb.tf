@@ -20,6 +20,7 @@ resource "aws_instance" "mdidb" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
+    Snapshot    = "Yes"
   }
 }
 

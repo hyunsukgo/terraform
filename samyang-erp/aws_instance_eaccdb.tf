@@ -20,6 +20,7 @@ resource "aws_instance" "eaccdb" {
     Environment = "Dev"
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
+    Snapshot    = "Yes"
   }
 }
 

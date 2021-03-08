@@ -20,6 +20,7 @@ resource "aws_instance" "rptab01" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
+    Snapshot    = "Yes"
   }
 }
 

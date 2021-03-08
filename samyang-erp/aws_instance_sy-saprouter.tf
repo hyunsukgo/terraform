@@ -18,6 +18,7 @@ resource "aws_instance" "saprouter" {
     Environment = "Prd"
     cz-product  = "SAP"
     #Schedule    = "samyang-office-hours"
+    
   }
 }
 
