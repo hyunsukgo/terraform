@@ -17,10 +17,10 @@ resource "aws_backup_plan" "backupplan" {
       WindowsVSS = "enabled"
     }
     resource_type = "EC2"
-  }
-  lifecycle {
-    cold_storage_after = 0
-    delete_after       = 1
+    lifecycle {
+        cold_storage_after = 0
+        delete_after       = 1
+    }
   }
 }
 /*
