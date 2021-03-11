@@ -1,4 +1,4 @@
-locals {
+/*locals {
   service_name = "samyang"
   workload     = "SAP-ERP"
   cidr         = "10.200.0.0/16"
@@ -9,3 +9,4 @@ locals {
   peervpcid    = "vpc-08029084c4e1f5546"
   #test
 }
+*/
