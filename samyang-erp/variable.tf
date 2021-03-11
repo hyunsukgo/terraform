@@ -22,6 +22,6 @@ variable "region" {
 variable "peervpcid" {
   type = string
 }
-variable "architec" {
+variable "architect" {
   type = string
 }
