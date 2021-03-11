@@ -55,6 +55,6 @@ resource "aws_backup_selection" "ebsbackselection" {
   selection_tag {
     type  = "STRINGEQUALS"
     key   = "Snapshot"
-    value = "yes"
+    value = "Yes"
   }
 }
