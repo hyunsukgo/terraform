@@ -2,10 +2,10 @@ resource "aws_instance" "sopdev" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "r5.2xlarge"
 
-  private_ip = "10.200.60.11"
-  key_name   = "samyangerp"
-  iam_instance_profile =  "ssm"
-  user_data = file("wininst.sh")
+  private_ip           = "10.200.60.11"
+  key_name             = "samyangerp"
+  iam_instance_profile = "ssm"
+  user_data            = file("wininst.sh")
   root_block_device {
     volume_type = "gp2"
     volume_size = 50

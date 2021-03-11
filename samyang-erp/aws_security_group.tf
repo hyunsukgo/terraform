@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     from_port   = 25
     to_port     = 25
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16","10.200.0.0/16"]
+    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
     description = "Host agent access"
@@ -64,11 +64,11 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
-    description = "From On-Prem"
-    from_port   = 2500
-    to_port     = 2500
-    protocol    = "tcp"
-    prefix_list_ids  = [aws_ec2_managed_prefix_list.aempl.id]
+    description     = "From On-Prem"
+    from_port       = 2500
+    to_port         = 2500
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.aempl.id]
   }
   ingress {
     description = "From On-Prem"

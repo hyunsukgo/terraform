@@ -2,7 +2,7 @@ resource "aws_iam_user" "architect" {
   name = "skcc-sa"
 
   tags = {
-    company = "SKCC"
+    company = var.architect
   }
 }
 resource "aws_iam_policy" "admin" {

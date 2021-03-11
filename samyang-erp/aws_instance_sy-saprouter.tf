@@ -18,15 +18,15 @@ resource "aws_instance" "saprouter" {
     Environment = "Prd"
     cz-product  = "SAP"
     #Schedule    = "samyang-office-hours"
-    
+
   }
 }
 
 resource "aws_eip" "saproutereip" {
   vpc = true
 
-  instance                  = aws_instance.saprouter.id
-  depends_on                = [aws_internet_gateway.gw]
+  instance   = aws_instance.saprouter.id
+  depends_on = [aws_internet_gateway.gw]
   tags = {
     Name = "SAP Router EIP"
   }

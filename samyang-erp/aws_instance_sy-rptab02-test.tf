@@ -2,10 +2,10 @@ resource "aws_instance" "rptab02c" {
   ami           = "ami-0d587bc4ef1dd2699" # ap-northeast-2
   instance_type = "r5.2xlarge"
 
-  private_ip = "10.200.51.42"
-  key_name   = "samyangerp"
-  iam_instance_profile =  "ssm"
-  
+  private_ip           = "10.200.51.42"
+  key_name             = "samyangerp"
+  iam_instance_profile = "ssm"
+
   root_block_device {
     volume_type = "gp2"
     volume_size = 50

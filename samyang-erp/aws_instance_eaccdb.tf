@@ -2,10 +2,10 @@ resource "aws_instance" "eaccdb" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "m5.2xlarge"
 
-  private_ip = "10.200.50.251"
-  key_name   = "samyangerp"
-  iam_instance_profile =  "ssm"
-  
+  private_ip           = "10.200.50.251"
+  key_name             = "samyangerp"
+  iam_instance_profile = "ssm"
+
   root_block_device {
     volume_type = "gp2"
     volume_size = 50

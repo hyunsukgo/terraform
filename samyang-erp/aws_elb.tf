@@ -5,19 +5,19 @@ resource "aws_lb_target_group" "reporttg" {
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc.id
   tags = {
-      envirornment = "Non SAP"
+    envirornment = "Non SAP"
   }
 }
 # Setting Target Instances
 data "aws_instances" "report" {
-  instance_tags ={
+  instance_tags = {
     Description = "리포트서버"
   }
   instance_state_names = ["running"]
 }
 
 resource "aws_lb_target_group_attachment" "reporttga" {
-  count        = length(data.aws_instances.report.ids)
+  count            = length(data.aws_instances.report.ids)
   target_group_arn = aws_lb_target_group.reporttg.arn
   target_id        = data.aws_instances.report.ids[count.index]
   port             = 80
@@ -37,8 +37,8 @@ resource "aws_lb" "reportlb" {
   internal           = true
   load_balancer_type = "application"
   # Configure at next block
-  security_groups    = [aws_security_group.allow_from_trust_to_report_alb.id]
-  subnets            = data.aws_subnet_ids.internal.ids
+  security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
+  subnets         = data.aws_subnet_ids.internal.ids
 
   tags = {
     Environment = "Production"
@@ -55,7 +55,7 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["10.200.0.0/16","130.1.0.0/16"]
+    cidr_blocks = ["10.200.0.0/16", "130.1.0.0/16"]
   }
   egress {
     from_port   = 0
@@ -67,7 +67,7 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
   tags = {
     Name = "allow_from_trust_to_report_alb"
   }
-} 
+}
 resource "aws_lb_listener" "reportlb" {
   load_balancer_arn = aws_lb.reportlb.arn
   port              = "80"

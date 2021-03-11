@@ -1,5 +1,5 @@
 resource "aws_config_config_rule" "config_rule" {
-  name =  "${local.service_name}-config_rule"
+  name = "${local.service_name}-config_rule"
 
   source {
     owner             = "AWS"

@@ -175,9 +175,9 @@ resource "aws_subnet" "INTERNAL1_A" {
   cidr_block        = "10.200.0.192/28"
 
   tags = {
-    Name       = "INTERNAL1_A"
-    RT         = "private"
-    Enviroment = "PRD_NW"
+    Name          = "INTERNAL1_A"
+    RT            = "private"
+    Enviroment    = "PRD_NW"
     LoadBalancing = "Private"
   }
 }
@@ -187,9 +187,9 @@ resource "aws_subnet" "INTERNAL2_C" {
   cidr_block        = "10.200.0.208/28"
 
   tags = {
-    Name       = "INTERNAL2_C"
-    RT         = "private"
-    Enviroment = "PRD_NW"
+    Name          = "INTERNAL2_C"
+    RT            = "private"
+    Enviroment    = "PRD_NW"
     LoadBalancing = "Private"
   }
 }

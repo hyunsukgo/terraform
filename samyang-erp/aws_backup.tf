@@ -11,8 +11,8 @@ resource "aws_backup_plan" "backupplan" {
     target_vault_name = aws_backup_vault.backup.name
     schedule          = "cron(0 20 * * ? *)"
     lifecycle {
-        cold_storage_after = 0
-        delete_after       = 1
+      cold_storage_after = 0
+      delete_after       = 1
     }
   }
 
