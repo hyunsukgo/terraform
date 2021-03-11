@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "cloudtrailucket" {
-  bucket        = "${local.service_name}-cloudtrail-bucket"
+  bucket        = "${var.service_name}-cloudtrail-bucket"
   force_destroy = true
 
   policy = <<POLICY
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "cloudtrailucket" {
               "Service": "cloudtrail.amazonaws.com"
             },
             "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::${local.service_name}-cloudtrail-bucket"
+            "Resource": "arn:aws:s3:::${var.service_name}-cloudtrail-bucket"
         },
         {
             "Sid": "AWSCloudTrailWrite",
@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "cloudtrailucket" {
               "Service": "cloudtrail.amazonaws.com"
             },
             "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::${local.service_name}-cloudtrail-bucket/prefix/AWSLogs/*",
+            "Resource": "arn:aws:s3:::${var.service_name}-cloudtrail-bucket/prefix/AWSLogs/*",
             "Condition": {
                 "StringEquals": {
                     "s3:x-amz-acl": "bucket-owner-full-control"
@@ -33,7 +33,7 @@ resource "aws_s3_bucket" "cloudtrailucket" {
 }
 POLICY
   tags = {
-    Name        = "${local.service_name}-bucket"
+    Name        = "${var.service_name}-bucket"
     Environment = "Prd"
     test        = var.service_name
   }
