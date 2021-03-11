@@ -35,5 +35,6 @@ POLICY
   tags = {
     Name        = "${local.service_name}-bucket"
     Environment = "Prd"
+    test        = "${var.service_name}"
   }
 }
