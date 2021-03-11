@@ -1,4 +1,4 @@
-resource "aws_instance" "rptab02221" {
+resource "aws_instance" "rptab0222" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
   instance_type = "r5.2xlarge"
 
