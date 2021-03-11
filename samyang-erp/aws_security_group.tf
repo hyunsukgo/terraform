@@ -68,7 +68,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     from_port   = 2500
     to_port     = 2500
     protocol    = "tcp"
-    cidr_blocks = [aws_ec2_managed_prefix_list.aempl.id]
+    prefix_list_ids  = [aws_ec2_managed_prefix_list.aempl.id]
   }
   ingress {
     description = "From On-Prem"
