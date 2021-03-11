@@ -31,7 +31,7 @@ resource "aws_volume_attachment" "mdidb_att" {
 }
 
 resource "aws_ebs_volume" "mdidb_add" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 300
   type              = "gp2"
   tags = {

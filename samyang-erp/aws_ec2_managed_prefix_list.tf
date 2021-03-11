@@ -1,5 +1,5 @@
 resource "aws_ec2_managed_prefix_list" "aempl" {
-  name           = "${local.service_name} On-Prem CIDR-s"
+  name           = "${var.service_name} On-Prem CIDR-s"
   address_family = "IPv4"
   max_entries    = 5
 

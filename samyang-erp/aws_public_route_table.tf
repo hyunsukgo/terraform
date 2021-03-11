@@ -16,6 +16,6 @@ resource "aws_route_table" "public_route" {
 
 
   tags = {
-    Name = "${local.service_name}-public-rt"
+    Name = "${var.service_name}-public-rt"
   }
 }

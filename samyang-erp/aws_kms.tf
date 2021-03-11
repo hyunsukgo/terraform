@@ -4,6 +4,6 @@ resource "aws_kms_key" "kms" {
 }
 
 resource "aws_kms_key" "backup" {
-  description = "${local.service_name}-backup-vault-encrytion"
+  description = "${var.service_name}-backup-vault-encrytion"
   #  deletion_window_in_days = 10
 }

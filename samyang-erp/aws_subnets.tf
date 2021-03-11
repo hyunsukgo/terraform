@@ -3,13 +3,13 @@ data "aws_availability_zones" "available" {
   state = "available"
   filter {
     name   = "zone-name"
-    values = ["${local.region}a", "${local.region}c"]
+    values = ["${var.region}a", "${var.region}c"]
   }
 }
 
 resource "aws_subnet" "SAPDB1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.10.0/26"
 
   tags = {
@@ -21,7 +21,7 @@ resource "aws_subnet" "SAPDB1_A" {
 
 resource "aws_subnet" "SAPAP1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.20.0/26"
 
   tags = {
@@ -33,7 +33,7 @@ resource "aws_subnet" "SAPAP1_A" {
 
 resource "aws_subnet" "SAPDB2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.11.0/26"
 
   tags = {
@@ -45,7 +45,7 @@ resource "aws_subnet" "SAPDB2_C" {
 
 resource "aws_subnet" "SAPAP2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.21.0/26"
 
   tags = {
@@ -57,7 +57,7 @@ resource "aws_subnet" "SAPAP2_C" {
 
 resource "aws_subnet" "SAPDEV_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.30.0/26"
 
   tags = {
@@ -69,7 +69,7 @@ resource "aws_subnet" "SAPDEV_A" {
 
 resource "aws_subnet" "LEGADB1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.40.0/25"
 
   tags = {
@@ -81,7 +81,7 @@ resource "aws_subnet" "LEGADB1_A" {
 
 resource "aws_subnet" "LEGAAP1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.50.0/25"
 
   tags = {
@@ -92,7 +92,7 @@ resource "aws_subnet" "LEGAAP1_A" {
 }
 resource "aws_subnet" "LEGAAP2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.51.0/25"
 
   tags = {
@@ -103,7 +103,7 @@ resource "aws_subnet" "LEGAAP2_C" {
 }
 resource "aws_subnet" "LEGADMZ_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.50.240/28"
 
   tags = {
@@ -115,7 +115,7 @@ resource "aws_subnet" "LEGADMZ_A" {
 
 resource "aws_subnet" "LEGADEV_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.60.0/26"
 
   tags = {
@@ -127,7 +127,7 @@ resource "aws_subnet" "LEGADEV_A" {
 
 resource "aws_subnet" "COMMON1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.0.0/26"
 
   tags = {
@@ -138,7 +138,7 @@ resource "aws_subnet" "COMMON1_A" {
 }
 resource "aws_subnet" "COMMON2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.0.64/26"
 
   tags = {
@@ -149,7 +149,7 @@ resource "aws_subnet" "COMMON2_C" {
 }
 resource "aws_subnet" "NAS1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.0.128/27"
 
   tags = {
@@ -160,7 +160,7 @@ resource "aws_subnet" "NAS1_A" {
 }
 resource "aws_subnet" "NAS2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.11.160/27"
 
   tags = {
@@ -171,7 +171,7 @@ resource "aws_subnet" "NAS2_C" {
 }
 resource "aws_subnet" "INTERNAL1_A" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   cidr_block        = "10.200.0.192/28"
 
   tags = {
@@ -183,7 +183,7 @@ resource "aws_subnet" "INTERNAL1_A" {
 }
 resource "aws_subnet" "INTERNAL2_C" {
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = "${local.region}c"
+  availability_zone = "${var.region}c"
   cidr_block        = "10.200.0.208/28"
 
   tags = {

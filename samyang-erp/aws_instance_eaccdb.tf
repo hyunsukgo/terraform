@@ -31,7 +31,7 @@ resource "aws_volume_attachment" "eaccdb_att" {
 }
 
 resource "aws_ebs_volume" "eaccdb_add" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 100
   type              = "gp2"
   tags = {

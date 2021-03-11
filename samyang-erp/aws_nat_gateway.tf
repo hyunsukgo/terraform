@@ -3,7 +3,7 @@ resource "aws_nat_gateway" "nat_gw" {
   subnet_id     = aws_subnet.COMMON2_C.id
 
   tags = {
-    Name = "${local.service_name}-NAT"
+    Name = "${var.service_name}-NAT"
     RT   = "public"
   }
 }
@@ -11,6 +11,6 @@ resource "aws_nat_gateway" "nat_gw" {
 resource "aws_eip" "nat_eip" {
   vpc = true
   tags = {
-    Name = "${local.service_name}-EIP"
+    Name = "${var.service_name}-EIP"
   }
 }

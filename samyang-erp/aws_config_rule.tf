@@ -1,5 +1,5 @@
 resource "aws_config_config_rule" "config_rule" {
-  name = "${local.service_name}-config_rule"
+  name = "${var.service_name}-config_rule"
 
   source {
     owner             = "AWS"
@@ -10,12 +10,12 @@ resource "aws_config_config_rule" "config_rule" {
 }
 
 resource "aws_config_configuration_recorder" "config_configuration_recoder" {
-  name     = "${local.service_name}-config_configuration_recoder"
+  name     = "${var.service_name}-config_configuration_recoder"
   role_arn = aws_iam_role.config_role.arn
 }
 
 resource "aws_iam_role" "config_role" {
-  name = "${local.service_name}-awsconfig-role"
+  name = "${var.service_name}-awsconfig-role"
 
   assume_role_policy = <<POLICY
 {

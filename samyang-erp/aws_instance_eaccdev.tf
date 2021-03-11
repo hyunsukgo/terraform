@@ -32,7 +32,7 @@ resource "aws_volume_attachment" "eaccapdev_att" {
 }
 
 resource "aws_ebs_volume" "eaccapdev_add" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 60
   type              = "gp2"
   tags = {

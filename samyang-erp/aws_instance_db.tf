@@ -52,7 +52,7 @@ resource "aws_volume_attachment" "swap_att" {
 }
 
 resource "aws_ebs_volume" "usrsap_db" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
   tags = {
@@ -61,7 +61,7 @@ resource "aws_ebs_volume" "usrsap_db" {
 }
 
 resource "aws_ebs_volume" "hanadata" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 310
   type              = "gp3"
   tags = {
@@ -71,7 +71,7 @@ resource "aws_ebs_volume" "hanadata" {
 
 /*
 resource "aws_ebs_volume" "hanalog" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 128
   type              = "gp3"
   tags = {
@@ -79,7 +79,7 @@ resource "aws_ebs_volume" "hanalog" {
   }
 }
 resource "aws_ebs_volume" "hanashared" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 256
   type              = "gp3"
   tags = {
@@ -88,7 +88,7 @@ resource "aws_ebs_volume" "hanashared" {
 }
 
 resource "aws_ebs_volume" "sapcd-db" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 300
   type              = "gp3"
   tags = {
@@ -97,7 +97,7 @@ resource "aws_ebs_volume" "sapcd-db" {
 }
 /*
 resource "aws_ebs_volume" "swap-db" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 160
   type              = "gp3"
   tags = {
@@ -106,11 +106,11 @@ resource "aws_ebs_volume" "swap-db" {
 }
 */
 resource "aws_ebs_volume" "endb" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 10
   type              = "gp2"
   tags = {
-    Name     = "${local.service_name}-endb"
+    Name     = "${var.service_name}-endb"
     Snapshot = "true"
   }
 }

@@ -4,7 +4,7 @@ resource "aws_vpc_dhcp_options" "dhcp_option_set" {
   netbios_name_servers = ["130.1.22.21", "130.1.22.30"]
 
   tags = {
-    Name = "${local.service_name}-dhcp-option-set"
+    Name = "${var.service_name}-dhcp-option-set"
   }
 }
 

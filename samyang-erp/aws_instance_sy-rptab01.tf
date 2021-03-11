@@ -31,7 +31,7 @@ resource "aws_volume_attachment" "rptab01_att" {
 }
 
 resource "aws_ebs_volume" "rptab01_add" {
-  availability_zone = "${local.region}a"
+  availability_zone = "${var.region}a"
   size              = 50
   type              = "gp2"
   tags = {
