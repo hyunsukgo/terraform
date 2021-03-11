@@ -7,6 +7,5 @@
   account_id   = "969470234861"
   region       = "ap-northeast-2"
   peervpcid    = "vpc-08029084c4e1f5546"
-  #test
 }
 */
