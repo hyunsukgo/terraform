@@ -4,7 +4,3 @@ resource "aws_lb_target_group" "rttabtg" {
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc.id
 }
-
-module "aws_vpc" {
-    source = "../"
-}
