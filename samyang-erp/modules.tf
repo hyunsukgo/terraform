@@ -1,3 +1,6 @@
-module "prd" {
-  source = "./prd"
+module "base" {
+  source = "./base"
+}
+module "common" {
+    source = "./"
 }
