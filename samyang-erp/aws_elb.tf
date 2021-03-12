@@ -77,3 +77,18 @@ resource "aws_lb_listener" "reportlb" {
     target_group_arn = aws_lb_target_group.reporttg.arn
   }
 }
+resource "aws_lb_listener_rule" "rttab" {
+  listener_arn = aws_lb_listener.reportlb.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.reporttg.arn
+  }
+
+  condition {
+    host_header {
+      values = ["rpt.samyang.com"]
+    }
+  }
+}

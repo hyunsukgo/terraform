@@ -1,3 +1,5 @@
+/*
 module "base" {
   source = "./base"
 }
+*/
