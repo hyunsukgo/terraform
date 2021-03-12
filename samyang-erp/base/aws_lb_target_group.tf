@@ -6,5 +6,5 @@ resource "aws_lb_target_group" "rttabtg" {
 }
 
 module "aws_vpc" {
-    source = ../
+    source = "../"
 }
