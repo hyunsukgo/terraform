@@ -56,7 +56,7 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["10.200.0.0/16", "130.1.0.0/16"]
-    prefix_list_ids = [aws_ec2_managed_prefix_list.aempl.name]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.aempl.id]
   }
   egress {
     from_port   = 0
