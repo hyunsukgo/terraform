@@ -14,6 +14,10 @@ resource "aws_backup_plan" "backupplan" {
       cold_storage_after = 0
       delete_after       = 1
     }
+    recovery_point_tags = {
+      instance-id = "$(instance-id)"
+      timestamp = "$(timestamp)"
+    }
   }
 
   advanced_backup_setting {
