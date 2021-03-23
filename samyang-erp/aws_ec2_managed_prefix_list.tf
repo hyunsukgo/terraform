@@ -1,3 +1,4 @@
+/*
 resource "aws_ec2_managed_prefix_list" "aempl" {
   name           = "${var.service_name} On-Prem CIDR-s"
   address_family = "IPv4"
@@ -12,17 +13,18 @@ resource "aws_ec2_managed_prefix_list" "aempl" {
     Env = "live"
   }
 }
+*/
 resource "aws_ec2_managed_prefix_list" "trusted" {
-  name           = "${var.service_name} CIDR-s"
+  name           = "${var.service_name} Trusted CIDR-s"
   address_family = "IPv4"
   max_entries    = 5
 
   entry {
     cidr        = var.onprem
-    description = "VPC CIDR"
+    description = "On-Premise CIDR"
   }
-
-  tags = {
-    Env = "live"
+  entry {
+    cidr = var.cidr
+    description = "VPC CIDR"
   }
 }
