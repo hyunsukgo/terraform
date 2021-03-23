@@ -9,7 +9,6 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -17,7 +16,6 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
@@ -26,7 +24,6 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
