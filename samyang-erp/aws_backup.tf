@@ -17,8 +17,7 @@ resource "aws_backup_plan" "backupplan" {
     }
 
     recovery_point_tags = {
-      instance-id = instanceid
-      timestamp = timestamp
+      Timestamp = "timestamp"
     }
   }
 
