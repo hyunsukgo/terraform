@@ -23,7 +23,7 @@ resource "aws_security_group" "allow_ssh_from_vpn" {
     Name = "allow_ssh"
   }
 }
-resource "aws_security_group" "allow_from_trust_to_ap" {
+resource "aws_security_group" "allow_from_trust_to_ap" {  
   name        = "allow_traffic_s4h_ap"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
@@ -34,7 +34,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     to_port     = 22
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }
+  }/*
   ingress {
     description = "SMTP"
     from_port   = 25
@@ -140,7 +140,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+*/
   egress {
     from_port   = 0
     to_port     = 0
