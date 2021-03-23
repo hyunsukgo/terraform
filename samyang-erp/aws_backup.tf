@@ -10,11 +10,13 @@ resource "aws_backup_plan" "backupplan" {
     rule_name         = "${var.service_name}_example_backup_rule"
     target_vault_name = aws_backup_vault.backup.name
     schedule          = "cron(0 20 * * ? *)"
+
     lifecycle {
       cold_storage_after = 0
       delete_after       = 1
     }
-    recovery_point_tags {
+
+    recovery_point_tags = {
       instance-id = "$(instance-id)"
       timestamp = "$(timestamp)"
     }
