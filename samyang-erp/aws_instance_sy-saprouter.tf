@@ -9,6 +9,7 @@ resource "aws_instance" "saprouter" {
     volume_size = 10
     tags = {
       Name = "sy-saprouter"
+      Partition = "saprouter_root"
     }
   }
   disable_api_termination = "true"

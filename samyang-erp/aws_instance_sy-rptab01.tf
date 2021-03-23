@@ -11,6 +11,7 @@ resource "aws_instance" "rptab01" {
     volume_size = 50
     tags = {
       Name = "sy-rptap01"
+      Partition = "rptap01_C"
     }
   }
   disable_api_termination = "true"
@@ -40,5 +41,6 @@ resource "aws_ebs_volume" "rptab01_add" {
   tags = {
     Snapshot = "true"
     Name = "sy-rptap01"
+    Partition = "rptap01_D"
   }
 }

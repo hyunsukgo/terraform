@@ -112,5 +112,6 @@ resource "aws_ebs_volume" "endb" {
   tags = {
     Name     = "${var.service_name}-endb"
     Snapshot = "true"
+    Partition = "endb"
   }
 }

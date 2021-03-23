@@ -11,6 +11,7 @@ resource "aws_instance" "sopdev" {
     volume_size = 50
     tags = {
       Name = "sy-sopdev"
+      Partition = "sopdev_C"
     }
   }
   disable_api_termination = "true"
@@ -40,5 +41,6 @@ resource "aws_ebs_volume" "sopdev_add" {
   tags = {
     Snapshot = "true"
     Name = "sy-sopdev"
+    Partition = "sopdev_D"
   }
 }

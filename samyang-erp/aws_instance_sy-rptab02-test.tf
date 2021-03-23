@@ -11,6 +11,7 @@ resource "aws_instance" "rptab02c" {
     volume_size = 50
     tags = {
       Name = "sy-rptap02"
+      Partition = "rptap02_C"
     }
   }
   disable_api_termination = "true"

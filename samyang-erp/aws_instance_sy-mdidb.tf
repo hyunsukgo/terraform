@@ -11,6 +11,7 @@ resource "aws_instance" "mdidb" {
     volume_size = 50
     tags = {
       Name = "sy-mdidb"
+      Partition = "mdidb_C"
     }
   }
   disable_api_termination = "true"
@@ -40,5 +41,6 @@ resource "aws_ebs_volume" "mdidb_add" {
   tags = {
     Snapshot = "true"
     Name = "sy-mdidb"
+    Partition = "mdidb_D"
   }
 }

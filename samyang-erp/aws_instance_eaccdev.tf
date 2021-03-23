@@ -12,6 +12,7 @@ resource "aws_instance" "eaccapdev" {
     volume_size = 40
     tags = {
       Name = "sy-eaccdev"
+      Partition = "ecccdev_C"
     }
   }
   disable_api_termination = "true"
@@ -41,5 +42,6 @@ resource "aws_ebs_volume" "eaccapdev_add" {
   tags = {
     Snapshot = "true"
     Name = "sy-eaccdev"
+    Partition = "ecccdev_D"
   }
 }
