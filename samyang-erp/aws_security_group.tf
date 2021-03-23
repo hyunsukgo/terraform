@@ -103,29 +103,31 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     from_port   = 8000
     to_port     = 8999
     protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
     description = "From On-Prem"
     from_port   = 4300
     to_port     = 4399
     protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
   }
   ingress {
     description = "Database client access to tenant database."
     from_port   = 30000
     to_port     = 39999
     protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }/*
+    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
+    #prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
   ingress {
     description = "Allows access for HANA Studio from RDP instance."
     from_port   = 50000
     to_port     = 59999
     protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }*/
+    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
+    #prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -183,8 +185,7 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    ##prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "From On-Prem"
@@ -295,8 +296,7 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    ##prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "Host agent access"
