@@ -1,3 +1,3 @@
-module "dev" {
+module "devenv" {
   source  = "./dev"
 }

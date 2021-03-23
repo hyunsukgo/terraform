@@ -1,3 +1,0 @@
-module "prd" {
-  source  = "./prd"
-}
