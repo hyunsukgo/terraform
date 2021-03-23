@@ -34,7 +34,7 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     to_port     = 22
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }/*
+  }
   ingress {
     description = "SMTP"
     from_port   = 25
@@ -116,13 +116,6 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
     description = "From On-Prem"
     from_port   = 4300
     to_port     = 4399
-    protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }
-  ingress {
-    description = "From On-Prem"
-    from_port   = 4900
-    to_port     = 4999
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
