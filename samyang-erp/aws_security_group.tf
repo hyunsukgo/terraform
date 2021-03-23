@@ -163,8 +163,7 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    ##prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "Host agent access"
