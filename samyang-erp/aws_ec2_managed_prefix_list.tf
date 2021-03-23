@@ -5,11 +5,11 @@ resource "aws_ec2_managed_prefix_list" "aempl" {
 
   entry {
     cidr        = var.cidr
-    description = "Primary"
+    description = "VPC CIDR"
   }
   entry {
-    cidr        = "10.200.0.0/16"
-    description = "Secondary"
+    cidr        = var.onprem
+    description = "On-Prem"
   }
 
   tags = {

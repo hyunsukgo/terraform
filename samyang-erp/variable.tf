@@ -7,6 +7,9 @@ variable "workload" {
 variable "cidr" {
   type = string
 }
+variable "onprem" {
+  type = string
+}
 variable "cgw" {
   type = string
 }
