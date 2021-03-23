@@ -73,13 +73,6 @@ resource "aws_security_group" "allow_from_trust_to_ap" {
   ingress {
     description = "From On-Prem"
     from_port   = 3200
-    to_port     = 3299
-    protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }
-  ingress {
-    description = "From On-Prem"
-    from_port   = 3300
     to_port     = 3399
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
@@ -176,8 +169,7 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    ##prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "Host agent access"
@@ -290,8 +282,7 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    ##prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "Host agent access"
