@@ -170,7 +170,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -178,7 +177,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 25
     to_port     = 25
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -186,7 +184,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -194,7 +191,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 1128
     to_port     = 1129
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -202,7 +198,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -210,7 +205,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 3300
     to_port     = 3399
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -218,7 +212,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 3600
     to_port     = 3699
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -226,7 +219,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 4237
     to_port     = 4237
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -234,7 +226,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -242,7 +233,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 8000
     to_port     = 8999
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -250,7 +240,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 4300
     to_port     = 4399
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -258,7 +247,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 4900
     to_port     = 4999
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -266,7 +254,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 30000
     to_port     = 39999
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
@@ -274,7 +261,6 @@ resource "aws_security_group" "allow_from_trust_to_db" {
     from_port   = 50000
     to_port     = 59999
     protocol    = "tcp"
-    cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
