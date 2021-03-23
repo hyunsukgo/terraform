@@ -1,6 +1,4 @@
 
-data
-
 resource "aws_instance" "sapdb" {
   ami           = "ami-097fc5cd098dd20d5"
   instance_type = "r5.8xlarge"
@@ -18,17 +16,4 @@ resource "aws_instance" "sapdb" {
   associate_public_ip_address = false
   user_data = "${file("./scripts/sapinst.sh")}"
   subnet_id = aws_subnet.SAPDEV_A.id
-}
-
-data "aws_subnet_ids" "example" {
-  vpc_id = var.vpc_id
-}
-
-data "aws_subnet" "example" {
-  for_each = data.aws_subnet_ids.example.ids
-  id       = each.value
-}
-
-output "subnet_cidr_blocks" {
-  value = [for s in data.aws_subnet.example : s.cidr_block]
 }
