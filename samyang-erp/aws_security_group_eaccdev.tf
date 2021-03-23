@@ -10,7 +10,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    #prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "EACC Web Service"
@@ -18,7 +18,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    #prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "EACC Web Service(admin)"
@@ -26,7 +26,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     to_port     = 8082
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    #prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   egress {
@@ -39,4 +39,4 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
   tags = {
     Name = "allow_from_trust_to_eaccdev"
   }
-} 
+} #
