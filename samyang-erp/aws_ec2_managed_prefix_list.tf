@@ -5,7 +5,7 @@ resource "aws_ec2_managed_prefix_list" "trusted" {
   max_entries    = 5
   
   entry {
-    cidr        = var.onprem
+    cidr        = "${var.onprem}"
     description = "On-Premise CIDR"
   }
   /*
