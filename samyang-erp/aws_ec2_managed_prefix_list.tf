@@ -4,11 +4,11 @@ resource "aws_ec2_managed_prefix_list" "aempl" {
   max_entries    = 5
 
   entry {
-    cidr        = var.cidr
+    cidr        = "10.200.0.0/16"
     description = "VPC CIDR"
   }
   entry {
-    cidr        = var.onprem
+    cidr        = var.cidr
     description = "On-Prem"
   }
 
