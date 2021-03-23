@@ -36,5 +36,6 @@ resource "aws_ebs_volume" "sopdev_add" {
   type              = "gp2"
   tags = {
     Snapshot = "true"
+    Name = "sy-sopdev"
   }
 }

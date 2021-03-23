@@ -73,6 +73,8 @@ resource "aws_dlm_lifecycle_policy" "lifecycle_manager" {
 
       tags_to_add = {
         SnapshotCreator = "DLM"
+        instance-id = "$(instance-id)"
+        timestamp = "$(timestamp)"
       }
 
       copy_tags = false

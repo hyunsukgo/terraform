@@ -37,5 +37,6 @@ resource "aws_ebs_volume" "eaccapdev_add" {
   type              = "gp2"
   tags = {
     Snapshot = "true"
+    Name = "sy-eaccdev"
   }
 }
