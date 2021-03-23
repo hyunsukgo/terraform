@@ -1,4 +1,4 @@
-
+/*
 resource "aws_ec2_managed_prefix_list" "trusted" {
   name           = "${var.service_name} Trusted CIDR-s"
   address_family = "IPv4"
@@ -13,5 +13,6 @@ resource "aws_ec2_managed_prefix_list" "trusted" {
     cidr = var.cidr
     description = "VPC CIDR"
   }
-  */
+  
 }
+*/
