@@ -9,6 +9,9 @@ resource "aws_instance" "eaccdb" {
   root_block_device {
     volume_type = "gp2"
     volume_size = 50
+    tags = {
+      Name = "sy-eaccdb"
+    }
   }
   disable_api_termination = "true"
   #security_groups = [aws_security_group.allow_from_trust_to_eaccdb.id]
@@ -36,6 +39,6 @@ resource "aws_ebs_volume" "eaccdb_add" {
   type              = "gp2"
   tags = {
     Snapshot = "true"
-    Name = "sy-eaccdev"
+    Name = "sy-eaccdb"
   }
 }

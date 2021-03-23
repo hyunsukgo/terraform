@@ -9,6 +9,9 @@ resource "aws_instance" "mdidb" {
   root_block_device {
     volume_type = "gp2"
     volume_size = 50
+    tags = {
+      Name = "sy-mdidb"
+    }
   }
   disable_api_termination = "true"
   #security_groups = [aws_security_group.allow_from_trust_to_mdidb.id]

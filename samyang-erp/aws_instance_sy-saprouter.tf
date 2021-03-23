@@ -7,6 +7,9 @@ resource "aws_instance" "saprouter" {
   root_block_device {
     volume_type = "gp2"
     volume_size = 10
+    tags = {
+      Name = "sy-saprouter"
+    }
   }
   disable_api_termination = "true"
   #security_groups = [aws_security_group.allow_from_trust_to_saprouter.id]

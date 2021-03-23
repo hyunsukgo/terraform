@@ -39,6 +39,6 @@ resource "aws_ebs_volume" "rptab01_add" {
   type              = "gp2"
   tags = {
     Snapshot = "true"
-    Name = "sy-rttap01"
+    Name = "sy-rptap01"
   }
 }
