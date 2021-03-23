@@ -10,6 +10,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccdb" {
     to_port     = 1433
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.aempl.id]
   }
 
   ingress {
@@ -18,6 +19,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccdb" {
     to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16", "10.200.0.0/16"]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.aempl.id]
   }
 
   egress {
