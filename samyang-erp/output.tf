@@ -9,5 +9,7 @@ data "aws_subnet" "subnets" {
 }
 
 output "subnet_cidr_blocks" {
-  value = [for s in data.aws_subnet.subnets : s.cidr_block]
+  #value = [for s in data.aws_subnet.subnets : s.cidr_block]
+  value = "${formatlist("%s",(data.aws_subnet.subnets.*.cidr_block)
+  )}"
 }
