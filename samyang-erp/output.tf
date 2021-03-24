@@ -35,11 +35,11 @@ output "aws_ec2_ebs_info" {
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
     name   = "tag:Name"
-    values = ["sy-*"]
+    values = [data.aws_instance.ec2.tags.Name]
   }
 }
 data "aws_ebs_snapshot" "ebs_volume" {
- #most_recent = true
+  most_recent = true
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
 }
 
