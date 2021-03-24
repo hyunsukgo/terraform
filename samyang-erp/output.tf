@@ -32,3 +32,16 @@ output "aws_ec2_ebs_info" {
   value = formatlist("%s | %s | %s", [for name in data.aws_instance.ec2 : name.ebs_block_device.device_name[*]], [for type in data.aws_instance.ec2 : type.ebs_block_device.volume_type[*]], [for size in data.aws_instance.ec2 : size.ebs_block_device.volume_size[*]])
 }
 */
+
+data "aws_ebs_snapshot" "ebs_volume" {
+
+  filter {
+    name   = "tag:Name"
+    values = ["sy-*"]
+  }
+}
+
+
+output "aws_ec2_instance_info" {
+  value = formatlist("%s | %s | %s",[for name in data.aws_ebs_snapshot.ebs_volume : name.tags.Name],[for size in data.aws_ebs_snapshot.ebs_volume : size.volume_size],[for id in data.aws_ebs_snapshot.ebs_volume : id.id])
+}
