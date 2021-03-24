@@ -31,4 +31,4 @@ output "aws_ec2_instance_types" {
 resource "local_file" "readme" {
     content  = formatlist("%s | %s | %s | %s | %s",[for name in data.aws_instance.ec2 : name.tags.Name],[for type in data.aws_instance.ec2 : type.instance_type],[for az in data.aws_instance.ec2 : az.availability_zone],[for s in data.aws_instance.ec2 : s.arn],[for a in data.aws_instance.ec2 : a.ami])
     filename = "README.md"
-}x
+}
