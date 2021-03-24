@@ -18,13 +18,13 @@ data "aws_instances" "ec2list" {
   }
   instance_state_names = ["running", "stopped"]
 }*/
-data "aws_instance" "ec2" {
+data "aws_instances" "ec2" {
   filter {
     name = "tag:Snapshot"
     values = ["Yes"]
   }
 }
 output "aws_ec2_instance_types" {
-  value = [for i in data.aws_instance.ec2 : i.arn]
+  value = [for i in data.aws_instances.ec2 : i.id]
 }
 
