@@ -39,7 +39,7 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
   }
 }
 data "aws_ebs_snapshot" "ebs_volume" {
-  most_recent = true
+ #most_recent = true
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
 }
 
