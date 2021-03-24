@@ -29,6 +29,6 @@ output "aws_ec2_instance_types" {
 }
 
 resource "local_file" "readme" {
-    content  = output.aws_ec2_instance_types.value
+    content  = "Test"
     filename = "README.md"
 }
