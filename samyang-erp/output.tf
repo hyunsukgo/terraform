@@ -25,6 +25,6 @@ data "aws_instance" "ec2" {
   }
 }
 output "aws_ec2_instance_types" {
-  value = [for i in data.aws_instance.ec2 : i.arn]
+  value = data.aws_instance.ec2.arn
 }
 
