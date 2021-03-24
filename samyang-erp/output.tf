@@ -14,7 +14,7 @@ output "subnet_cidr_blocks" {
 data "aws_instances" "ec2list" {
   filter {
     name = "instance.vpc-id"
-    value = [aws.vpc.vpc_id]
+    values = [aws.vpc.vpc_id]
   }
   instance_state_names = ["running", "stopped"]
 }
