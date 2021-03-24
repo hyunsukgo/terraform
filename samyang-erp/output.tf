@@ -42,6 +42,6 @@ data "aws_ebs_snapshot" "ebs_volume" {
 }
 
 
-output "aws_ec2_instance_info" {
+output "aws_ebs_snapshot_info" {
   value = formatlist("%s | %s | %s",[for name in data.aws_ebs_snapshot.ebs_volume : name.tags.Name],[for size in data.aws_ebs_snapshot.ebs_volume : size.volume_size],[for id in data.aws_ebs_snapshot.ebs_volume : id.id])
 }
