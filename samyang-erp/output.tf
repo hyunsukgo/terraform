@@ -28,6 +28,6 @@ output "aws_ec2_instance_types" {
   #value = "${formatlist("%s | %s",data.aws_instances.ec2.ids[*],data.aws_instance.ec2[*].arn)}"
   #value = data.aws_instances.ec2.ids[*]
   #value = data.aws_instance.ec2[*]
-  value = formatlist("%s | %s",[for s in data.aws_instance.ec2 : s.arn],[for a in data.aws_instance.ec2 : a.ami])
+  value = formatlist("%s | %s | %s | %s",[for name in data.aws_instance.ec2 : name.tags.Name],[for az in data.aws_instance.ec2 : az.availability_zone],[for s in data.aws_instance.ec2 : s.arn],[for a in data.aws_instance.ec2 : a.ami])
 }
 
