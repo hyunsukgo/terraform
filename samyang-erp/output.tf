@@ -32,16 +32,18 @@ output "aws_ec2_ebs_info" {
   value = formatlist("%s | %s | %s", [for name in data.aws_instance.ec2 : name.ebs_block_device.device_name[*]], [for type in data.aws_instance.ec2 : type.ebs_block_device.volume_type[*]], [for size in data.aws_instance.ec2 : size.ebs_block_device.volume_size[*]])
 }
 */
-
-data "aws_ebs_snapshot" "ebs_volume" {
-  owners      = ["self"]
+data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
     name   = "tag:Name"
     values = ["sy-*"]
   }
 }
+data "aws_ebs_snapshot" "ebs_volume" {
+  for_each    = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  instance_id = each.key
+}
 
 
 output "aws_ebs_snapshot_info" {
-  value = formatlist("%s",(data.aws_ebs_snapshot.ebs_volume[*].id))
+  value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
 }
