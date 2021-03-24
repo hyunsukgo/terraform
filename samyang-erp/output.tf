@@ -34,6 +34,6 @@ data "aws_instance" "ec2" {
 output "aws_ec2_instance_types" {
   #value = "${formatlist("%s",(data.aws_instances.ec2.ids[*]))}"
   #value = data.aws_instances.ec2.ids[*]
-  value = data.aws_instance.ec2.arn[*]
+  value = data.aws_instance.ec2.arn
 }
 
