@@ -10,7 +10,7 @@ resource "aws_instance" "mdidb" {
     volume_type = "gp2"
     volume_size = 50
     tags = {
-      Name = "sy-mdidb"
+      Name      = "sy-mdidb"
       Partition = "mdidb_C"
     }
   }
@@ -39,8 +39,8 @@ resource "aws_ebs_volume" "mdidb_add" {
   size              = 300
   type              = "gp2"
   tags = {
-    Snapshot = "true"
-    Name = "sy-mdidb"
+    Snapshot  = "true"
+    Name      = "sy-mdidb"
     Partition = "mdidb_D"
   }
 }

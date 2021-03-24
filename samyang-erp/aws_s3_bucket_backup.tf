@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "backupbucket" {
     enabled = true
 
     expiration {
-      days = 5
+      days                         = 5
       expired_object_delete_marker = false
     }
   }

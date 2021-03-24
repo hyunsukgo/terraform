@@ -10,7 +10,7 @@ resource "aws_instance" "rptab02c" {
     volume_type = "gp2"
     volume_size = 50
     tags = {
-      Name = "sy-rptap02"
+      Name      = "sy-rptap02"
       Partition = "rptap02_C"
     }
   }

@@ -10,7 +10,7 @@ resource "aws_instance" "rptab01" {
     volume_type = "gp2"
     volume_size = 50
     tags = {
-      Name = "sy-rptap01"
+      Name      = "sy-rptap01"
       Partition = "rptap01_C"
     }
   }
@@ -39,8 +39,8 @@ resource "aws_ebs_volume" "rptab01_add" {
   size              = 50
   type              = "gp2"
   tags = {
-    Snapshot = "true"
-    Name = "sy-rptap01"
+    Snapshot  = "true"
+    Name      = "sy-rptap01"
     Partition = "rptap01_D"
   }
 }

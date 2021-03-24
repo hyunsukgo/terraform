@@ -110,8 +110,8 @@ resource "aws_ebs_volume" "endb" {
   size              = 10
   type              = "gp2"
   tags = {
-    Name     = "${var.service_name}-endb"
-    Snapshot = "true"
+    Name      = "${var.service_name}-endb"
+    Snapshot  = "true"
     Partition = "endb"
   }
 }

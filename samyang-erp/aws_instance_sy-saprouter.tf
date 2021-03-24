@@ -8,7 +8,7 @@ resource "aws_instance" "saprouter" {
     volume_type = "gp2"
     volume_size = 10
     tags = {
-      Name = "sy-saprouter"
+      Name      = "sy-saprouter"
       Partition = "saprouter_root"
     }
   }

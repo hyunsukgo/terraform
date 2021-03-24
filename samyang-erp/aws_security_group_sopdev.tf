@@ -5,33 +5,33 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "RDP from On-Prem"
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "tcp"
+    description     = "RDP from On-Prem"
+    from_port       = 3389
+    to_port         = 3389
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
-    description = "Application"
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-  }
-
-  ingress {
-    description = "Application"
-    from_port   = 5000
-    to_port     = 5000
-    protocol    = "tcp"
+    description     = "Application"
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
-    description = "MSSQL Access from On-Prem"
-    from_port   = 1433
-    to_port     = 1433
-    protocol    = "tcp"
+    description     = "Application"
+    from_port       = 5000
+    to_port         = 5000
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "MSSQL Access from On-Prem"
+    from_port       = 1433
+    to_port         = 1433
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   egress {

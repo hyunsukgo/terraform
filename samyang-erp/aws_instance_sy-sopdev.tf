@@ -10,7 +10,7 @@ resource "aws_instance" "sopdev" {
     volume_type = "gp2"
     volume_size = 50
     tags = {
-      Name = "sy-sopdev"
+      Name      = "sy-sopdev"
       Partition = "sopdev_C"
     }
   }
@@ -39,8 +39,8 @@ resource "aws_ebs_volume" "sopdev_add" {
   size              = 300
   type              = "gp2"
   tags = {
-    Snapshot = "true"
-    Name = "sy-sopdev"
+    Snapshot  = "true"
+    Name      = "sy-sopdev"
     Partition = "sopdev_D"
   }
 }

@@ -10,7 +10,7 @@ resource "aws_instance" "eaccdb" {
     volume_type = "gp2"
     volume_size = 50
     tags = {
-      Name = "sy-eaccdb"
+      Name      = "sy-eaccdb"
       Partition = "ecccdb_C"
     }
   }
@@ -39,8 +39,8 @@ resource "aws_ebs_volume" "eaccdb_add" {
   size              = 100
   type              = "gp2"
   tags = {
-    Snapshot = "true"
-    Name = "sy-eaccdb"
+    Snapshot  = "true"
+    Name      = "sy-eaccdb"
     Partition = "ecccdb_D"
   }
 }

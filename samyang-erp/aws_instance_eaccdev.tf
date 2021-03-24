@@ -11,7 +11,7 @@ resource "aws_instance" "eaccapdev" {
     volume_type = "gp2"
     volume_size = 40
     tags = {
-      Name = "sy-eaccdev"
+      Name      = "sy-eaccdev"
       Partition = "ecccdev_C"
     }
   }
@@ -40,8 +40,8 @@ resource "aws_ebs_volume" "eaccapdev_add" {
   size              = 60
   type              = "gp2"
   tags = {
-    Snapshot = "true"
-    Name = "sy-eaccdev"
+    Snapshot  = "true"
+    Name      = "sy-eaccdev"
     Partition = "ecccdev_D"
   }
 }

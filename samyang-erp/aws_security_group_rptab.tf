@@ -5,18 +5,18 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "Access for RDP"
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "tcp"
+    description     = "Access for RDP"
+    from_port       = 3389
+    to_port         = 3389
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
-    description = "Access from ALB (HTTP)"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
+    description     = "Access from ALB (HTTP)"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
     security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
   }
 

@@ -5,10 +5,10 @@ resource "aws_security_group" "allow_from_trust_to_saprouter" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH from On-Prem"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    description     = "SSH from On-Prem"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
