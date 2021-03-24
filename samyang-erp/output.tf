@@ -39,7 +39,7 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
   }
 }
 data "aws_ebs_snapshot" "ebs_volume" {
-  for_each    = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  for_each    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
   snapshot_ids = each.key
 }
 
