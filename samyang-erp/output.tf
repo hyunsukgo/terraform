@@ -27,7 +27,7 @@ data "aws_instances" "ec2" {
 
 data "aws_instance" "ec2" {
   for_each = data.aws_instances.ec2.ids[*]
-  id       = each.value
+  instance_id       = each.value
 }
 output "aws_ec2_instance_types" {
   #value = "${formatlist("%s",(data.aws_instances.ec2.ids[*]))}"
