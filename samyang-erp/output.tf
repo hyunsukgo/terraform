@@ -15,10 +15,10 @@ data "aws_instances" "ec2list" {
   instance_state_names = ["running", "stopped"]
 }
 data "aws_instance" "ec2" {
-  for_each = data.ec2list.[*].ids
+  for_each = data.aws_instances.ec2list.ids
   id       = each.value
 }
-output "subnet_cidr_blocks" {
-  value = [for i in data.aws_instance.ec2 : i.id]
+output "aws_ec2_instance_types" {
+  value = [for i in data.aws_instance.ec2 : i.arn]
 }
 
