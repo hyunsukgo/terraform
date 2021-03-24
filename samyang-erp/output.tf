@@ -25,6 +25,6 @@ data "aws_instances" "ec2" {
   }
 }
 output "aws_ec2_instance_types" {
-  value = [for i in data.aws_instances.ec2 : i.private_ips]
+  value = data.aws_instances.ec2.ids[*]
 }
 
