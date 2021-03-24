@@ -27,3 +27,7 @@ data "aws_instance" "ec2" {
 output "aws_ec2_instance_types" {
   value = formatlist("%s | %s | %s | %s | %s", [for name in data.aws_instance.ec2 : name.tags.Name], [for type in data.aws_instance.ec2 : type.instance_type], [for az in data.aws_instance.ec2 : az.availability_zone], [for s in data.aws_instance.ec2 : s.arn], [for a in data.aws_instance.ec2 : a.ami])
 }
+
+output "aws_ec2_ebs_info" {
+  value = formatlist(%s | %s | %s, [for name in data.aws_instance.ec2 : name.ebs_block_device.device_name], [for type in data.aws_instance.ec2 : type.ebs_block_device.volume_type], [for size in data.aws_instance.ec2 : size.ebs_block_device.volume_size])
+}
