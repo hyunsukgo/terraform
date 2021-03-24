@@ -1,5 +1,6 @@
 # terraform
-|Instance 이름|타입|Availabilty Zone|ARN|AMI|
+|Instance이름|타입|AvailabiltyZone|ARN|AMI|
+|---|---|---|
 |sy-eaccdev | m5.xlarge | ap-northeast-2a | arn:aws:ec2:ap-northeast-2:969470234861:instance/i-01b4ea92cfa081f4e | ami-0fc1ba861e48fc890|
 |sy-eaccdb | m5.2xlarge | ap-northeast-2a | arn:aws:ec2:ap-northeast-2:969470234861:instance/i-01c1a85fdc39e3748 | ami-0fc1ba861e48fc890|
 |sy-mdidb | c5.2xlarge | ap-northeast-2a | arn:aws:ec2:ap-northeast-2:969470234861:instance/i-086624c9c520fb70f | ami-0fc1ba861e48fc890|
