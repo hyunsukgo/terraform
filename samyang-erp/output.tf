@@ -11,13 +11,7 @@ data "aws_subnet" "subnets" {
 output "subnet_cidr_blocks" {
   value = [for s in data.aws_subnet.subnets : s.cidr_block]
 }
-/*
-data "aws_instances" "ec2list" {
-  instance_tags = {
-    Name = "sy-eaccdev"
-  }
-  instance_state_names = ["running", "stopped"]
-}*/
+
 data "aws_instances" "ec2" {
   filter {
     name = "tag:Snapshot"
