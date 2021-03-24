@@ -26,8 +26,7 @@ data "aws_instances" "ec2" {
 }
 
 data "aws_instance" "ec2" {
-  for_each = data.aws_instances.ec2.ids
-  instance_id       = each.value
+  instance_id = data.aws_instances.ec2.ids
 }
 
 output "aws_ec2_instance_types" {
