@@ -1,4 +1,4 @@
-# terraform
+# AWS EC2 Instance Information
 |Instance이름|타입|AvailabiltyZone|ARN|AMI|
 |---|---|---|---|---|
 |sy-eaccdev | m5.xlarge | ap-northeast-2a | arn:aws:ec2:ap-northeast-2:969470234861:instance/i-01b4ea92cfa081f4e | ami-0fc1ba861e48fc890|
