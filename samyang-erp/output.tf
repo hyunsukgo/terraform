@@ -18,7 +18,7 @@ data "aws_instances" "ec2list" {
   instance_state_names = ["running", "stopped"]
 }
 data "aws_instance" "ec2" {
-  for_each = data.aws_instances.ec2list.ids
+  for_each = toset([data.aws_instances.ec2list.ids])
   instance_id       = each.key
 }
 output "aws_ec2_instance_types" {
