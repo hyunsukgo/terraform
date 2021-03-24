@@ -14,8 +14,8 @@ output "subnet_cidr_blocks" {
 
 data "aws_instances" "ec2" {
   filter {
-    name   = "tag:Snapshot"
-    values = ["Yes"]
+    name   = "tag:Name"
+    values = ["sy-*"]
   }
 }
 
