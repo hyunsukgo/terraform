@@ -41,6 +41,7 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
 data "aws_ebs_snapshot" "ebs_volume" {
   most_recent = true
   for_each    = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  snapshot_id = each.key
 }
 
 
