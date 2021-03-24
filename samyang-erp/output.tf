@@ -43,5 +43,5 @@ data "aws_ebs_snapshot" "ebs_volume" {
 
 
 output "aws_ebs_snapshot_info" {
-  value = formatlist("%s",(data.aws_ebs_snapshot.ebs_volume.id[*]))
+  value = formatlist("%s",(data.aws_ebs_snapshot.ebs_volume[*].id))
 }
