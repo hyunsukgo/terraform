@@ -20,8 +20,8 @@ data "aws_instances" "ec2list" {
 }*/
 data "aws_instance" "ec2" {
   filter {
-    name = "tag:Name"
-    values = ["sy-eaccdev"]
+    name = "tag:Snapshot"
+    values = ["Yes"]
   }
 }
 output "aws_ec2_instance_types" {
