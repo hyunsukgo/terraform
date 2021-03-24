@@ -34,11 +34,14 @@ output "aws_ec2_ebs_info" {
 */
 
 data "aws_ebs_snapshot" "ebs_volume" {
-  most_recent = true
   owners      = ["self"]
+  filter {
+    name   = "tag:Name"
+    values = ["sy-*"]
+  }
 }
 
 
 output "aws_ebs_snapshot_info" {
-  value = "${formatlist("%s",(data.aws_ebs_snapshot.ebs_volume.id[*]))}"
+  value = formatlist("%s",(data.aws_ebs_snapshot.ebs_volume.id[*]))
 }
