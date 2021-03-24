@@ -35,7 +35,7 @@ output "aws_ec2_ebs_info" {
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
     name   = "tag:Name"
-    values = [data.aws_instance.ec2.tags.Name]
+    values = data.aws_instance.ec2.tags.Name[*]
   }
 }
 data "aws_ebs_snapshot" "ebs_volume" {
