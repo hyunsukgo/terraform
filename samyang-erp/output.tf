@@ -11,17 +11,20 @@ data "aws_subnet" "subnets" {
 output "subnet_cidr_blocks" {
   value = [for s in data.aws_subnet.subnets : s.cidr_block]
 }
+/*
 data "aws_instances" "ec2list" {
   instance_tags = {
     Name = "sy-eaccdev"
   }
   instance_state_names = ["running", "stopped"]
-}/*
-data "aws_instance" "ec2" {
-  for_each = tolist([data.aws_instances.ec2list.ids])
-  instance_id       = each.key
 }*/
+data "aws_instance" "ec2" {
+  filter {
+    name = "tag:Name"
+    values = ["sy-eaccdev"]
+  }
+}
 output "aws_ec2_instance_types" {
-  value = [for i in data.aws_instances.ec2list : i.id]
+  value = [for i in data.aws_instance.ec2 : i.arn]
 }
 
