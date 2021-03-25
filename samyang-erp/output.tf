@@ -51,7 +51,7 @@ data "aws_ebs_snapshot" "ebs_volume" {
 }
 
 output "aws_ebs_snapshot_info" {
-  value = data.aws_ebs_snapshot..ebs_volume.arn
+  value = data.aws_ebs_snapshot.ebs_volume.arn
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.arn])
 }
