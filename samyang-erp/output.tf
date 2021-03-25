@@ -38,7 +38,7 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
     values = [data.aws_instance.ec2.tags.Name]
   }
 }
-*/
+
 data "aws_ebs_snapshot" "ebs_volume" {
   most_recent = true
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
