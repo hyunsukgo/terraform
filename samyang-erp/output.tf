@@ -47,7 +47,7 @@ data "aws_ebs_snapshot" "ebs_volume" {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-  snapshot_ids    = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  snapshot_ids    = data.aws_ebs_snapshot_ids.ebs_volumes.ids
 }
 
 output "aws_ebs_snapshot_info" {
