@@ -16,9 +16,6 @@ resource "aws_backup_plan" "backupplan" {
       delete_after       = 1
     }
 
-    recovery_point_tags = {
-      Timestamp = "timestamp"
-    }
   }
 
   advanced_backup_setting {
