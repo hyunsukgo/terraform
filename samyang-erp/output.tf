@@ -48,7 +48,7 @@ data "aws_ebs_snapshot" "ebs_volume" {
     values = ["sy-eaccdb"]
   }
   for_each = data.aws_ebs_snapshot_ids.ebs_volumes.ids
-  snapshot_ids = each.key
+  snapshot_ids = each.value
 }
 
 output "aws_ebs_snapshot_info" {
