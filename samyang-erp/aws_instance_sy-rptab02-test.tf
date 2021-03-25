@@ -12,6 +12,7 @@ resource "aws_instance" "rptab02c" {
     tags = {
       Name      = "sy-rptap02"
       Partition = "rptap02_C"
+      cz-ext1   = "sy-rptap02"
     }
   }
   disable_api_termination = "true"
@@ -25,5 +26,6 @@ resource "aws_instance" "rptab02c" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
+    cz-ext1   = "sy-rptap02"
   }
 }

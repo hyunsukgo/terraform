@@ -113,5 +113,6 @@ resource "aws_ebs_volume" "endb" {
     Name      = "sy-s4h-sedap"
     Snapshot  = "true"
     Partition = "endb"
+    cz-ext1   = "sy-s4h-sedap"
   }
 }

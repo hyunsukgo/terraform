@@ -12,6 +12,7 @@ resource "aws_instance" "sopdev" {
     tags = {
       Name      = "sy-sopdev"
       Partition = "sopdev_C"
+      cz-ext1   = "sy-sopdev"
     }
   }
   disable_api_termination = "true"
@@ -42,5 +43,6 @@ resource "aws_ebs_volume" "sopdev_add" {
     Snapshot  = "true"
     Name      = "sy-sopdev"
     Partition = "sopdev_D"
+    cz-ext1   = "sy-sopdev"
   }
 }

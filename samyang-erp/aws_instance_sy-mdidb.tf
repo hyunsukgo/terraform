@@ -12,6 +12,7 @@ resource "aws_instance" "mdidb" {
     tags = {
       Name      = "sy-mdidb"
       Partition = "mdidb_C"
+      cz-ext1   = "sy-mdidb"
     }
   }
   disable_api_termination = "true"
@@ -42,5 +43,6 @@ resource "aws_ebs_volume" "mdidb_add" {
     Snapshot  = "true"
     Name      = "sy-mdidb"
     Partition = "mdidb_D"
+    cz-ext1   = "sy-mdidb"
   }
 }

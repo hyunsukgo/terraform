@@ -10,6 +10,7 @@ resource "aws_instance" "saprouter" {
     tags = {
       Name      = "sy-saprouter"
       Partition = "saprouter_root"
+      cz-ext1   = data.aws_instance.saprouter.tags["Name"]
     }
   }
   disable_api_termination = "true"
@@ -22,7 +23,7 @@ resource "aws_instance" "saprouter" {
     Environment = "Prd"
     cz-product  = "SAP"
     #Schedule    = "samyang-office-hours"
-
+    cz-ext1   = data.aws_instance.saprouter.tags["Name"]
   }
 }
 

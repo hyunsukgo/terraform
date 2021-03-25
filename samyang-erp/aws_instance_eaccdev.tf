@@ -13,6 +13,7 @@ resource "aws_instance" "eaccapdev" {
     tags = {
       Name      = "sy-eaccdev"
       Partition = "ecccdev_C"
+      cz-ext1   = "sy-eaccdev"
     }
   }
   disable_api_termination = "true"
@@ -43,5 +44,6 @@ resource "aws_ebs_volume" "eaccapdev_add" {
     Snapshot  = "true"
     Name      = "sy-eaccdev"
     Partition = "ecccdev_D"
+    cz-ext1   = "sy-eaccdev"
   }
 }

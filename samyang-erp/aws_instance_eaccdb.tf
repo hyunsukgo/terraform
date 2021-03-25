@@ -12,6 +12,7 @@ resource "aws_instance" "eaccdb" {
     tags = {
       Name      = "sy-eaccdb"
       Partition = "ecccdb_C"
+      cz-ext1   = "sy-eaccdb"
     }
   }
   disable_api_termination = "true"
@@ -42,5 +43,6 @@ resource "aws_ebs_volume" "eaccdb_add" {
     Snapshot  = "true"
     Name      = "sy-eaccdb"
     Partition = "ecccdb_D"
+    cz-ext1   = "sy-eaccdb"
   }
 }
