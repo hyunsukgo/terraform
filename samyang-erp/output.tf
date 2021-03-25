@@ -48,8 +48,8 @@ data "aws_ebs_snapshot" "ebs_volume" {
     values = [for name in data.aws_instance.ec2 : name.tags.Name]
   }
   filter {
-    name   = "tag:cz-ext1"
-    values = ["sy-*"]
+    name   = "tag:aws:backup:source-resource"
+    values = ["i-*"]
   }
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
 }
