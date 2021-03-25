@@ -39,7 +39,7 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
     values = [for name in data.aws_instance.ec2 : name.tags.Name]
   }
 }
-/*
+
 data "aws_ebs_snapshot" "ebs_volume" {
   most_recent = true
   owners      = ["self"]
@@ -47,11 +47,11 @@ data "aws_ebs_snapshot" "ebs_volume" {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-  for_each    = data.aws_ebs_snapshot_ids.ebs_volumes.ids
+  snapshot_ids    = data.aws_ebs_snapshot_ids.ebs_volumes.ids
 }
-*/
+
 output "aws_ebs_snapshot_info" {
-  value = data.aws_ebs_snapshot_ids.ebs_volumes.ids
+  value = data.aws_ebs_snapshot..ebs_volume.arn
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.arn])
 }
