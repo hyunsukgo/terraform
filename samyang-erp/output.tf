@@ -45,10 +45,10 @@ data "aws_ebs_snapshot" "ebs_volume" {
   owners      = ["self"]
   filter {
     name   = "tag:Name"
-    values = ["sy-eaccdb"]
+    values = ["sy-*"]
   }
   for_each = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
-  snapshot_ids = tolist(each.key)
+  snapshot_ids = tostring(each.key)
 }
 
 output "aws_ebs_snapshot_info" {
