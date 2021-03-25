@@ -40,22 +40,8 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
   }
 }
 
-data "aws_ebs_snapshot" "ebs_volume" {
-  #most_recent = true
-  owners      = ["self"]
-  filter {
-    name   = "tag:Name"
-    values = [for name in data.aws_instance.ec2 : name.tags.Name]
-  }
-  filter {
-    name   = "tag:aws:backup:source-resource"
-    values = ["i-*"]
-  }
-  snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
-}
-
 
 output "aws_ebs_snapshot_info" {
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
-  value = formatlist("%s",data.aws_ebs_snapshot.ebs_volume.arn[*])
+  value = formatlist("%s",data.aws_ebs_snapshot_ids.ebs_volumes.arn[*])
 }
