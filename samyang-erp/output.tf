@@ -31,13 +31,14 @@ output "aws_ec2_instance_info" {
 output "aws_ec2_ebs_info" {
   value = formatlist("%s | %s | %s", [for name in data.aws_instance.ec2 : name.ebs_block_device.device_name[*]], [for type in data.aws_instance.ec2 : type.ebs_block_device.volume_type[*]], [for size in data.aws_instance.ec2 : size.ebs_block_device.volume_size[*]])
 }
-*/
+
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
     name   = "tag:Name"
     values = [data.aws_instance.ec2.tags.Name]
   }
 }
+*/
 data "aws_ebs_snapshot" "ebs_volume" {
   most_recent = true
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
