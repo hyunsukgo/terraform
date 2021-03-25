@@ -41,14 +41,14 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
 }
 
 data "aws_ebs_snapshot" "ebs_volume" {
-  most_recent = true
+  #most_recent = true
   owners      = ["self"]
   filter {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-  for_each = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
-  snapshot_ids    = each.value
+  snapshot_ids = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  
 }
 
 output "aws_ebs_snapshot_info" {
