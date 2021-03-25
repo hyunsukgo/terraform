@@ -40,8 +40,17 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
   }
 }
 
+data "aws_ebs_snapshot" "ebs_volume" {
+  #most_recent = true
+  owners      = ["self"]
+  filter {
+    name   = "tag:Name"
+    values = ["sy-mdidb","sy-rptap01"]
+  }
+  snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+}
 
 output "aws_ebs_snapshot_info" {
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
-  value = formatlist("%s",data.aws_ebs_snapshot_ids.ebs_volumes.arn[*])
+  value = formatlist("%s",data.aws_ebs_snapshot.ebs_volume.arn[*])
 }
