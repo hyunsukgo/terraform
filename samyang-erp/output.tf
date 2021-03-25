@@ -45,10 +45,9 @@ data "aws_ebs_snapshot" "ebs_volume" {
   owners      = ["self"]
   filter {
     name   = "tag:Name"
-    values = ["sy-*"]
+    values = ["sy-eaccdb"]
   }
   snapshot_ids = data.aws_ebs_snapshot_ids.ebs_volumes.ids
-  
 }
 
 output "aws_ebs_snapshot_info" {
