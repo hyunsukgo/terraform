@@ -43,8 +43,9 @@ data "aws_ebs_snapshot" "ebs_volume" {
   snapshot_ids    = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
 }
 
-
+/*
 output "aws_ebs_snapshot_info" {
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
   value = formatlist("%s",data.aws_ebs_snapshot.ebs_volume.arn[*])
 }
+*/
