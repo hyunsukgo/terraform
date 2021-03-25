@@ -37,6 +37,10 @@ data "aws_ebs_volume" "ebs_volume" {
   }
 }
 
+output "aws_ec2_ebs_info" {
+  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.iops)
+}
+
 /*
 output "aws_ec2_ebs_info" {
   value = formatlist("| %s | %s | %s |", data.aws_instance.ec2.ebs_block_device[*].device_name,data.aws_instance.ec2.ebs_block_device[*].volume_type,data.aws_instance.ec2.ebs_block_device[*].volume_size)
