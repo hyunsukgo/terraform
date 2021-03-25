@@ -48,7 +48,7 @@ data "aws_ebs_snapshot" "ebs_volume" {
     values = ["sy-*"]
   }
   for_each        = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
-  snapshot_ids    = each.value
+  snapshot_ids    = each.key
 }
 
 output "aws_ebs_snapshot_info" {
