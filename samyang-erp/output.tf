@@ -47,8 +47,8 @@ data "aws_ebs_snapshot" "ebs_volume" {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-  for_each = data.aws_ebs_snapshot_ids.ebs_volumes.ids
-  snapshot_ids    = each.key
+  for_each = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  snapshot_ids    = each.value
 }
 
 output "aws_ebs_snapshot_info" {
