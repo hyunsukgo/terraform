@@ -28,10 +28,20 @@ output "aws_ec2_instance_info" {
   value = formatlist("| %s | %s | %s | %s | %s |", [for name in data.aws_instance.ec2 : name.tags.Name], [for type in data.aws_instance.ec2 : type.instance_type], [for az in data.aws_instance.ec2 : az.availability_zone], [for s in data.aws_instance.ec2 : s.arn], [for a in data.aws_instance.ec2 : a.ami])
 }
 
+data "aws_ebs_volume" "ebs_volume" {
+  most_recent = true
+
+  filter {
+    name   = "tag:Name"
+    values = ["sy-*"]
+  }
+}
+
+/*
 output "aws_ec2_ebs_info" {
   value = formatlist("| %s | %s | %s |", data.aws_instance.ec2.ebs_block_device[*].device_name,data.aws_instance.ec2.ebs_block_device[*].volume_type,data.aws_instance.ec2.ebs_block_device[*].volume_size)
 }
-
+*/
 
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
