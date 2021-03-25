@@ -45,7 +45,7 @@ data "aws_ebs_snapshot" "ebs_volume" {
   owners      = ["self"]
   filter {
     name   = "tag:Name"
-    values = ["sy-mdidb","sy-rptap01"]
+    values = ["sy-*"]
   }
   for_each        = tolist(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
   snapshot_ids    = each.value
