@@ -26,6 +26,7 @@ resource "aws_instance" "sopdev" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
+    cz-ext1   = "sy-sopdev"
   }
 }
 

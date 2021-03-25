@@ -27,6 +27,7 @@ resource "aws_instance" "eaccapdev" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
+    cz-ext1   = "sy-eaccdev"
   }
 }
 

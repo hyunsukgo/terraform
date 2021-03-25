@@ -26,6 +26,7 @@ resource "aws_instance" "eaccdb" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
+    cz-ext1   = "sy-eaccdb"
   }
 }
 
