@@ -106,13 +106,13 @@ resource "aws_ebs_volume" "sbddb_hanashared_add" {
 }
 
 ## /SAPCD Partitioning
-resource "aws_volume_attachment" "sbdap_sapcd_att" {
+resource "aws_volume_attachment" "sbddb_sapcd_att" {
   device_name = "/dev/sdf"
   volume_id   = aws_ebs_volume.sbddb_sapcd_add.id
   instance_id = aws_instance.sbddb.id
 }
 
-resource "aws_ebs_volume" "sbdap_sapcd_add" {
+resource "aws_ebs_volume" "sbddb_sapcd_add" {
   availability_zone = "${var.region}a"
   size              = 300
   type              = "gp2"
