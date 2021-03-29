@@ -1,6 +1,6 @@
 
 resource "aws_instance" "sbdap" {
-  ami           = "ami-06fb0a38fed3dcdec" # ap-northeast-2
+  ami           = "ami-097fc5cd098dd20d5" # ap-northeast-2
   instance_type = "m5.4xlarge"
 
   private_ip           = "10.200.30.22"

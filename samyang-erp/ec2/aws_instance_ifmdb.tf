@@ -1,6 +1,6 @@
 
 resource "aws_instance" "ifmdb" {
-  ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  ami           = "ami-081511b9e3af53902" # ap-northeast-2
   instance_type = "m5.xlarge"
 
   private_ip           = "10.200.40.51"
@@ -19,7 +19,7 @@ resource "aws_instance" "ifmdb" {
   user_data = file("./scripts/init.sh")
   disable_api_termination = "true"
   security_groups = [aws_security_group.allow_from_trust_to_eaccap.id]
-  subnet_id = aws_subnet.LEGADEV_A.id
+  subnet_id = aws_subnet.LEGADB1_A.id
 
   tags = {
     Name        = "sy-ifmdb"
