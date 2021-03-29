@@ -18,7 +18,7 @@ resource "aws_instance" "sbodev" {
   }
   user_data = file("./scripts/wininst.sh")
   disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_sbodev.id]
+  #security_groups = [aws_security_group.allow_from_trust_to_sbodev.id]
   subnet_id = aws_subnet.SAPDEV_A.id
 
   tags = {
