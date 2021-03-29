@@ -36,7 +36,7 @@ data "aws_ebs_volume" "ebs_volume" {
   }
 }
 output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.iops)
+  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume[*].id,data.aws_ebs_volume[*].ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume[*].tags.Name)
 }
 
 /*
