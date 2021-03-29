@@ -1,16 +1,5 @@
 #!/bin/sh
-    # Hostname Configuration
-    HOSTNAME=sedap
-    # DomainName Configuration
-    DOMAINNAME=samyang.com
-    # PATH TO YOUR HOSTS FILE
-    ETC_HOSTS=/etc/hosts
 
-    # DEFAULT IP FOR HOSTNAME
-    IP=$(ec2metadata --local-ipv4)
-    # 호스트네임 설정
-    hostnamectl set-hostname ${HOSTNAME}
-    echo "${IP} ${HOSTNAME}.${DOMAINNAME} ${HOSTNAME}" >> /etc/hosts
     # Timezone Configuration
     # 타임존 설정
     timedatectl set-timezone Asia/Seoul
