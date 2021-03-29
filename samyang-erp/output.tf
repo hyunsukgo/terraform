@@ -9,7 +9,7 @@ data "aws_subnet" "subnets" {
 }
 
 output "subnet_cidr_blocks" {
-  value = [for s in data.aws_subnet.subnets : s.cidr_block]
+  value = formatlist("| %s | %s | %s | %s |",[for s in data.aws_subnet.subnets : s.cidr_block],[for s in data.aws_subnet.subnets : s.availability_zone],[for s in data.aws_subnet.subnets : s.tags.Name],[for s in data.aws_subnet.subnets : s.vpc_id])
 }
 
 data "aws_instances" "ec2" {
@@ -25,7 +25,7 @@ data "aws_instance" "ec2" {
 }
 
 output "aws_ec2_instance_info" {
-  value = formatlist("| %s | %s | %s | %s | %s |\n", [for name in data.aws_instance.ec2 : name.tags.Name], [for type in data.aws_instance.ec2 : type.instance_type], [for az in data.aws_instance.ec2 : az.availability_zone], [for s in data.aws_instance.ec2 : s.arn], [for a in data.aws_instance.ec2 : a.ami])
+  value = formatlist("| %s | %s | %s | %s | %s |", [for name in data.aws_instance.ec2 : name.tags.Name], [for type in data.aws_instance.ec2 : type.instance_type], [for az in data.aws_instance.ec2 : az.availability_zone], [for s in data.aws_instance.ec2 : s.arn], [for a in data.aws_instance.ec2 : a.ami])
 }
 
 data "aws_ebs_volume" "ebs_volume" {
@@ -35,10 +35,10 @@ data "aws_ebs_volume" "ebs_volume" {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-}
+
 
 output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |\n", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.iops)
+  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.iops)
 }
 
 /*
