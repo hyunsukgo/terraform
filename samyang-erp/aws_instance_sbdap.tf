@@ -103,3 +103,21 @@ resource "aws_ebs_volume" "sbdap_sapcd_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+## Swap Disk
+resource "aws_volume_attachment" "sbdap_swap_att" {
+  device_name = "/dev/sdf"
+  volume_id   = aws_ebs_volume.sbdap_swap_add.id
+  instance_id = aws_instance.sbdap.id
+}
+
+resource "aws_ebs_volume" "sbdap_swaf_add" {
+  availability_zone = "${var.region}a"
+  size              = 96
+  type              = "gp2"
+  tags = {
+    Snapshot  = "true"
+    Name      = "sy-sbdap"
+    Partition = "sbdap_swap_add"
+    cz-ext1   = "sy-sbdap"
+  }
+}
