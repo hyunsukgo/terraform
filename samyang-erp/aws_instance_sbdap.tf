@@ -110,7 +110,7 @@ resource "aws_volume_attachment" "sbdap_swap_att" {
   instance_id = aws_instance.sbdap.id
 }
 
-resource "aws_ebs_volume" "sbdap_swaf_add" {
+resource "aws_ebs_volume" "sbdap_swap_add" {
   availability_zone = "${var.region}a"
   size              = 96
   type              = "gp2"
