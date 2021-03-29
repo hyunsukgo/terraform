@@ -29,21 +29,19 @@ output "aws_ec2_instance_info" {
 }
 
 data "aws_ebs_volume" "ebs_volume" {
-  most_recent = true
+  #most_recent = true
   filter {
     name   = "tag:Name"
     values = ["sy-*"]
   }
+  filter {
+    name   = "volume-type"
+    values = ["gp2"]
+  }
 }
 output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.tags.Name)
+  value = formatlist("| %s | %s | %s |", [for id in data.aws_ebs_volume.ebs_volume : id.id],[for az in data.aws_ebs_volume.ebs_volume : az.availability_zone],[for name in data.aws_ebs_volume.ebs_volume : name.tags.Name])
 }
-
-/*
-output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |", data.aws_instance.ec2.ebs_block_device[*].device_name,data.aws_instance.ec2.ebs_block_device[*].volume_type,data.aws_instance.ec2.ebs_block_device[*].volume_size)
-}
-*/
 
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
   filter {
