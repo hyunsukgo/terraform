@@ -1,4 +1,4 @@
-
+/*
 resource "aws_instance" "sbddb" {
   ami           = "ami-097fc5cd098dd20d5" # ap-northeast-2
   instance_type = "x1.16xlarge"
@@ -123,3 +123,4 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+*/

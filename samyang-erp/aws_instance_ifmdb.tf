@@ -18,7 +18,7 @@ resource "aws_instance" "ifmdb" {
   }
   user_data = file("./scripts/init.sh")
   disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_ifmdb.id]
+  #security_groups = [aws_security_group.allow_from_trust_to_ifmdb.id]
   subnet_id = aws_subnet.LEGADB1_A.id
 
   tags = {
@@ -51,7 +51,7 @@ resource "aws_ebs_volume" "ifmdb_db_add" {
 }
 ## Web Application Logs
 resource "aws_volume_attachment" "ifmdb_weblog_att" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/sdc"
   volume_id   = aws_ebs_volume.ifmdb_weblog_add.id
   instance_id = aws_instance.ifmdb.id
 }
@@ -69,7 +69,7 @@ resource "aws_ebs_volume" "ifmdb_weblog_add" {
 }
 ## Application Partition
 resource "aws_volume_attachment" "ifmdb_app_att" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/sdd"
   volume_id   = aws_ebs_volume.ifmdb_app_add.id
   instance_id = aws_instance.ifmdb.id
 }
@@ -87,7 +87,7 @@ resource "aws_ebs_volume" "ifmdb_app_add" {
 }
 ## WilyEM Partition
 resource "aws_volume_attachment" "ifmdb_wilyem_att" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/sde"
   volume_id   = aws_ebs_volume.ifmdb_wilyem_add.id
   instance_id = aws_instance.ifmdb.id
 }
