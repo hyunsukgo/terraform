@@ -110,6 +110,6 @@ resource "aws_security_group" "allow_from_trust_to_bw_ap" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_ap"
+    Name = "allow_from_trust_to_bw_ap"
   }
 }
