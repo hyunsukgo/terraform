@@ -11,8 +11,9 @@ data "aws_subnet" "subnets" {
 output "subnet_cidr_blocks" {
   value = formatlist("| %s | %s | %s | %s |",[for s in data.aws_subnet.subnets : s.cidr_block],[for s in data.aws_subnet.subnets : s.availability_zone],[for s in data.aws_subnet.subnets : s.tags.Name],[for s in data.aws_subnet.subnets : s.vpc_id])
 }
+
 resource "local_file" "ec2_id" {
-  content  = formatlist("| %s | %s | %s | %s |",[for s in data.aws_subnet.subnets : s.cidr_block],[for s in data.aws_subnet.subnets : s.availability_zone],[for s in data.aws_subnet.subnets : s.tags.Name],[for s in data.aws_subnet.subnets : s.vpc_id])
+  content  = "${formatlist("| %s | %s | %s | %s |",[for s in data.aws_subnet.subnets : s.cidr_block],[for s in data.aws_subnet.subnets : s.availability_zone],[for s in data.aws_subnet.subnets : s.tags.Name],[for s in data.aws_subnet.subnets : s.vpc_id])}"
   filename = "ec2.md"
 }
 
