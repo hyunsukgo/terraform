@@ -1,6 +1,6 @@
 
 resource "aws_instance" "ifmdb" {
-  ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  ami           = "ami-081511b9e3af53902" # ap-northeast-2
   instance_type = "m5.xlarge"
 
   private_ip           = "10.200.40.51"
@@ -9,7 +9,7 @@ resource "aws_instance" "ifmdb" {
 
   root_block_device {
     volume_type = "gp2"
-    volume_size = 10
+    volume_size = 30
     tags = {
       Name      = "sy-ifmdb"
       Partition = "ifmdb_root"
