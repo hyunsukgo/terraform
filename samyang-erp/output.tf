@@ -29,14 +29,14 @@ output "aws_ec2_instance_info" {
 }
 
 data "aws_ebs_volume" "ebs_volume" {
-  most_recent = true
+  #most_recent = true
   filter {
     name   = "tag:Name"
     values = ["sy-*"]
   }
 }
 output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume[*].id,data.aws_ebs_volume[*].ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume[*].tags.Name)
+  value = formatlist("| %s | %s | %s |", data.aws_ebs_volume.ebs_volume.id,data.aws_ebs_volume.ebs_volume.availability_zone, data.aws_ebs_volume.ebs_volume.tags.Name)
 }
 
 /*
