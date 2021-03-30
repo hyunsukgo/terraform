@@ -3,6 +3,28 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
   name        = "allow_traffic_mdidb"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
+  
+  ingress {
+    description     = "Service Port"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+  ingress {
+    description     = "Application Port"
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+  ingress {
+    description     = "Application Port(Admin)"
+    from_port       = 8090
+    to_port         = 8090
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
   ingress {
     description     = "SMB dialects that communicate over NetBIOS"
     from_port       = 139
