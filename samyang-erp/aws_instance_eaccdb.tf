@@ -16,7 +16,7 @@ resource "aws_instance" "eaccdb" {
     }
   }
   disable_api_termination = "true"
-  #security_groups = [aws_security_group.allow_from_trust_to_eaccdb.id]
+  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_eaccdb.id]
   subnet_id = aws_subnet.LEGADMZ_A.id
 
   tags = {

@@ -18,7 +18,7 @@ resource "aws_instance" "sbdap" {
   }
   user_data = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
-  #security_groups = [aws_security_group.allow_from_trust_to_bw_ap.id]
+  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_bw_ap.id]
   subnet_id = aws_subnet.SAPDEV_A.id
 
   tags = {

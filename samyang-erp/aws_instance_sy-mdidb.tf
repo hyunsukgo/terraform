@@ -16,7 +16,7 @@ resource "aws_instance" "mdidb" {
     }
   }
   disable_api_termination = "true"
-  #security_groups = [aws_security_group.allow_from_trust_to_mdidb.id]
+  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_mdidb.id]
   subnet_id = aws_subnet.LEGADB1_A.id
 
   tags = {
