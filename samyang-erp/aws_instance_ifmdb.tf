@@ -2,11 +2,10 @@
 resource "aws_instance" "ifmdb" {
   ami           = "ami-081511b9e3af53902" # ap-northeast-2
   instance_type = "r5.xlarge"
-#test
   private_ip           = "10.200.40.51"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
-
+  ebs_optimized = true
   root_block_device {
     volume_type = "gp2"
     volume_size = 30
