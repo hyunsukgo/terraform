@@ -1,7 +1,7 @@
 
 resource "aws_instance" "ifmdb" {
   ami           = "ami-081511b9e3af53902" # ap-northeast-2
-  instance_type = "m5.xlarge"
+  instance_type = "r5.xlarge"
 
   private_ip           = "10.200.40.51"
   key_name             = "samyangerp"
