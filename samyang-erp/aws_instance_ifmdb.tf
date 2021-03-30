@@ -23,7 +23,7 @@ resource "aws_instance" "ifmdb" {
   tags = {
     Name        = "sy-ifmdb"
     Description = "IF관리시스템"
-    Environment = "Dev"
+    Environment = "Prd"
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
