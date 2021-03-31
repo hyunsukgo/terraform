@@ -134,7 +134,7 @@ resource "aws_volume_attachment" "sbddb_swap_att" {
 
 resource "aws_ebs_volume" "sbddb_swap_add" {
   availability_zone = "${var.region}a"
-  size              = 300
+  size              = 192
   type              = "gp2"
   tags = {
     Snapshot  = "true"
