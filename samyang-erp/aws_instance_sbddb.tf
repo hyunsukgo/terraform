@@ -120,9 +120,9 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
   type              = "gp2"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-sbddb"
     Partition = "sbddb_sapcd_add"
-    cz-ext1   = "sy-sbdap"
+    cz-ext1   = "sy-sbddb"
   }
 }
 
@@ -139,8 +139,8 @@ resource "aws_ebs_volume" "sbddb_swap_add" {
   type              = "gp2"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-sbddb"
     Partition = "sbddb_swap_add"
-    cz-ext1   = "sy-sbdap"
+    cz-ext1   = "sy-sbddb"
   }
 }
