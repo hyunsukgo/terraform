@@ -125,6 +125,7 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+/*
 ## Swap Partitioning
 resource "aws_volume_attachment" "sbddb_swap_att" {
   device_name = "/dev/sdg"
@@ -143,3 +144,4 @@ resource "aws_ebs_volume" "sbddb_swap_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+*/
