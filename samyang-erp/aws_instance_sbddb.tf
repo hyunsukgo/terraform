@@ -125,3 +125,21 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+## Swap Partitioning
+resource "aws_volume_attachment" "sbddb_swap_att" {
+  device_name = "/dev/sdg"
+  volume_id   = aws_ebs_volume.sbddb_swap_add.id
+  instance_id = aws_instance.sbddb.id
+}
+
+resource "aws_ebs_volume" "sbddb_swap_add" {
+  availability_zone = "${var.region}a"
+  size              = 300
+  type              = "gp2"
+  tags = {
+    Snapshot  = "true"
+    Name      = "sy-sbdap"
+    Partition = "sbddb_swap_add"
+    cz-ext1   = "sy-sbdap"
+  }
+}
