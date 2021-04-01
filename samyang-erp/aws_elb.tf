@@ -88,7 +88,7 @@ resource "aws_lb_listener_rule" "rttab" {
 
   condition {
     host_header {
-      values = ["rpt.samyang.com"]
+      values = [var.reporturl]
     }
   }
 }

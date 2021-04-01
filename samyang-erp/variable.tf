@@ -28,3 +28,11 @@ variable "peervpcid" {
 variable "architect" {
   type = string
 }
+
+variable "reporturl" {
+  type = string
+}
+
+variable "co-op" {
+  type = string
+}

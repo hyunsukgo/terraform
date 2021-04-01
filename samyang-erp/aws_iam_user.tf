@@ -32,7 +32,7 @@ resource "aws_iam_user" "syc196561" {
   name = "syc196561"
 
   tags = {
-    company     = "Samyang"
+    company     = var.service_name
     Description = "이민숙"
   }
 }
@@ -40,7 +40,7 @@ resource "aws_iam_user" "syc197128" {
   name = "syc197128"
 
   tags = {
-    company     = "Samyang"
+    company     = var.service_name
     Description = "김범술"
   }
 }
@@ -48,7 +48,7 @@ resource "aws_iam_user" "syc719860" {
   name = "syc719860"
 
   tags = {
-    company     = "Samsung"
+    company     = var.co-op
     Description = "조원혁"
   }
 }
@@ -56,7 +56,7 @@ resource "aws_iam_user" "syc720059" {
   name = "syc720059"
 
   tags = {
-    company     = "Samsung"
+    company     = var.co-op
     Description = "김제호"
   }
 }
@@ -64,7 +64,7 @@ resource "aws_iam_user" "syc218389" {
   name = "syc218389"
 
   tags = {
-    company     = "Samsung"
+    company     = var.service_name
     Description = "박훈"
   }
 }
@@ -72,7 +72,7 @@ resource "aws_iam_user" "syc221025" {
   name = "syc221025"
 
   tags = {
-    company     = "Samsung"
+    company     = var.service_name
     Description = "백승훈"
   }
 }
