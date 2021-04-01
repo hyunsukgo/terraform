@@ -12,7 +12,8 @@
 |sy-rptap01 | r5.2xlarge | ap-northeast-2a | arn:aws:ec2:ap-northeast-2:969470234861:instance/i-0fb368aec8a0e0ba1 | ami-0fc1ba861e48fc890
 
 # AWS EBS Information
-|Volume ID| AZ |EBS Name(Name)|
+|Volume ID| AZ | EBS Name(Name)|
+|---|---|---|
 | vol-004782f1c120fc422 | ap-northeast-2a | sy-spo-spddev |
 | vol-0065badc1d0115d73 | ap-northeast-2a | sy-ifmdb |
 | vol-00f07f6d4007c9913 | ap-northeast-2a | sy-spo-spddev |
