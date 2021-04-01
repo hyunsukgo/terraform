@@ -104,3 +104,22 @@
 | snap-0fe3b43ca57b45dd2 | vol-0133bbe47becda8ff | 20 G | sy-s4h-seddb |
 | snap-0ff9138a1d28e6d8c | vol-0b6a8baefc36129f9 | 60 G | sy-eaccdev |
 
+# AWS Subnet Information
+|CIDR|AZ|Subnet Name|VPC ID|
+|---|---|---|---|
+| 10.200.0.128/27 | ap-northeast-2a | NAS1_A | vpc-02c522ba58ca5f742 |
+| 10.200.30.0/26 | ap-northeast-2a | SAPDEV_A | vpc-02c522ba58ca5f742 |
+| 10.200.21.0/26 | ap-northeast-2c | SAPAP2_C | vpc-02c522ba58ca5f742 |
+| 10.200.11.0/26 | ap-northeast-2c | SAPDB2_C | vpc-02c522ba58ca5f742 |
+| 10.200.0.0/26 | ap-northeast-2a | COMMON1_A | vpc-02c522ba58ca5f742 |
+| 10.200.0.64/26 | ap-northeast-2c | COMMON2_C | vpc-02c522ba58ca5f742 |
+| 10.200.51.0/25 | ap-northeast-2c | LEGAAP2_C | vpc-02c522ba58ca5f742 |
+| 10.200.11.160/27 | ap-northeast-2c | NAS2_C | vpc-02c522ba58ca5f742 |
+| 10.200.50.240/28 | ap-northeast-2a | LEGADMZ_A | vpc-02c522ba58ca5f742 |
+| 10.200.60.0/26 | ap-northeast-2a | LEGADEV_A | vpc-02c522ba58ca5f742 |
+| 10.200.20.0/26 | ap-northeast-2a | SAPAP1_A | vpc-02c522ba58ca5f742 |
+| 10.200.0.192/28 | ap-northeast-2a | INTERNAL1_A | vpc-02c522ba58ca5f742 |
+| 10.200.0.208/28 | ap-northeast-2c | INTERNAL2_C | vpc-02c522ba58ca5f742 |
+| 10.200.10.0/26 | ap-northeast-2a | SAPDB1_A | vpc-02c522ba58ca5f742 |
+| 10.200.40.0/25 | ap-northeast-2a | LEGADB1_A | vpc-02c522ba58ca5f742 |
+| 10.200.50.0/25 | ap-northeast-2a | LEGAAP1_A | vpc-02c522ba58ca5f742 |
