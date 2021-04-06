@@ -7,7 +7,8 @@ resource "aws_instance" "sbodev" {
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
   ebs_optimized = false
-
+  hibernation = false
+  monitoring = false
   root_block_device {
     volume_type = "gp2"
     volume_size = 100

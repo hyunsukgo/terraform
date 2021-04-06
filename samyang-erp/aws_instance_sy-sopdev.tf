@@ -6,6 +6,9 @@ resource "aws_instance" "sopdev" {
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
   user_data = file("./scripts/wininst.sh")
+  ebs_optimized = false
+  hibernation = false
+  monitoring = false
   root_block_device {
     volume_type = "gp2"
     volume_size = 50
