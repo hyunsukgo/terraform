@@ -16,7 +16,7 @@ resource "aws_instance" "sbdap" {
       cz-ext1   = "sy-sbdap"
     }
   }
-  #user_data = file("./scripts/sapinst.sh")
+  user_data = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
   vpc_security_group_ids = [aws_security_group.allow_from_trust_to_bw_ap.id]
   subnet_id = aws_subnet.SAPDEV_A.id

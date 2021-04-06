@@ -16,7 +16,7 @@ resource "aws_instance" "sbodev" {
       cz-ext1   = "sy-sbodev"
     }
   }
-  #user_data = file("./scripts/wininst.sh")
+  user_data = file("./scripts/wininst.sh")
   disable_api_termination = "true"
   vpc_security_group_ids = [aws_security_group.allow_from_trust_to_sbodev.id]
   subnet_id = aws_subnet.SAPDEV_A.id
