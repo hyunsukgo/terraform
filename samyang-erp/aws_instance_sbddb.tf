@@ -6,9 +6,7 @@ resource "aws_instance" "sbddb" {
   private_ip           = "10.200.30.21"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
-  ebs_optimized = false
-  hibernation = false
-  monitoring = false
+  
   root_block_device {
     volume_type = "gp2"
     volume_size = 30
@@ -18,7 +16,7 @@ resource "aws_instance" "sbddb" {
       cz-ext1   = "sy-sbddb"
     }
   }
-  user_data = file("./scripts/sapinst.sh")
+  #user_data = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
   vpc_security_group_ids = [aws_security_group.allow_from_trust_to_bw_db.id]
   subnet_id = aws_subnet.SAPDEV_A.id

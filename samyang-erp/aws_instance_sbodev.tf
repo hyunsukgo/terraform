@@ -6,9 +6,7 @@ resource "aws_instance" "sbodev" {
   private_ip           = "10.200.30.31"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
-  ebs_optimized = false
-  hibernation = false
-  monitoring = false
+ 
   root_block_device {
     volume_type = "gp2"
     volume_size = 100
@@ -18,7 +16,7 @@ resource "aws_instance" "sbodev" {
       cz-ext1   = "sy-sbodev"
     }
   }
-  user_data = file("./scripts/wininst.sh")
+  #user_data = file("./scripts/wininst.sh")
   disable_api_termination = "true"
   vpc_security_group_ids = [aws_security_group.allow_from_trust_to_sbodev.id]
   subnet_id = aws_subnet.SAPDEV_A.id
