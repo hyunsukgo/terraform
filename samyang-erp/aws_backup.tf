@@ -7,7 +7,7 @@ resource "aws_backup_plan" "backupplan" {
   name = "${var.service_name}-backup-plan"
 
   rule {
-    rule_name         = "${var.service_name}_example_backup_rule"
+    rule_name         = "${var.service_name}_backup_rule"
     target_vault_name = aws_backup_vault.backup.name
     schedule          = "cron(0 20 * * ? *)"
 
