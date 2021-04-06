@@ -36,3 +36,8 @@ variable "reporturl" {
 variable "co-op" {
   type = string
 }
+
+variable "dns" {
+  type = string
+}
+ 

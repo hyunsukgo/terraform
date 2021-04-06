@@ -6,7 +6,7 @@ resource "aws_instance" "sbddb" {
   private_ip           = "10.200.30.21"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
-
+  ebs_optimized = false
   root_block_device {
     volume_type = "gp2"
     volume_size = 30
