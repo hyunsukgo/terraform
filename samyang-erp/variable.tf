@@ -40,4 +40,7 @@ variable "co-op" {
 variable "dns" {
   type = string
 }
- 
+
+variable "peering-cidr" {
+  type = string
+}
