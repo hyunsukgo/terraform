@@ -9,7 +9,7 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap2" {
     from_port       = 139
     to_port         = 139
     protocol        = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   
   ingress {
@@ -17,7 +17,7 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap2" {
     from_port       = 445
     to_port         = 445
     protocol        = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -25,7 +25,7 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap2" {
     from_port       = 3389
     to_port         = 3389
     protocol        = "tcp"
-    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
