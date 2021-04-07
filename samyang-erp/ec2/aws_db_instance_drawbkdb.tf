@@ -1,33 +1,45 @@
+resource "aws_db_instance" "drawbkdb" {
+  identifier = "drawbkdb"
 
-resource "aws_instance" "drawbkdb" {
-  ami           = "ami-0133b1a5b9ca9be36" # ap-northeast-2
-  instance_type = "m5.2xlarge"
+  engine               = "oracle-se"
+  engine_version       = "18.0.0.0.ru-2021.rur-2021-01.r1"
+  family               = "oracle-se-18.0" # DB parameter group
+  major_engine_version = "12.1"           # DB option group
+  instance_class       = "db.m5.2xlarge"
+  license_model        = "license-include"
 
-  private_ip           = "10.200.40.71"
-  key_name             = "samyangerp"
-  iam_instance_profile = "ssm"
+  allocated_storage     = 100
+  max_allocated_storage = 2048
+  storage_encrypted     = true
 
-  root_block_device {
-    volume_type = "gp2"
-    volume_size = 100
-    tags = {
-      Name      = "sy-drawbkdb"
-      Partition = "drawbkdb_root"
-      cz-ext1   = "sy-drawbkdb"
-    }
-  }
-  user_data = file("../scripts/wininst.sh")
-  disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_drawbkdb.id]
-  subnet_id = aws_subnet.LEGADB1_A.id
+  # Make sure that database name is capitalized, otherwise RDS will try to recreate RDS instance every time
+  name                   = "DRAWBKDB"
+  username               = "drawbkdb"
+  create_random_password = true
+  random_password_length = 12
+  port                   = 1521
+
+  multi_az               = false
+  subnet_ids             = module.vpc.database_subnets
+  vpc_security_group_ids = [module.security_group.this_security_group_id]
+
+  backup_retention_period = 0
+  skip_final_snapshot     = true
+  deletion_protection     = false
+
+  performance_insights_enabled          = true
+  performance_insights_retention_period = 7
+  create_monitoring_role                = true
+
+  # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
+  character_set_name = "AL32UTF8"
+}
+
+resource "aws_db_subnet_group" "drawbkdb" {
+  name       = "drawbkdb-db-subnet"
+  subnet_ids = [aws_subnet.LEGADB1_A.id]
 
   tags = {
-    Name        = "sy-drawbkdb"
-    Description = "관세환급 DB(Oracle)"
-    Environment = "Prd"
-    cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
-    Snapshot    = "Yes"
-    cz-ext1   = "sy-drawbkdb"
+    Name = "drawbkdb DB subnet group"
   }
 }
