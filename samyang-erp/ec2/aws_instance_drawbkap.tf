@@ -1,7 +1,7 @@
 
 resource "aws_instance" "drawbkap" {
   ami           = "ami-0133b1a5b9ca9be36" # ap-northeast-2
-  instance_type = "c5.xlarge"
+  instance_type = "c5.2xlarge"
 
   private_ip           = "10.200.50.243"
   key_name             = "samyangerp"
@@ -18,7 +18,7 @@ resource "aws_instance" "drawbkap" {
   }
   user_data = file("../scripts/wininst.sh")
   disable_api_termination = "true"
-  security_groups = [aws_security_group.allow_from_trust_to_drawbkap.id]
+  security_groups = [aws_security_group.allow_from_trust_to_drawbkap2.id]
   subnet_id = aws_subnet.LEGADMZ_A.id
 
   tags = {
