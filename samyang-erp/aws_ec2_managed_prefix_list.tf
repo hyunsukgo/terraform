@@ -15,7 +15,7 @@ resource "aws_ec2_managed_prefix_list" "trusted" {
   }
 
   entry {
-    cidr        = aws_vpc.vpc.peering-cidr
+    cidr        = var.peering-cidr
     description = "${var.service_name}WEB-peering"
   }
 }
