@@ -1,5 +1,5 @@
 
-resource "aws_instance" "ifmdb" {
+resource "aws_instance" "drawbkap" {
   ami           = "ami-081511b9e3af53902" # ap-northeast-2
   instance_type = "m5.xlarge"
 

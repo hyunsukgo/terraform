@@ -1,7 +1,7 @@
 resource "aws_instance" "saprouter" {
   ami           = "ami-006e2f9fa7597680a" # ap-northeast-2
   instance_type = "t3.small"
-
+  iam_instance_profile = "ssm"
   private_ip = "10.200.0.60"
   key_name   = "samyangerp"
   root_block_device {
