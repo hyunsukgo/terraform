@@ -5,3 +5,6 @@ module "ec2" {
 module "sg" {
   source = "./sg"
 }
+module "main" {
+  source = "./"
+}
