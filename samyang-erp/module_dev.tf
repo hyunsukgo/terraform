@@ -1,4 +1,0 @@
-/*module "devenv" {
-  source  = "./dev"
-}
-*/
