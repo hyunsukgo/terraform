@@ -28,7 +28,7 @@ resource "aws_db_instance" "drawbkdb" {
 
   performance_insights_enabled          = true
   performance_insights_retention_period = 7
-  storage_encrypted = true
+  #storage_encrypted = true
 }
 
 resource "aws_db_subnet_group" "drawbkdb" {
