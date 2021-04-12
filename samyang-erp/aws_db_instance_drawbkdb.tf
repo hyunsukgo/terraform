@@ -22,7 +22,7 @@ resource "aws_db_instance" "drawbkdb" {
   password               = var.passwd
   multi_az               = false
   #subnet_ids             = aws_subnet.LEGARDS_A.id
-  vpc_security_group_ids = [aws_db_security_group.drawbkap_sg.id]
+  vpc_security_group_ids = [aws_db_security_group.drawbkdb_sg.id]
 
   backup_retention_period = 0
   skip_final_snapshot     = true
