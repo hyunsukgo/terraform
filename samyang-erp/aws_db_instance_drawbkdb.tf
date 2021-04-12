@@ -1,4 +1,4 @@
-
+/*
 resource "aws_db_instance" "drawbkdb" {
   identifier = "drawbkdb"
 
@@ -22,7 +22,7 @@ resource "aws_db_instance" "drawbkdb" {
   password               = var.passwd
   multi_az               = false
   #subnet_ids             = aws_subnet.LEGARDS_A.id
-  vpc_security_group_ids = [aws_db_security_group.drawbkdb_sg.id]
+  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_drawbkap.id]
 
   backup_retention_period = 0
   skip_final_snapshot     = true
@@ -36,7 +36,7 @@ resource "aws_db_instance" "drawbkdb" {
   # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
   #character_set_name = "AL32UTF8"
 }
-
+*/
 resource "aws_db_subnet_group" "drawbkdb" {
   name       = "drawbkdb-db-subnets"
   subnet_ids = [aws_subnet.LEGARDS_A.id,aws_subnet.LEGARDS_C.id]
