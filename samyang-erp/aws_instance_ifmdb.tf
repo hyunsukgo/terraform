@@ -25,7 +25,7 @@ resource "aws_instance" "ifmdb" {
     Description = "IF관리시스템"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    #Schedule    = "samyang-office-hours"
+    Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
     cz-ext1   = "sy-ifmdb"
   }
