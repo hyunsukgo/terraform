@@ -13,6 +13,10 @@ resource "aws_route_table" "private_route" {
     cidr_block         = "130.1.0.0/16"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
+  route {
+    cidr_block         = "10.20.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
 
 
   tags = {
