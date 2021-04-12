@@ -1,4 +1,4 @@
-/*
+
 resource "aws_db_instance" "drawbkdb" {
   identifier = "drawbkdb"
 
@@ -16,13 +16,11 @@ resource "aws_db_instance" "drawbkdb" {
   # Make sure that database name is capitalized, otherwise RDS will try to recreate RDS instance every time
   name                   = "DRAWBKDB"
   username               = "drawbkdb"
-  #create_random_password = true
-  #random_password_length = 12
   port                   = 1521
   password               = var.passwd
   multi_az               = false
-  #subnet_ids             = aws_subnet.LEGARDS_A.id
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_drawbkap.id]
+  subnet_ids             = ["aws_subnet.LEGARDS_A.id"]
+  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_drawbkdb.id]
 
   backup_retention_period = 0
   skip_final_snapshot     = true
@@ -30,13 +28,9 @@ resource "aws_db_instance" "drawbkdb" {
 
   performance_insights_enabled          = true
   performance_insights_retention_period = 7
-
-  #create_monitoring_role                = true
-
-  # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
-  #character_set_name = "AL32UTF8"
+  storage_encrypted = true
 }
-*/
+
 resource "aws_db_subnet_group" "drawbkdb" {
   name       = "drawbkdb-db-subnets"
   subnet_ids = [aws_subnet.LEGARDS_A.id,aws_subnet.LEGARDS_C.id]
