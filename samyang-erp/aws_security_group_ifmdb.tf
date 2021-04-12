@@ -11,7 +11,27 @@ resource "aws_security_group" "allow_from_trust_to_ifmdb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+  ingress {
+    description     = "HTTP from Trusted Zone"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+  ingress {
+    description     = "HTTPS from Trusted Zone"
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+  ingress {
+    description     = "Application from Trusted Zone"
+    from_port       = 8000
+    to_port         = 8199
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
   ingress {
     description     = "PostgreSQL Access from On-Prem"
     from_port       = 5432
