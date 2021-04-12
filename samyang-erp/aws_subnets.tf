@@ -193,3 +193,25 @@ resource "aws_subnet" "INTERNAL2_C" {
     LoadBalancing = "Private"
   }
 }
+resource "aws_subnet" "LEGARDS_A" {
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = "${var.region}a"
+  cidr_block        = "10.200.41.0/25"
+
+  tags = {
+    Name       = "LEGARDS_A"
+    Enviroment = "PRD"
+    RT         = "private"
+  }
+}
+resource "aws_subnet" "LEGARDS_C" {
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = "${var.region}c"
+  cidr_block        = "10.200.42.0/25"
+
+  tags = {
+    Name       = "LEGARDS_C"
+    Enviroment = "PRD"
+    RT         = "private"
+  }
+}
