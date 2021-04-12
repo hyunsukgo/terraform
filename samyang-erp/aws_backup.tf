@@ -22,7 +22,7 @@ resource "aws_backup_plan" "backupplan" {
     backup_options = {
       WindowsVSS = "enabled"
     }
-    resource_type = "EC2"
+    resource_type = ["EC2","RDS"]
   }
 }
 

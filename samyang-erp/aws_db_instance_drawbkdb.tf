@@ -24,11 +24,12 @@ resource "aws_db_instance" "drawbkdb" {
 
   backup_retention_period = 0
   skip_final_snapshot     = true
-  deletion_protection     = true
-
+  deletion_protection     = true 
+  tags {
+    Snapshot    = "Yes"
+  }
   performance_insights_enabled          = true
   performance_insights_retention_period = 7
-  #storage_encrypted = true
 }
 
 resource "aws_db_subnet_group" "drawbkdb" {
