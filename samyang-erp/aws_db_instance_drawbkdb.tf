@@ -2,7 +2,7 @@ resource "aws_db_instance" "drawbkdb" {
   identifier = "drawbkdb"
 
   engine               = "oracle-se"
-  engine_version       = "18.0.0.0.ru-2021.rur-2021-01.r1"
+  engine_version       = "18.0.0.0"
   #family               = "oracle-se-18.0" # DB parameter group
   #major_engine_version = "12.1"           # DB option group
   instance_class       = "db.m5.2xlarge"
