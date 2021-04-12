@@ -6,7 +6,7 @@ resource "aws_db_instance" "drawbkdb" {
   #family               = "oracle-se-18.0" # DB parameter group
   #major_engine_version = "12.1"           # DB option group
   instance_class       = "db.m5.2xlarge"
-  license_model        = "license-include"
+  license_model        = "license-included"
 
   allocated_storage     = 100
   max_allocated_storage = 2048
