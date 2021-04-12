@@ -1,4 +1,4 @@
-/*
+
 resource "aws_db_instance" "drawbkdb" {
   identifier = "drawbkdb"
 
@@ -36,7 +36,7 @@ resource "aws_db_instance" "drawbkdb" {
   # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
   #character_set_name = "AL32UTF8"
 }
-*/
+
 resource "aws_db_subnet_group" "drawbkdb" {
   name       = "drawbkdb-db-subnets"
   subnet_ids = [aws_subnet.LEGARDS_A.id,aws_subnet.LEGARDS_C.id]
