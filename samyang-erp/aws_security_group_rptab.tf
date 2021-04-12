@@ -18,6 +18,7 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
     to_port         = 80
     protocol        = "tcp"
     security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
+    cidr_blocks     = ["130.1.0.0/16"]
   }
   
   ingress {
