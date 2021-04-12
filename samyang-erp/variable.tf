@@ -28,6 +28,9 @@ variable "peervpcid" {
 variable "architect" {
   type = string
 }
+variable "passwd" {
+  type = string
+}
 
 variable "reporturl" {
   type = string
