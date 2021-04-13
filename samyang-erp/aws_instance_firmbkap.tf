@@ -19,7 +19,7 @@ resource "aws_instance" "firmbkap" {
   user_data = file("./scripts/wininst.sh")
   disable_api_termination = "true"
   security_groups = [aws_security_group.allow_from_trust_to_firmbkap.id]
-  subnet_id = aws_subnet.LEGAAPP_A.id
+  subnet_id = aws_subnet.LEGAAP1_A.id
 
   tags = {
     Name        = "sy-firmbkap"
