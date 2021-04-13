@@ -1,8 +1,8 @@
 
 resource "aws_instance" "eaccapdev" {
   ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
-  instance_type = "c5.xlarge"
-
+  instance_type = "m5.xlarge"
+  ebs_optimized = true
   private_ip           = "10.200.60.31"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
