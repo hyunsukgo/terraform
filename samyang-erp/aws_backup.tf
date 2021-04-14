@@ -74,3 +74,14 @@ resource "aws_backup_selection" "ebsbackselection" {
     value = "Yes"
   }
 }
+resource "aws_backup_selection" "ebsbackselection" {
+  iam_role_arn = aws_iam_role.awsbackuprole.arn
+  name         = "${var.service_name}-rds-selection"
+  plan_id      = aws_backup_plan.rds_backupplan.id
+
+  selection_tag {
+    type  = "STRINGEQUALS"
+    key   = "Snapshot"
+    value = "Yes"
+  }
+}
