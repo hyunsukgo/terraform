@@ -10,6 +10,7 @@ resource "aws_security_group" "allow_from_trust_to_drawbkdb" {
     to_port         = 1521
     protocol        = "tcp"
     security_groups = [aws_security_group.allow_from_trust_to_drawbkap.id]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   
   egress {
