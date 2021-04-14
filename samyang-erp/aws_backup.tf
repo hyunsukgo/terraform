@@ -25,28 +25,6 @@ resource "aws_backup_plan" "backupplan" {
     resource_type = "EC2"
   }
 }
-resource "aws_backup_plan" "rdsbackupplan" {
-  name = "${var.service_name}-rds-backup-plan"
-
-  rule {
-    rule_name         = "${var.service_name}_backup_rule"
-    target_vault_name = aws_backup_vault.backup.name
-    schedule          = "cron(0 20 * * ? *)"
-
-    lifecycle {
-      cold_storage_after = 0
-      delete_after       = 1
-    }
-
-  }
-
-  advanced_backup_setting {
-    backup_options = {
-      WindowsVSS = "enabled"
-    }
-    resource_type = "RDS"
-  }
-}
 
 resource "aws_iam_role" "awsbackuprole" {
   name               = "${var.service_name}-backup-role"
