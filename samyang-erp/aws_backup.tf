@@ -1,5 +1,5 @@
-resource "aws_backup_vault" "rdsbackup" {
-  name        = "${var.service_name}-rdsbackup-vault"
+resource "aws_backup_vault" "backup" {
+  name        = "${var.service_name}-backup-vault"
   kms_key_arn = aws_kms_key.backup.arn
 }
 resource "aws_backup_plan" "rds_backupplan" {
