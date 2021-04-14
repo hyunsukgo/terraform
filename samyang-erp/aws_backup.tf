@@ -16,13 +16,6 @@ resource "aws_backup_plan" "rds_backupplan" {
     }
 
   }
-
-  advanced_backup_setting {
-    backup_options = {
-      WindowsVSS = "enabled"
-    }
-    resource_type = "RDS"
-  }
 }
 resource "aws_backup_plan" "backupplan" {
   name = "${var.service_name}-backup-plan"
