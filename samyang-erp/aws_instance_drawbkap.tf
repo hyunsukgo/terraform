@@ -31,3 +31,21 @@ resource "aws_instance" "drawbkap" {
     cz-ext1   = "sy-drawbkap"
   }
 }
+
+resource "aws_volume_attachment" "drawbkap_att" {
+  device_name = "/dev/sdb"
+  volume_id   = aws_ebs_volume.drawbkap_add.id
+  instance_id = aws_instance.drawbkap.id
+}
+
+resource "aws_ebs_volume" "drawbkap_add" {
+  availability_zone = "${var.region}a"
+  size              = 150
+  type              = "gp2"
+  tags = {
+    Snapshot  = "true"
+    Name      = "sy-drawbkap"
+    Partition = "drawbkap_D"
+    cz-ext1   = "sy-drawbkap"
+  }
+}
