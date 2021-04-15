@@ -2,21 +2,7 @@ resource "aws_backup_vault" "backup" {
   name        = "${var.service_name}-backup-vault"
   kms_key_arn = aws_kms_key.backup.arn
 }
-resource "aws_backup_plan" "rds_backupplan" {
-  name = "${var.service_name}-rds-backup-plan"
 
-  rule {
-    rule_name         = "${var.service_name}_rds_backup_rule"
-    target_vault_name = aws_backup_vault.backup.name
-    schedule          = "cron(0 20 * * ? *)"
-
-    lifecycle {
-      cold_storage_after = 0
-      delete_after       = 1
-    }
-
-  }
-}
 resource "aws_backup_plan" "backupplan" {
   name = "${var.service_name}-backup-plan"
 
@@ -67,17 +53,6 @@ resource "aws_backup_selection" "ebsbackselection" {
   iam_role_arn = aws_iam_role.awsbackuprole.arn
   name         = "${var.service_name}-selection"
   plan_id      = aws_backup_plan.backupplan.id
-
-  selection_tag {
-    type  = "STRINGEQUALS"
-    key   = "Snapshot"
-    value = "Yes"
-  }
-}
-resource "aws_backup_selection" "rdsbackselection" {
-  iam_role_arn = aws_iam_role.awsbackuprole.arn
-  name         = "${var.service_name}-rds-selection"
-  plan_id      = aws_backup_plan.rds_backupplan.id
 
   selection_tag {
     type  = "STRINGEQUALS"
