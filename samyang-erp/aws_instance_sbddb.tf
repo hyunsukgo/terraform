@@ -26,7 +26,7 @@ resource "aws_instance" "sbddb" {
     Description = "DB 서버"
     Environment = "Dev"
     cz-product  = "SAP"
-    #Schedule    = "samyang-office-hours"
+    Schedule    = "samyang-office-hours-extend"
     Snapshot    = "Yes"
     cz-ext1   = "sy-sbddb"
   }
