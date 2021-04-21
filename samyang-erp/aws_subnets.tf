@@ -109,7 +109,7 @@ resource "aws_subnet" "LEGADMZ_A" {
   tags = {
     Name       = "LEGADMZ_A"
     Enviroment = "PRD"
-    RT         = "private"
+    RT         = "public"
   }
 }
 
