@@ -26,7 +26,7 @@ resource "aws_instance" "drawbkap" {
     Description = "관세환급 AP"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    #Schedule    = "samyang-office-hours"
+    Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
     cz-ext1   = "sy-drawbkap"
   }
