@@ -2,7 +2,7 @@ resource "aws_vpc_endpoint" "s3" {
   vpc_id            = aws_vpc.vpc.id
   service_name      = "com.amazonaws.ap-northeast-2.s3"
   vpc_endpoint_type = "Interface"
-  subnet_ids = [aws_route_table.INTERNAL1_A.id,aws_route_table.INTERNAL2_C.id]
+  subnet_ids = [aws_subnet.INTERNAL1_A.id,aws_subnet.INTERNAL2_C.id]
   security_group_ids = [
     aws_security_group.allow_from_trust_to_s3end.id
   ]
