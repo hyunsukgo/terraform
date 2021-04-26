@@ -9,7 +9,7 @@ resource "aws_vpc_endpoint" "s3" {
 }
 
 resource "aws_security_group" "allow_from_trust_to_s3end" {
-  name        = "allow_traffic_rptap"
+  name        = "allow_traffic_s3end"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
 
