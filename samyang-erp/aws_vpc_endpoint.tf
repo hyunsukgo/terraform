@@ -1,4 +1,4 @@
-resource "aws_vpc_endpoint" "s3" {
+/*resource "aws_vpc_endpoint" "s3" {
   vpc_id            = aws_vpc.vpc.id
   service_name      = "com.amazonaws.ap-northeast-2.s3"
   vpc_endpoint_type = "Interface"
@@ -31,6 +31,12 @@ resource "aws_security_group" "allow_from_trust_to_s3end" {
   tags = {
     Name = "allow_from_trust_to_s3_endpoint"
   }
+}
+*/
+
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id       = aws_vpc.vpc.id
+  service_name = "com.amazonaws.ap-northeast-2.s3"
 }
 
 resource "aws_vpc_endpoint_route_table_association" "s3end_rta" {
