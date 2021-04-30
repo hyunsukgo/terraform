@@ -47,3 +47,7 @@ variable "dns" {
 variable "peering-cidr" {
   type = string
 }
+
+variable "ksnet-cgw" {
+  type = string
+}
