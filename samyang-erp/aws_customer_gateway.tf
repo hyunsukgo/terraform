@@ -13,6 +13,6 @@ resource "aws_customer_gateway" "ksnet_cgw" {
   type       = "ipsec.1"
 
   tags = {
-    Name = "${var.service_name}-customer-gateway"
+    Name = "${var.service_name}-customer-gateway(KSNET)"
   }
 }
