@@ -273,6 +273,7 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description = "Host agent access"
     from_port   = 80
@@ -287,6 +288,15 @@ resource "aws_security_group" "allow_from_trust_to_po" {
     protocol    = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
+  ingress {
+    description = "SAP JVM Monitoring"
+    from_port   = 1099
+    to_port     = 1099
+    protocol    = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   ingress {
     description = "Host agent access"
     from_port   = 1128
