@@ -51,3 +51,7 @@ variable "peering-cidr" {
 variable "ksnet-cgw" {
   type = string
 }
+
+variable "ksnet" {
+  type = string
+}
