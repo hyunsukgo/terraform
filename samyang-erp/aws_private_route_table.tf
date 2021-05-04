@@ -19,7 +19,7 @@ resource "aws_route_table" "private_route" {
   }
 
   route {
-    cidr_block        = "var.ksnet"
+    cidr_block        = var.ksnet
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
