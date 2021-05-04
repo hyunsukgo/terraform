@@ -13,5 +13,7 @@ resource "aws_vpn_connection" "ksnet-vpn" {
   transit_gateway_id  = aws_ec2_transit_gateway.tgw.id
   type                = aws_customer_gateway.cgw.type
   static_routes_only  = true
-  Name = "${var.ksnet}-VPN"
+  tags {
+    Name = "${var.ksnet}-VPN"
+  }
 }
