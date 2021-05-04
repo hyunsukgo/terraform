@@ -18,6 +18,10 @@ resource "aws_route_table" "private_route" {
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
+  route {
+    cidr_block        = "var.ksnet"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
 
   tags = {
     Name = "${var.service_name}-private-rt"
