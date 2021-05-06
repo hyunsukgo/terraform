@@ -14,6 +14,6 @@ resource "aws_vpn_connection" "ksnet-vpn" {
   type                = aws_customer_gateway.cgw.type
   static_routes_only  = true
   tags = {
-    Name = "${var.ksnet}-VPN"
+    Name = "KSNET-VPN"
   }
 }
