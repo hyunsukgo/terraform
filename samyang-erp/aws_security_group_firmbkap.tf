@@ -32,7 +32,7 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     from_port       = 9237
     to_port         = 9237
     protocol        = "tcp"
-    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+    cidr_blocks     = ["129.200.9.11/32"]
     
   }
   ingress {
@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     from_port       = 9238
     to_port         = 9238
     protocol        = "tcp"
-    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+    cidr_blocks     = ["129.200.9.18/32"]
   }
   ingress {
     description     = "KSNET(real/dev)"

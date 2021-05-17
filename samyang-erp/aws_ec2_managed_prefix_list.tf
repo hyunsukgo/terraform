@@ -18,4 +18,9 @@ resource "aws_ec2_managed_prefix_list" "trusted" {
     cidr        = var.peering-cidr
     description = "${var.service_name}WEB-peering"
   }
+
+  entry {
+    cidr        = 172.16.16.0/24
+    description = "On-Premise CIDR-DM2"
+  }
 }
