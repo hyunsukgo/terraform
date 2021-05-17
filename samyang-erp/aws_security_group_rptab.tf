@@ -10,6 +10,7 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
     to_port         = 3389
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    cidr_blocks     = ["172.16.16.0/24"]
   }
 
   ingress {
@@ -18,7 +19,7 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
     to_port         = 80
     protocol        = "tcp"
     security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
-    cidr_blocks     = ["130.1.0.0/16"]
+    cidr_blocks     = ["172.16.16.0/24","130.1.0.0/16"]
   }
   
   ingress {
