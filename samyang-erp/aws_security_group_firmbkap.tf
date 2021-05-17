@@ -27,7 +27,41 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+  ingress {
+    description     = "Firm Banking from KSNET"
+    from_port       = 9237
+    to_port         = 9237
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+  }
+  ingress {
+    description     = "Firm Banking from KSNET"
+    from_port       = 9221
+    to_port         = 9221
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+  }
+  ingress {
+    description     = "Firm Banking from KSNET"
+    from_port       = 21449
+    to_port         = 21449
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+  }
+  ingress {
+    description     = "Firm Banking from KSNET"
+    from_port       = 28800
+    to_port         = 28800
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+  }
+  ingress {
+    description     = "Firm Banking from KSNET"
+    from_port       = 50001
+    to_port         = 50001
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+  }
   egress {
     from_port   = 0
     to_port     = 0
