@@ -49,20 +49,37 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     protocol        = "tcp"
     cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
   }
+
+  ingress {
+    description     = "KSNET(real/dev)"
+    from_port       = 9222
+    to_port         = 9222
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.18/32"]
+  }
   ingress {
     description     = "KSNET(real/dev)"
     from_port       = 21449
     to_port         = 21449
     protocol        = "tcp"
-    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+    cidr_blocks     = ["129.200.9.11/32"]
   }
   ingress {
     description     = "KSNET(real/dev)"
     from_port       = 28800
     to_port         = 28800
     protocol        = "tcp"
-    cidr_blocks     = ["129.200.9.11/32","129.200.9.18/32"]
+    cidr_blocks     = ["129.200.9.11/32"]
   }
+
+  ingress {
+    description     = "KSNET(real/dev)"
+    from_port       = 41449
+    to_port         = 41449
+    protocol        = "tcp"
+    cidr_blocks     = ["129.200.9.18/32"]
+  }
+
   ingress {
     description     = "KSNET(real/dev)"
     from_port       = 50001
