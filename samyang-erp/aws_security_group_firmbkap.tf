@@ -64,6 +64,8 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     protocol        = "tcp"
     cidr_blocks     = ["129.200.9.11/32"]
   }
+
+  
   ingress {
     description     = "KSNET(real/dev)"
     from_port       = 28800
