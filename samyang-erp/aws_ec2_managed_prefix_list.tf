@@ -20,7 +20,7 @@ resource "aws_ec2_managed_prefix_list" "trusted" {
   }
 
   entry {
-    cidr        = 172.16.16.0/24
+    cidr        = "172.16.16.0/24"
     description = "On-Premise CIDR-DM2"
   }
 }
