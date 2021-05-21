@@ -59,3 +59,27 @@ resource "aws_vpc_endpoint" "ssm" {
 
   private_dns_enabled = true
 }
+
+resource "aws_vpc_endpoint" "ec2message" {
+  vpc_id            = aws_vpc.vpc.id
+  service_name      = "com.amazonaws.ap-northeast-2.ec2message"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = [aws_subnet.INTERNAL1_A.id,aws_subnet.INTERNAL2_C.id]
+  security_group_ids = [
+    aws_security_group.allow_from_trust_to_ssm.id,
+  ]
+
+  private_dns_enabled = true
+}
+
+resource "aws_vpc_endpoint" "ssmmessage" {
+  vpc_id            = aws_vpc.vpc.id
+  service_name      = "com.amazonaws.ap-northeast-2.ssmmessage"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = [aws_subnet.INTERNAL1_A.id,aws_subnet.INTERNAL2_C.id]
+  security_group_ids = [
+    aws_security_group.allow_from_trust_to_ssm.id,
+  ]
+
+  private_dns_enabled = true
+}
