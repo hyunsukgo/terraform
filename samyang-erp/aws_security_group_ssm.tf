@@ -4,7 +4,7 @@ resource "aws_security_group" "allow_from_trust_to_ssm" {
   vpc_id      = aws_vpc.vpc.id
   
   ingress {
-    description     = "SSM Endpoint
+    description     = "SSM Endpoint"
     from_port       = 443
     to_port         = 443
     protocol        = "tcp"

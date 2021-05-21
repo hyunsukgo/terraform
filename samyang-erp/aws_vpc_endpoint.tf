@@ -47,3 +47,15 @@ resource "aws_vpc_endpoint_route_table_association" "s3end_private_rta" {
   route_table_id  = aws_route_table.private_route.id
   vpc_endpoint_id = aws_vpc_endpoint.s3.id
 }
+
+resource "aws_vpc_endpoint" "ssm" {
+  vpc_id            = aws_vpc.vpc.id
+  service_name      = "com.amazonaws.ap-northeast-2.ssm"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = [subnet_ids.INTERNAL1_A.id,subnet_ids.INTERNAL2_C.id]
+  security_group_ids = [
+    aws_security_group.allow_from_trust_to_ssm.id,
+  ]
+
+  private_dns_enabled = true
+}
