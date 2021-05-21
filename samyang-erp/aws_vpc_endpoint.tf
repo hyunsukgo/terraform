@@ -62,7 +62,7 @@ resource "aws_vpc_endpoint" "ssm" {
 
 resource "aws_vpc_endpoint" "ec2message" {
   vpc_id            = aws_vpc.vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ec2message"
+  service_name      = "com.amazonaws.ap-northeast-2.ec2messages"
   vpc_endpoint_type = "Interface"
   subnet_ids        = [aws_subnet.INTERNAL1_A.id,aws_subnet.INTERNAL2_C.id]
   security_group_ids = [
@@ -74,7 +74,7 @@ resource "aws_vpc_endpoint" "ec2message" {
 
 resource "aws_vpc_endpoint" "ssmmessage" {
   vpc_id            = aws_vpc.vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ssmmessage"
+  service_name      = "com.amazonaws.ap-northeast-2.ssmmessages"
   vpc_endpoint_type = "Interface"
   subnet_ids        = [aws_subnet.INTERNAL1_A.id,aws_subnet.INTERNAL2_C.id]
   security_group_ids = [
