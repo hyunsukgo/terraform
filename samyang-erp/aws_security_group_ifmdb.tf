@@ -39,6 +39,13 @@ resource "aws_security_group" "allow_from_trust_to_ifmdb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+  ingress {
+    description     = "EAI Monitoring"
+    from_port       = 9840
+    to_port         = 9841
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
   egress {
     from_port   = 0
     to_port     = 0
