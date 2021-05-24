@@ -112,6 +112,17 @@ resource "aws_subnet" "LEGADMZ_A" {
     RT         = "public"
   }
 }
+resource "aws_subnet" "LEGADMZ_C" {
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = "${var.region}c"
+  cidr_block        = "10.200.51.240/28"
+
+  tags = {
+    Name       = "LEGADMZ_C"
+    Enviroment = "PRD"
+    RT         = "public"
+  }
+}
 
 resource "aws_subnet" "LEGADEV_A" {
   vpc_id            = aws_vpc.vpc.id
