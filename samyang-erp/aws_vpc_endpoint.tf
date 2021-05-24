@@ -84,7 +84,7 @@ resource "aws_vpc_endpoint" "ssmmessage" {
   private_dns_enabled = true
 }
 
-resource "aws_vpc_endpoint" "ssmmessage" {
+resource "aws_vpc_endpoint" "ec2" {
   vpc_id            = aws_vpc.vpc.id
   service_name      = "com.amazonaws.ap-northeast-2.ec2"
   vpc_endpoint_type = "Interface"
