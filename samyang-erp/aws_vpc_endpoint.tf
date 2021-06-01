@@ -57,7 +57,7 @@ resource "aws_vpc_endpoint" "ssm" {
     aws_security_group.allow_from_trust_to_ssm.id
   ]
 
-  private_dns_enabled = false
+  private_dns_enabled = true
 }
 
 resource "aws_vpc_endpoint" "ec2message" {
@@ -81,7 +81,7 @@ resource "aws_vpc_endpoint" "ssmmessage" {
     aws_security_group.allow_from_trust_to_ssm.id
   ]
 
-  private_dns_enabled = false
+  private_dns_enabled = true
 }
 
 resource "aws_vpc_endpoint" "ec2" {
