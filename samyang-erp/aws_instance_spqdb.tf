@@ -69,7 +69,7 @@ resource "aws_ebs_volume" "spqdb_add_2" {
 }
 resource "aws_volume_attachment" "spqdb_att_3" {
   device_name = "/dev/sde"
-  volume_id   = aws_ebs_volume.spqdb_add_5.id
+  volume_id   = aws_ebs_volume.spqdb_add_3.id
   instance_id = aws_instance.spqdb.id
 }
 

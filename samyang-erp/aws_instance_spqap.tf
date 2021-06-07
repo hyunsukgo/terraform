@@ -52,7 +52,7 @@ resource "aws_ebs_volume" "spqap_add_1" {
 
 resource "aws_volume_attachment" "spqap_att_2" {
   device_name = "/dev/sde"
-  volume_id   = aws_ebs_volume.spqap_add_5.id
+  volume_id   = aws_ebs_volume.spqap_add_2.id
   instance_id = aws_instance.spqap.id
 }
 

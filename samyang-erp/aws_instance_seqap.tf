@@ -69,7 +69,7 @@ resource "aws_ebs_volume" "seqap_add_2" {
 }
 resource "aws_volume_attachment" "seqap_att_3" {
   device_name = "/dev/sde"
-  volume_id   = aws_ebs_volume.seqap_add_5.id
+  volume_id   = aws_ebs_volume.seqap_add_3.id
   instance_id = aws_instance.seqap.id
 }
 
