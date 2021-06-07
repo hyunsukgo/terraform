@@ -10,6 +10,7 @@ resource "aws_instance" "seqdb" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
+    kms_key_id = aws_kms_key.ebs_kms.id
     tags = {
       Name      = "sy-seqdb"
       Partition = "seqdb_root"
@@ -42,6 +43,7 @@ resource "aws_ebs_volume" "seqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 50
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -60,6 +62,7 @@ resource "aws_ebs_volume" "seqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 1230
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -77,6 +80,7 @@ resource "aws_ebs_volume" "seqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 512
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -94,6 +98,7 @@ resource "aws_ebs_volume" "seqdb_add_4" {
   availability_zone = "${var.region}a"
   size              = 1024
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -112,6 +117,7 @@ resource "aws_ebs_volume" "seqdb_add_5" {
   availability_zone = "${var.region}a"
   size              = 224
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb-swap"

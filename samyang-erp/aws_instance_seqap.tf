@@ -10,6 +10,7 @@ resource "aws_instance" "seqap" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
+    kms_key_id = aws_kms_key.ebs_kms.id
     tags = {
       Name      = "sy-seqap"
       Partition = "seqap_root"
@@ -42,6 +43,7 @@ resource "aws_ebs_volume" "seqap_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
@@ -60,6 +62,7 @@ resource "aws_ebs_volume" "seqap_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
@@ -77,6 +80,7 @@ resource "aws_ebs_volume" "seqap_add_3" {
   availability_zone = "${var.region}a"
   size              = 96
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap-swap"

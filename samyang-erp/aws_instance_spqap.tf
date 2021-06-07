@@ -10,6 +10,7 @@ resource "aws_instance" "spqap" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
+    kms_key_id = aws_kms_key.ebs_kms.id
     tags = {
       Name      = "sy-spqap"
       Partition = "spqap_root"
@@ -42,6 +43,7 @@ resource "aws_ebs_volume" "spqap_add_1" {
   availability_zone = "${var.region}a"
   size              = 100
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqap"
@@ -60,6 +62,7 @@ resource "aws_ebs_volume" "spqap_add_2" {
   availability_zone = "${var.region}a"
   size              = 64
   type              = "gp3"
+  kms_key_id = aws_kms_key.ebs_kms.id
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqap-swap"
