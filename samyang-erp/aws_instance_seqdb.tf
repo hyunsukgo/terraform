@@ -113,7 +113,7 @@ resource "aws_ebs_volume" "seqdb_add_4" {
 }
 
 resource "aws_volume_attachment" "seqdb_att_5" {
-  device_name = "/dev/sde"
+  device_name = "/dev/sdf"
   volume_id   = aws_ebs_volume.seqdb_add_5.id
   instance_id = aws_instance.seqdb.id
 }
