@@ -1,6 +1,6 @@
 
 resource "aws_instance" "spqdb" {
-  ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  ami           = "ami-097fc5cd098dd20d5" # ap-northeast-2
   instance_type = "r5.xlarge"
 
   private_ip           = "10.200.30.44"
