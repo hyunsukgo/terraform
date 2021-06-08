@@ -10,7 +10,7 @@ resource "aws_instance" "spqdb" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
-    kms_key_id = aws_kms_key.ebs_kms.id
+    kms_key_id = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-spqdb"
       Partition = "spqdb_root"
@@ -43,7 +43,7 @@ resource "aws_ebs_volume" "spqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.id
+  kms_key_id = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb"
@@ -62,7 +62,7 @@ resource "aws_ebs_volume" "spqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.id
+  kms_key_id = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb"
@@ -80,7 +80,7 @@ resource "aws_ebs_volume" "spqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 64
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.id
+  kms_key_id = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb-swap"
