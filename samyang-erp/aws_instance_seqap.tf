@@ -10,6 +10,7 @@ resource "aws_instance" "seqap" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
+    encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-seqap"
