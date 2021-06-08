@@ -3,7 +3,7 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
   name        = "allow_traffic_mdidb"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "Service Port"
     from_port       = 80
@@ -26,18 +26,18 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
-    description     = "Samyang-Azure"
-    from_port       = -1
-    to_port         = -1
-    protocol        = "icmp"
-    cidr_blocks     = ["10.20.0.0/16"]
+    description = "Samyang-Azure"
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["10.20.0.0/16"]
   }
   ingress {
-    description     = "Samyang-Azure"
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["10.20.0.0/16"]
+    description = "Samyang-Azure"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["10.20.0.0/16"]
   }
   ingress {
     description     = "SMB dialects that communicate over NetBIOS"

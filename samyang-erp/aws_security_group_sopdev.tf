@@ -3,7 +3,7 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
   name        = "allow_traffic_sopdev"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "SMB dialects that communicate over NetBIOS"
     from_port       = 139
@@ -11,7 +11,7 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "newer versions of SMB (after Windows 2000) on top of a TCP stack"
     from_port       = 445
@@ -27,7 +27,7 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "Application"
     from_port       = 8080
@@ -51,7 +51,7 @@ resource "aws_security_group" "allow_from_trust_to_sopdev" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   egress {
     from_port   = 0
     to_port     = 0

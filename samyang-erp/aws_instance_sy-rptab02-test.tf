@@ -16,16 +16,16 @@ resource "aws_instance" "rptab02c" {
     }
   }
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_rptab.id]
-  subnet_id = aws_subnet.LEGAAP2_C.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_rptab.id]
+  subnet_id               = aws_subnet.LEGAAP2_C.id
 
   tags = {
     Name        = "sy-rptap02"
     Description = "리포트서버"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = ""#"samyang-office-hours-noholiday"
+    Schedule    = "" #"samyang-office-hours-noholiday"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-rptap02"
+    cz-ext1     = "sy-rptap02"
   }
 }

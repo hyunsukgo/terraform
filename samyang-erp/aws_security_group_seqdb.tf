@@ -2,7 +2,7 @@ resource "aws_security_group" "allow_from_trust_to_seqdb" {
   name        = "allow_traffic_seqdb"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "seqdb Endpoint"
     from_port       = 22

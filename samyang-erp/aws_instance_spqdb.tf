@@ -10,17 +10,17 @@ resource "aws_instance" "spqdb" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
-    kms_key_id = aws_kms_key.ebs_kms.arn
+    kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-spqdb"
       Partition = "spqdb_root"
       cz-ext1   = "sy-spqdb"
     }
   }
-  user_data = file("./scripts/sapinst.sh")
+  user_data               = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_spqdb.id]
-  subnet_id = aws_subnet.SAPDEV_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_spqdb.id]
+  subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
     Name        = "sy-spqdb"
@@ -29,7 +29,7 @@ resource "aws_instance" "spqdb" {
     cz-product  = "SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-spqdb"
+    cz-ext1     = "sy-spqdb"
   }
 }
 
@@ -43,7 +43,8 @@ resource "aws_ebs_volume" "spqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb"
@@ -62,7 +63,8 @@ resource "aws_ebs_volume" "spqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb"
@@ -80,7 +82,8 @@ resource "aws_ebs_volume" "spqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 64
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqdb-swap"

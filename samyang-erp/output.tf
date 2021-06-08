@@ -9,7 +9,7 @@ data "aws_subnet" "subnets" {
 }
 
 output "subnet_cidr_blocks" {
-  value = formatlist("| %s | %s | %s | %s |",[for s in data.aws_subnet.subnets : s.cidr_block],[for s in data.aws_subnet.subnets : s.availability_zone],[for s in data.aws_subnet.subnets : s.tags.Name],[for s in data.aws_subnet.subnets : s.vpc_id])
+  value = formatlist("| %s | %s | %s | %s |", [for s in data.aws_subnet.subnets : s.cidr_block], [for s in data.aws_subnet.subnets : s.availability_zone], [for s in data.aws_subnet.subnets : s.tags.Name], [for s in data.aws_subnet.subnets : s.vpc_id])
 }
 /*
 resource "local_file" "ec2_id" {
@@ -46,7 +46,7 @@ data "aws_ebs_volume" "ebs_volume" {
   }
 }
 output "aws_ec2_ebs_info" {
-  value = formatlist("| %s | %s | %s |", [for id in data.aws_ebs_volume.ebs_volume : id.id],[for az in data.aws_ebs_volume.ebs_volume : az.availability_zone],[for name in data.aws_ebs_volume.ebs_volume : name.tags.Name])
+  value = formatlist("| %s | %s | %s |", [for id in data.aws_ebs_volume.ebs_volume : id.id], [for az in data.aws_ebs_volume.ebs_volume : az.availability_zone], [for name in data.aws_ebs_volume.ebs_volume : name.tags.Name])
 }
 
 data "aws_ebs_snapshot_ids" "ebs_volumes" {
@@ -58,17 +58,17 @@ data "aws_ebs_snapshot_ids" "ebs_volumes" {
 
 data "aws_ebs_snapshot" "ebs_volume" {
   #most_recent = true
-  owners      = ["self"]
+  owners = ["self"]
   filter {
     name   = "tag:Name"
     values = ["sy-*"]
   }
-  for_each = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
+  for_each     = toset(data.aws_ebs_snapshot_ids.ebs_volumes.ids)
   snapshot_ids = tolist([each.key])
 }
 
 output "aws_ebs_snapshot_info" {
   #value = data.aws_ebs_snapshot.ebs_volume[*]
   #value = formatlist("%s",[for name in data.aws_ebs_snapshot.ebs_volume : name.id])
-  value = formatlist("| %s | %s | %s G | %s |",[for id in data.aws_ebs_snapshot.ebs_volume : id.id],[for vid in data.aws_ebs_snapshot.ebs_volume : vid.volume_id],[for size in data.aws_ebs_snapshot.ebs_volume : size.volume_size],[for name in data.aws_ebs_snapshot.ebs_volume : name.tags.Name])
+  value = formatlist("| %s | %s | %s G | %s |", [for id in data.aws_ebs_snapshot.ebs_volume : id.id], [for vid in data.aws_ebs_snapshot.ebs_volume : vid.volume_id], [for size in data.aws_ebs_snapshot.ebs_volume : size.volume_size], [for name in data.aws_ebs_snapshot.ebs_volume : name.tags.Name])
 }

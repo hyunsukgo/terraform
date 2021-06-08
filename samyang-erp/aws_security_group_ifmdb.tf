@@ -3,7 +3,7 @@ resource "aws_security_group" "allow_from_trust_to_ifmdb" {
   name        = "allow_traffic_ifmdb"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "SSH from Trusted Zone"
     from_port       = 22

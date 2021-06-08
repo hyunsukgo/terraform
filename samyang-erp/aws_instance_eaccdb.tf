@@ -1,7 +1,7 @@
 resource "aws_instance" "eaccdb" {
-  ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
-  instance_type = "m5.2xlarge"
-  ebs_optimized = true
+  ami                  = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  instance_type        = "m5.2xlarge"
+  ebs_optimized        = true
   private_ip           = "10.200.50.251"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
@@ -16,8 +16,8 @@ resource "aws_instance" "eaccdb" {
     }
   }
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_eaccdb.id]
-  subnet_id = aws_subnet.LEGADMZ_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_eaccdb.id]
+  subnet_id               = aws_subnet.LEGADMZ_A.id
 
   tags = {
     Name        = "sy-eaccdb"
@@ -26,7 +26,7 @@ resource "aws_instance" "eaccdb" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-eaccdb"
+    cz-ext1     = "sy-eaccdb"
   }
 }
 

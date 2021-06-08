@@ -16,10 +16,10 @@ resource "aws_instance" "drawbkap" {
       cz-ext1   = "sy-drawbkap"
     }
   }
-  user_data = file("./scripts/wininst.sh")
+  user_data               = file("./scripts/wininst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_drawbkap.id]
-  subnet_id = aws_subnet.LEGADMZ_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_drawbkap.id]
+  subnet_id               = aws_subnet.LEGADMZ_A.id
 
   tags = {
     Name        = "sy-drawbkap"
@@ -28,7 +28,7 @@ resource "aws_instance" "drawbkap" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-drawbkap"
+    cz-ext1     = "sy-drawbkap"
   }
 }
 
@@ -51,10 +51,10 @@ resource "aws_ebs_volume" "drawbkap_add" {
 }
 
 resource "aws_eip" "drawbkap_eip" {
-  vpc = true
-  instance =  aws_instance.drawbkap.id
+  vpc      = true
+  instance = aws_instance.drawbkap.id
   tags = {
-    Name = "${var.service_name}-drawbkap-EIP"
+    Name        = "${var.service_name}-drawbkap-EIP"
     Description = "관세환급 공인 IP(국세청 등록)"
   }
 }

@@ -2,7 +2,7 @@ resource "aws_security_group" "allow_from_trust_to_spqap" {
   name        = "allow_traffic_spqap"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "spqap Endpoint"
     from_port       = 22

@@ -16,10 +16,10 @@ resource "aws_instance" "firmbkap" {
       cz-ext1   = "sy-firmbkap"
     }
   }
-  user_data = file("./scripts/wininst.sh")
+  user_data               = file("./scripts/wininst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_firmbkap.id]
-  subnet_id = aws_subnet.LEGAAP1_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_firmbkap.id]
+  subnet_id               = aws_subnet.LEGAAP1_A.id
 
   tags = {
     Name        = "sy-firmbkap"
@@ -28,6 +28,6 @@ resource "aws_instance" "firmbkap" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-firmbkap"
+    cz-ext1     = "sy-firmbkap"
   }
 }

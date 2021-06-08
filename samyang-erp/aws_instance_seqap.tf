@@ -10,17 +10,17 @@ resource "aws_instance" "seqap" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
-    kms_key_id = aws_kms_key.ebs_kms.arn
+    kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-seqap"
       Partition = "seqap_root"
       cz-ext1   = "sy-seqap"
     }
   }
-  user_data = file("./scripts/sapinst.sh")
+  user_data               = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_seqap.id]
-  subnet_id = aws_subnet.SAPDEV_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_seqap.id]
+  subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
     Name        = "sy-seqap"
@@ -29,7 +29,7 @@ resource "aws_instance" "seqap" {
     cz-product  = "SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-seqap"
+    cz-ext1     = "sy-seqap"
   }
 }
 
@@ -43,7 +43,8 @@ resource "aws_ebs_volume" "seqap_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
@@ -62,7 +63,8 @@ resource "aws_ebs_volume" "seqap_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
@@ -80,7 +82,8 @@ resource "aws_ebs_volume" "seqap_add_3" {
   availability_zone = "${var.region}a"
   size              = 96
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap-swap"

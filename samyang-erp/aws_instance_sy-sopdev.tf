@@ -5,8 +5,8 @@ resource "aws_instance" "sopdev" {
   private_ip           = "10.200.60.11"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
-  user_data = file("./scripts/wininst.sh")
- 
+  user_data            = file("./scripts/wininst.sh")
+
   root_block_device {
     volume_type = "gp2"
     volume_size = 50
@@ -17,8 +17,8 @@ resource "aws_instance" "sopdev" {
     }
   }
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_sopdev.id]
-  subnet_id = aws_subnet.LEGADEV_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_sopdev.id]
+  subnet_id               = aws_subnet.LEGADEV_A.id
 
   tags = {
     Name        = "sy-sopdev"
@@ -27,7 +27,7 @@ resource "aws_instance" "sopdev" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-sopdev"
+    cz-ext1     = "sy-sopdev"
   }
 }
 

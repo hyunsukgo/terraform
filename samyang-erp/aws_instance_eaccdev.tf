@@ -1,8 +1,8 @@
 
 resource "aws_instance" "eaccapdev" {
-  ami           = "ami-0fc1ba861e48fc890" # ap-northeast-2
-  instance_type = "m5.xlarge"
-  ebs_optimized = true
+  ami                  = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  instance_type        = "m5.xlarge"
+  ebs_optimized        = true
   private_ip           = "10.200.60.31"
   key_name             = "samyangerp"
   iam_instance_profile = "ssm"
@@ -17,8 +17,8 @@ resource "aws_instance" "eaccapdev" {
     }
   }
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_eaccap.id]
-  subnet_id = aws_subnet.LEGADEV_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_eaccap.id]
+  subnet_id               = aws_subnet.LEGADEV_A.id
 
   tags = {
     Name        = "sy-eaccdev"
@@ -27,7 +27,7 @@ resource "aws_instance" "eaccapdev" {
     cz-product  = "Non-SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-eaccdev"
+    cz-ext1     = "sy-eaccdev"
   }
 }
 

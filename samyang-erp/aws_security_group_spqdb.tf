@@ -2,7 +2,7 @@ resource "aws_security_group" "allow_from_trust_to_spqdb" {
   name        = "allow_traffic_spqdb"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "spqdb Endpoint"
     from_port       = 22

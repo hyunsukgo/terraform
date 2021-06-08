@@ -10,17 +10,17 @@ resource "aws_instance" "seqdb" {
   root_block_device {
     volume_type = "gp3"
     volume_size = 30
-    kms_key_id = aws_kms_key.ebs_kms.arn
+    kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-seqdb"
       Partition = "seqdb_root"
       cz-ext1   = "sy-seqdb"
     }
   }
-  user_data = file("./scripts/sapinst.sh")
+  user_data               = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids = [aws_security_group.allow_from_trust_to_seqdb.id]
-  subnet_id = aws_subnet.SAPDEV_A.id
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_seqdb.id]
+  subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
     Name        = "sy-seqdb"
@@ -29,7 +29,7 @@ resource "aws_instance" "seqdb" {
     cz-product  = "SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1   = "sy-seqdb"
+    cz-ext1     = "sy-seqdb"
   }
 }
 
@@ -43,7 +43,8 @@ resource "aws_ebs_volume" "seqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 50
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -62,7 +63,8 @@ resource "aws_ebs_volume" "seqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 1230
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -80,7 +82,8 @@ resource "aws_ebs_volume" "seqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 512
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -98,7 +101,8 @@ resource "aws_ebs_volume" "seqdb_add_4" {
   availability_zone = "${var.region}a"
   size              = 1024
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
@@ -117,7 +121,8 @@ resource "aws_ebs_volume" "seqdb_add_5" {
   availability_zone = "${var.region}a"
   size              = 224
   type              = "gp3"
-  kms_key_id = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb-swap"

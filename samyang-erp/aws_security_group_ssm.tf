@@ -2,7 +2,7 @@ resource "aws_security_group" "allow_from_trust_to_ssm" {
   name        = "allow_traffic_ssm"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "SSM Endpoint"
     from_port       = 443

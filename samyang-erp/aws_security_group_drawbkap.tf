@@ -3,7 +3,7 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
   name        = "allow_traffic_drawbkap"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.vpc.id
-  
+
   ingress {
     description     = "SMB dialects that communicate over NetBIOS"
     from_port       = 139
@@ -18,7 +18,7 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "RDP from On-Prem"
     from_port       = 3389
