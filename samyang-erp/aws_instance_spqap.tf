@@ -13,9 +13,9 @@ resource "aws_instance" "spqap" {
     encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
-      Name      = "sy-spqap"
+      Name      = "sy-spqdb"
       Partition = "spqap_root"
-      cz-ext1   = "sy-spqap"
+      cz-ext1   = "sy-spqdb"
     }
   }
   user_data               = file("./scripts/sapinst.sh")
@@ -24,13 +24,13 @@ resource "aws_instance" "spqap" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-spqap"
-    Description = "AP서버"
+    Name        = "sy-spqdb"
+    Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
-    cz-ext1     = "sy-spqap"
+    cz-ext1     = "sy-spqdb"
   }
 }
 
@@ -48,9 +48,9 @@ resource "aws_ebs_volume" "spqap_add_1" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqap"
-    Partition = "spqap"
-    cz-ext1   = "sy-spqap"
+    Name      = "sy-spqdb"
+    Partition = "spqdb"
+    cz-ext1   = "sy-spqdb"
   }
 }
 
@@ -68,8 +68,8 @@ resource "aws_ebs_volume" "spqap_add_2" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqap-swap"
-    Partition = "spqap"
-    cz-ext1   = "sy-spqap"
+    Name      = "sy-spqdb-swap"
+    Partition = "spqdb"
+    cz-ext1   = "sy-spqdb"
   }
 }
