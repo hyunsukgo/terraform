@@ -172,7 +172,7 @@ resource "aws_subnet" "NAS1_A" {
 resource "aws_subnet" "NAS2_C" {
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "${var.region}c"
-  cidr_block        = "10.200.11.160/27"
+  cidr_block        = "10.200.0.160/27"
 
   tags = {
     Name       = "NAS2_C"
