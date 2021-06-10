@@ -92,3 +92,23 @@ resource "aws_ebs_volume" "seqap_add_3" {
     cz-ext1   = "sy-seqap"
   }
 }
+
+resource "aws_volume_attachment" "endb_att" {
+  device_name = "/dev/sdf"
+  volume_id   = aws_ebs_volume.seqap_add_3.id
+  instance_id = aws_instance.seqap.id
+}
+
+resource "aws_ebs_volume" "endb_add" {
+  availability_zone = "${var.region}a"
+  size              = 10
+  type              = "gp3"
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
+  tags = {
+    Snapshot  = "true"
+    Name      = "sy-seqap-endb"
+    Partition = "seqap"
+    cz-ext1   = "sy-seqap"
+  }
+}
