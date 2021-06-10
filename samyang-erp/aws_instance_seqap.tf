@@ -95,7 +95,7 @@ resource "aws_ebs_volume" "seqap_add_3" {
 
 resource "aws_volume_attachment" "endb_att" {
   device_name = "/dev/sdf"
-  volume_id   = aws_ebs_volume.seqap_add_3.id
+  volume_id   = aws_ebs_volume.endb_add.id
   instance_id = aws_instance.seqap.id
 }
 
