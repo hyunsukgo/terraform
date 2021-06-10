@@ -1,4 +1,4 @@
-/*
+
 resource "aws_efs_mount_target" "s4h-trans-a" {
   file_system_id = aws_efs_file_system.s4h-trans.id
   subnet_id      = aws_subnet.NAS1_A.id
@@ -56,4 +56,3 @@ resource "aws_efs_mount_target" "sapcd-c" {
   security_groups = [aws_security_group.allow_from_trust_to_sapcd_efs.id]
   ip_address = "10.200.0.170"
 }
-*/
