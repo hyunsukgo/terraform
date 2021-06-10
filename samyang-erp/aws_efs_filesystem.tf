@@ -1,22 +1,22 @@
-resource "aws_efs_file_system" "efs" {
+resource "aws_efs_file_system" "s4h-trans" {
   tags = {
-    Name = "${var.service_name}-efs"
+    Name = "${var.service_name}-s4h-trans-efs"
   }
 }
-resource "aws_efs_file_system" "s4h" {
+resource "aws_efs_file_system" "b4h-trans" {
   tags = {
-    Name = "${var.service_name}-s4h-efs"
-  }
-}
-
-resource "aws_efs_file_system" "bo" {
-  tags = {
-    Name = "${var.service_name}-bo-efs"
+    Name = "${var.service_name}-b4h-trans-efs"
   }
 }
 
-resource "aws_efs_file_system" "po" {
+resource "aws_efs_file_system" "po-trans" {
   tags = {
-    Name = "${var.service_name}-po-efs"
+    Name = "${var.service_name}-po-trans-efs"
+  }
+}
+
+resource "aws_efs_file_system" "sapcd" {
+  tags = {
+    Name = "${var.service_name}-sapcd-efs"
   }
 }
