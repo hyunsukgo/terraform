@@ -9,6 +9,7 @@ resource "aws_security_group" "allow_from_trust_to_efs" {
     to_port         = 2049
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+    security_groups = [aws_security_group.allow_from_trust_to_bw_ap.id,aws_security_group.allow_from_trust_to_bw_db.id,aws_security_group.allow_from_trust_to_seqap.id,aws_security_group.allow_from_trust_to_seqdb.id,aws_security_group.allow_from_trust_to_spqap.id,aws_security_group.allow_from_trust_to_spqdb.id,aws_security_group.allow_from_trust_to_ap.id,aws_security_group.allow_from_trust_to_db.id,aws_security_group.allow_from_trust_to_po.id]
   }
 
   egress {
