@@ -59,7 +59,7 @@ resource "aws_security_group" "allow_from_trust_to_po_trans_efs" {
     from_port       = 2049
     to_port         = 2049
     protocol        = "tcp"
-    security_groups = [aws_security_group.allow_from_trust_to_spqap.id,aws_security_group.allow_from_trust_to_po.id,aws_security_group.allow_from_trust_to_spqap.id,aws_security_group.allow_from_trust_to_spqdb.id,aws_security_group.allow_from_trust_to_seqap.id,aws_security_group.allow_from_trust_to_seqdb.id,aws_security_group.allow_from_trust_to_ap.id,aws_security_group.allow_from_trust_to_db.id,aws_security_group.allow_from_trust_to_po.id]
+    security_groups = [aws_security_group.allow_from_trust_to_spqap.id,aws_security_group.allow_from_trust_to_po.id]
   }
 
   egress {
