@@ -13,3 +13,11 @@ resource "aws_efs_access_point" "saptrans_access_point" {
     Name = "${var.service_name}-saptrans-access-point"
   }
 }
+
+resource "aws_efs_access_point" "saptrans_dev_access_point" {
+  file_system_id = aws_efs_file_system.saptrans-dev.id
+
+  tags = {
+    Name = "${var.service_name}-saptrans-dev-access-point"
+  }
+}

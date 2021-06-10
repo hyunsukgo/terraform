@@ -8,3 +8,9 @@ resource "aws_efs_file_system" "saptrans" {
     Name = "${var.service_name}-saptrans-efs"
   }
 }
+
+resource "aws_efs_file_system" "saptrans-dev" {
+  tags = {
+    Name = "${var.service_name}-saptrans-dev-efs"
+  }
+}
