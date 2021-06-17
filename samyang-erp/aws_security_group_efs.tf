@@ -102,3 +102,29 @@ resource "aws_security_group" "allow_from_trust_to_sapcd_efs" {
     Name = "allow_from_trust_to_sapcd_efs"
   }
 }
+
+
+resource "aws_security_group" "allow_from_trust_to_po_mnt_qas_efs" {
+  name        = "sapcd allow_traffic_efs"
+  description = "Allow NFS inbound traffic"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    description     = "PO MNT QAS NFS"
+    from_port       = 2049
+    to_port         = 2049
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_from_trust_to_po_mnt_qas_efs"
+  }
+}
