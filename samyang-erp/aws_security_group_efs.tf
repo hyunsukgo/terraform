@@ -105,7 +105,7 @@ resource "aws_security_group" "allow_from_trust_to_sapcd_efs" {
 
 
 resource "aws_security_group" "allow_from_trust_to_po_mnt_qas_efs" {
-  name        = "sapcd allow_traffic_efs"
+  name        = "po mnt qas allow_traffic_efs"
   description = "Allow NFS inbound traffic"
   vpc_id      = aws_vpc.vpc.id
 
