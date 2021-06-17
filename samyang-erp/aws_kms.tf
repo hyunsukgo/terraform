@@ -19,6 +19,20 @@ resource "aws_kms_alias" "efs" {
 }
 resource "aws_kms_key" "ebs_kms" {
   description = "${var.service_name}-ebs-encrytion"
+  policy      = jsonencode(
+    {
+      Statement = [
+        {
+          Principal = {
+            AWS = [
+              "arn:aws:iam::969470234861:root",
+              "arn:aws:iam::969470234861:role/samyang-ec2-scheduler-SchedulerRole-FXACZHD6B4EU"
+            ]
+          }
+        }
+      ]
+    }
+  )
   #  deletion_window_in_days = 10
 }
 resource "aws_kms_alias" "ebs" {
