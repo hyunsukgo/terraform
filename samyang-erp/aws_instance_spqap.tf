@@ -26,13 +26,13 @@ resource "aws_instance" "spqap" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-spqdb"
+    Name        = "sy-spo-spqap"
     Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
     Schedule    = ""
     Snapshot    = "Yes"
-    cz-ext1     = "sy-spqdb"
+    cz-ext1     = "sy-spqap"
   }
 }
 

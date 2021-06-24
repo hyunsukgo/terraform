@@ -24,7 +24,7 @@ resource "aws_instance" "sbdap" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-sbdap"
+    Name        = "sy-b4h-sbdap"
     Description = "AP 서버 #1"
     Environment = "Dev"
     cz-product  = "SAP"

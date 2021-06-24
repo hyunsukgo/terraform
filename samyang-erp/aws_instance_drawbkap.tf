@@ -14,7 +14,7 @@ resource "aws_instance" "drawbkap" {
     throughput  = 125
     tags = {
       Name      = "sy-drawbkap"
-      Partition = "drawbkap_root"
+      Partition = "drawbkap_C"
       cz-ext1   = "sy-drawbkap"
     }
   }

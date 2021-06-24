@@ -8,7 +8,7 @@ resource "aws_instance" "sopdev" {
   user_data            = file("./scripts/wininst.sh")
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
     volume_size = 50
     tags = {
       Name      = "sy-sopdev"

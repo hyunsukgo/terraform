@@ -14,7 +14,7 @@ resource "aws_instance" "spqdb" {
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-spqap"
-      Partition = "spqdb_root"
+      Partition = "/root"
       cz-ext1   = "sy-spqap"
     }
   }
@@ -24,11 +24,11 @@ resource "aws_instance" "spqdb" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-spqap"
+    Name        = "sy-spo-spqap"
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours"
+    Schedule    = ""
     Snapshot    = "Yes"
     cz-ext1     = "sy-spqap"
   }

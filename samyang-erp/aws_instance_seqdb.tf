@@ -24,11 +24,11 @@ resource "aws_instance" "seqdb" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-seqdb"
+    Name        = "sy-s4h-seqdb"
     Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours"
+    Schedule    = ""
     Snapshot    = "Yes"
     cz-ext1     = "sy-seqdb"
   }

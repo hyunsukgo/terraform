@@ -14,7 +14,7 @@ resource "aws_instance" "seqap" {
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-seqap"
-      Partition = "seqap_root"
+      Partition = "/root"
       cz-ext1   = "sy-seqap"
     }
   }
@@ -24,7 +24,7 @@ resource "aws_instance" "seqap" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-seqap"
+    Name        = "sy-s4h-seqap"
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"

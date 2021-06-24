@@ -14,7 +14,7 @@ resource "aws_instance" "sbddb" {
     throughput  = 125
     tags = {
       Name      = "sy-sbddb"
-      Partition = "sbddb_root"
+      Partition = "/root"
       cz-ext1   = "sy-sbddb"
     }
   }
@@ -24,7 +24,7 @@ resource "aws_instance" "sbddb" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-sbddb"
+    Name        = "sy-b4h-sbddb"
     Description = "DB 서버"
     Environment = "Dev"
     cz-product  = "SAP"
