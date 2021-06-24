@@ -9,7 +9,7 @@ resource "aws_instance" "firmbkap" {
 
   root_block_device {
     volume_type = "gp3"
-    throuput    = 125
+    throughput    = 125
     iops        = 3000
     volume_size = 100
     tags = {
