@@ -14,7 +14,7 @@ resource "aws_instance" "seqdb" {
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
       Name      = "sy-seqdb"
-      Partition = "seqdb_root"
+      Partition = "/root"
       cz-ext1   = "sy-seqdb"
     }
   }
@@ -43,13 +43,15 @@ resource "aws_volume_attachment" "seqdb_att_1" {
 resource "aws_ebs_volume" "seqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 50
+  throughput        = 125
+  iops              = 3000
   type              = "gp3"
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
-    Partition = "seqdb"
+    Partition = "/usr/sap"
     cz-ext1   = "sy-seqdb"
   }
 }
@@ -63,13 +65,15 @@ resource "aws_volume_attachment" "seqdb_att_2" {
 resource "aws_ebs_volume" "seqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 1230
+  iops              = 3000
+  throughput        = 500
   type              = "gp3"
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
-    Partition = "seqdb"
+    Partition = "/hana/data"
     cz-ext1   = "sy-seqdb"
   }
 }
@@ -83,12 +87,14 @@ resource "aws_ebs_volume" "seqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 512
   type              = "gp3"
+  iops              = 3000
+  throughput        = 500
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
-    Partition = "seqdb"
+    Partition = "/hana/log"
     cz-ext1   = "sy-seqdb"
   }
 }
@@ -101,13 +107,15 @@ resource "aws_volume_attachment" "seqdb_att_4" {
 resource "aws_ebs_volume" "seqdb_add_4" {
   availability_zone = "${var.region}a"
   size              = 1024
+  iops              = 3000
+  throughput        = 500
   type              = "gp3"
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb"
-    Partition = "seqdb"
+    Partition = "/hana/shared"
     cz-ext1   = "sy-seqdb"
   }
 }
@@ -122,12 +130,14 @@ resource "aws_ebs_volume" "seqdb_add_5" {
   availability_zone = "${var.region}a"
   size              = 224
   type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqdb-swap"
-    Partition = "seqdb"
+    Partition = "/swap"
     cz-ext1   = "sy-seqdb"
   }
 }

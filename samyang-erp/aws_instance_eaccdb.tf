@@ -7,7 +7,9 @@ resource "aws_instance" "eaccdb" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 50
     tags = {
       Name      = "sy-eaccdb"
@@ -39,7 +41,9 @@ resource "aws_volume_attachment" "eaccdb_att" {
 resource "aws_ebs_volume" "eaccdb_add" {
   availability_zone = "${var.region}a"
   size              = 100
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-eaccdb"

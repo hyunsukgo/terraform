@@ -43,13 +43,15 @@ resource "aws_volume_attachment" "spqdb_att_1" {
 resource "aws_ebs_volume" "spqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
+  iops              = 3000
   type              = "gp3"
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqap"
-    Partition = "spqap"
+    Partition = "/sapmnt(EFS)"
     cz-ext1   = "sy-spqap"
   }
 }
@@ -63,13 +65,15 @@ resource "aws_volume_attachment" "spqdb_att_2" {
 resource "aws_ebs_volume" "spqdb_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
+  iops              = 3000
   type              = "gp3"
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqap"
-    Partition = "spqap"
+    Partition = "/usr/sap"
     cz-ext1   = "sy-spqap"
   }
 }
@@ -82,13 +86,15 @@ resource "aws_volume_attachment" "spqdb_att_3" {
 resource "aws_ebs_volume" "spqdb_add_3" {
   availability_zone = "${var.region}a"
   size              = 64
+  iops              = 3000
   type              = "gp3"
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-spqap-swap"
-    Partition = "spqap"
+    Partition = "/swap"
     cz-ext1   = "sy-spqap"
   }
 }

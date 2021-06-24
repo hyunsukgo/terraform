@@ -7,11 +7,13 @@ resource "aws_instance" "ifmdb" {
   iam_instance_profile = "ssm"
   ebs_optimized        = true
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    throughput  = 125
+    iops        = 3000
     volume_size = 30
     tags = {
       Name      = "sy-ifmdb"
-      Partition = "ifmdb_root"
+      Partition = "/root"
       cz-ext1   = "sy-ifmdb"
     }
   }
@@ -40,11 +42,13 @@ resource "aws_volume_attachment" "ifmdb_db_att" {
 resource "aws_ebs_volume" "ifmdb_db_add" {
   availability_zone = "${var.region}a"
   size              = 100
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-ifmdb"
-    Partition = "ecccdev_postgresSQL"
+    Partition = "ifmdb_postgresSQL"
     cz-ext1   = "sy-ifmdb"
   }
 }
@@ -58,11 +62,13 @@ resource "aws_volume_attachment" "ifmdb_weblog_att" {
 resource "aws_ebs_volume" "ifmdb_weblog_add" {
   availability_zone = "${var.region}a"
   size              = 10
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-ifmdb"
-    Partition = "ecccdev_weblog"
+    Partition = "ifmdb_weblog"
     cz-ext1   = "sy-ifmdb"
   }
 }
@@ -76,11 +82,13 @@ resource "aws_volume_attachment" "ifmdb_app_att" {
 resource "aws_ebs_volume" "ifmdb_app_add" {
   availability_zone = "${var.region}a"
   size              = 90
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-ifmdb"
-    Partition = "ecccdev_app"
+    Partition = "ifmdb_app"
     cz-ext1   = "sy-ifmdb"
   }
 }
@@ -94,11 +102,13 @@ resource "aws_volume_attachment" "ifmdb_wilyem_att" {
 resource "aws_ebs_volume" "ifmdb_wilyem_add" {
   availability_zone = "${var.region}a"
   size              = 50
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-ifmdb"
-    Partition = "ecccdev_app"
+    Partition = "ifmdb_app"
     cz-ext1   = "sy-ifmdb"
   }
 }

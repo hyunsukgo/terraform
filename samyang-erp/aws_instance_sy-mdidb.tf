@@ -7,7 +7,9 @@ resource "aws_instance" "mdidb" {
   iam_instance_profile = "ssm"
   user_data            = file("./scripts/wininst.sh")
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 50
     tags = {
       Name      = "sy-mdidb"
@@ -39,7 +41,9 @@ resource "aws_volume_attachment" "mdidb_att" {
 resource "aws_ebs_volume" "mdidb_add" {
   availability_zone = "${var.region}a"
   size              = 300
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-mdidb"

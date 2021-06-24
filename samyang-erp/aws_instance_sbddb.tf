@@ -8,8 +8,10 @@ resource "aws_instance" "sbddb" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
     volume_size = 30
+    iops        = 3000
+    throughput  = 125
     tags = {
       Name      = "sy-sbddb"
       Partition = "sbddb_root"
@@ -42,11 +44,13 @@ resource "aws_volume_attachment" "sbddb_usrsap_att" {
 resource "aws_ebs_volume" "sbddb_usrsap_add" {
   availability_zone = "${var.region}a"
   size              = 20
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_usrsap"
+    Partition = "/usr/sap"
     cz-ext1   = "sy-sbddb"
   }
 }
@@ -60,11 +64,13 @@ resource "aws_volume_attachment" "sbddb_hanadata_att" {
 resource "aws_ebs_volume" "sbddb_hanadata_add" {
   availability_zone = "${var.region}a"
   size              = 620
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 500
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_hanadata"
+    Partition = "/hana/data"
     cz-ext1   = "sy-sbddb"
   }
 }
@@ -79,11 +85,13 @@ resource "aws_volume_attachment" "sbddb_hanalog_att" {
 resource "aws_ebs_volume" "sbddb_hanalog_add" {
   availability_zone = "${var.region}a"
   size              = 256
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 500
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_hanalog"
+    Partition = "/hana/log"
     cz-ext1   = "sy-sbddb"
   }
 }
@@ -98,11 +106,13 @@ resource "aws_volume_attachment" "sbddb_hanashared_att" {
 resource "aws_ebs_volume" "sbddb_hanashared_add" {
   availability_zone = "${var.region}a"
   size              = 512
-  type              = "gp2"
+  type              = "gp3"
+  throughput        = 500
+  iops              = 3000
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_hanashared_add"
+    Partition = "/hana/shared"
     cz-ext1   = "sy-sbddb"
   }
 }
@@ -136,11 +146,13 @@ resource "aws_volume_attachment" "sbddb_swap_att" {
 resource "aws_ebs_volume" "sbddb_swap_add" {
   availability_zone = "${var.region}a"
   size              = 192
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_swap_add"
+    Partition = "/swap"
     cz-ext1   = "sy-sbddb"
   }
 }

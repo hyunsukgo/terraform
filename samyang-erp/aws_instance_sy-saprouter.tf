@@ -5,11 +5,13 @@ resource "aws_instance" "saprouter" {
   private_ip           = "10.200.0.60"
   key_name             = "samyangerp"
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 10
     tags = {
       Name      = "sy-saprouter"
-      Partition = "saprouter_root"
+      Partition = "/root"
       cz-ext1   = "sy-saprouter"
     }
   }

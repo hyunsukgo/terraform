@@ -7,7 +7,9 @@ resource "aws_instance" "rptab01" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 50
     tags = {
       Name      = "sy-rptap01"
@@ -39,7 +41,9 @@ resource "aws_volume_attachment" "rptab01_att" {
 resource "aws_ebs_volume" "rptab01_add" {
   availability_zone = "${var.region}a"
   size              = 50
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-rptap01"

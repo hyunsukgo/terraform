@@ -8,11 +8,13 @@ resource "aws_instance" "sbdap" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 30
     tags = {
       Name      = "sy-sbdap"
-      Partition = "sbdap_root"
+      Partition = "/root"
       cz-ext1   = "sy-sbdap"
     }
   }
@@ -41,11 +43,13 @@ resource "aws_volume_attachment" "sbdap_sapmnt_att" {
 resource "aws_ebs_volume" "sbdap_sapmnt_add" {
   availability_zone = "${var.region}a"
   size              = 10
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbdap"
-    Partition = "sbdap_sapmnt"
+    Partition = "/sapmnt"
     cz-ext1   = "sy-sbdap"
   }
 }
@@ -59,11 +63,13 @@ resource "aws_volume_attachment" "sbdap_usrsap_att" {
 resource "aws_ebs_volume" "sbdap_usrsap_add" {
   availability_zone = "${var.region}a"
   size              = 20
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbdap"
-    Partition = "sbdap_usrsap"
+    Partition = "/usr/sap"
     cz-ext1   = "sy-sbdap"
   }
 }
@@ -77,11 +83,13 @@ resource "aws_volume_attachment" "sbdap_usrsaptrans_att" {
 resource "aws_ebs_volume" "sbdap_usrsaptrans_add" {
   availability_zone = "${var.region}a"
   size              = 50
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbdap"
-    Partition = "sbdap_usrsaptrans"
+    Partition = "/usr/sap/trans(EFS)"
     cz-ext1   = "sy-sbdap"
   }
 }
@@ -99,7 +107,7 @@ resource "aws_ebs_volume" "sbdap_sapcd_add" {
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbdap"
-    Partition = "sbdap_sapcd_add"
+    Partition = "sbdap_sapcd_add(EFS)"
     cz-ext1   = "sy-sbdap"
   }
 }
@@ -113,11 +121,13 @@ resource "aws_volume_attachment" "sbdap_swap_att" {
 resource "aws_ebs_volume" "sbdap_swap_add" {
   availability_zone = "${var.region}a"
   size              = 96
-  type              = "gp2"
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbdap"
-    Partition = "sbdap_swap_add"
+    Partition = "/swap"
     cz-ext1   = "sy-sbdap"
   }
 }

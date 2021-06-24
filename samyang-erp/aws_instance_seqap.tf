@@ -28,9 +28,9 @@ resource "aws_instance" "seqap" {
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-seqap"
+    #Schedule    = "samyang-office-hours"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-seqap"
   }
 }
 
@@ -44,12 +44,14 @@ resource "aws_ebs_volume" "seqap_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
-    Partition = "seqap"
+    Partition = "/sapmnt"
     cz-ext1   = "sy-seqap"
   }
 }
@@ -64,12 +66,14 @@ resource "aws_ebs_volume" "seqap_add_2" {
   availability_zone = "${var.region}a"
   size              = 20
   type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap"
-    Partition = "seqap"
+    Partition = "/usr/sap"
     cz-ext1   = "sy-seqap"
   }
 }
@@ -83,12 +87,14 @@ resource "aws_ebs_volume" "seqap_add_3" {
   availability_zone = "${var.region}a"
   size              = 96
   type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap-swap"
-    Partition = "seqap"
+    Partition = "/swap"
     cz-ext1   = "sy-seqap"
   }
 }
@@ -103,12 +109,14 @@ resource "aws_ebs_volume" "endb_add" {
   availability_zone = "${var.region}a"
   size              = 10
   type              = "gp3"
+  iops              = 3000
+  throughput        = 125
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-seqap-endb"
-    Partition = "seqap"
+    Partition = "/EnDB"
     cz-ext1   = "sy-seqap"
   }
 }

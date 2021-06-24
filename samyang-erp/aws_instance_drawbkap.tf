@@ -8,8 +8,10 @@ resource "aws_instance" "drawbkap" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
     volume_size = 100
+    iops        = 3000
+    throughput  = 125
     tags = {
       Name      = "sy-drawbkap"
       Partition = "drawbkap_root"
@@ -41,7 +43,9 @@ resource "aws_volume_attachment" "drawbkap_att" {
 resource "aws_ebs_volume" "drawbkap_add" {
   availability_zone = "${var.region}a"
   size              = 150
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-drawbkap"

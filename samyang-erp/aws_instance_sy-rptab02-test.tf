@@ -7,8 +7,10 @@ resource "aws_instance" "rptab02c" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
     volume_size = 50
+    iops        = 3000
+    throughput  = 125
     tags = {
       Name      = "sy-rptap02"
       Partition = "rptap02_C"

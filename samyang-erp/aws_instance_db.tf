@@ -108,11 +108,13 @@ resource "aws_ebs_volume" "swap-db" {
 resource "aws_ebs_volume" "endb" {
   availability_zone = "${var.region}a"
   size              = 10
-  type              = "gp2"
+  iops              = 3000
+  throughput        = 125
+  type              = "gp3"
   tags = {
     Name      = "sy-s4h-sedap"
     Snapshot  = "true"
-    Partition = "endb"
+    Partition = "/EnDB"
     cz-ext1   = "sy-s4h-sedap"
   }
 }

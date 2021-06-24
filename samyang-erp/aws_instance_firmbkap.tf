@@ -8,11 +8,13 @@ resource "aws_instance" "firmbkap" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    throuput    = 125
+    iops        = 3000
     volume_size = 100
     tags = {
       Name      = "sy-firmbkap"
-      Partition = "firmbkap_root"
+      Partition = "/root"
       cz-ext1   = "sy-firmbkap"
     }
   }

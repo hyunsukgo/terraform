@@ -8,11 +8,13 @@ resource "aws_instance" "sbodev" {
   iam_instance_profile = "ssm"
 
   root_block_device {
-    volume_type = "gp2"
+    volume_type = "gp3"
+    iops        = 3000
+    throughput  = 125
     volume_size = 100
     tags = {
       Name      = "sy-sbodev"
-      Partition = "ifmdb_C"
+      Partition = "sbodev_C"
       cz-ext1   = "sy-sbodev"
     }
   }
