@@ -1,6 +1,6 @@
 resource "aws_dx_gateway" "dxg" {
   name            = "${var.service_name}-dxg"
-  amazon_side_asn = "64512"
+  amazon_side_asn = "65534"
 }
 /*
 resource "aws_dx_private_virtual_interface" "private_vif" {
