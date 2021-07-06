@@ -19,6 +19,26 @@ resource "aws_kms_alias" "efs" {
 }
 resource "aws_kms_key" "ebs_kms" {
   description = "${var.service_name}-ebs-encrytion"
+  policy = <<EOT
+{
+    "Version": "2012-10-17",
+    "Id": "key-default-1",
+    "Statement": [
+        {
+            "Sid": "Enable IAM User Permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::969470234861:role/samyang-ec2-scheduler-SchedulerRole-FXACZHD6B4EU",
+                    "arn:aws:iam::969470234861:root"
+                ]
+            },
+            "Action": "kms:*",
+            "Resource": "*"
+        }
+    ]
+}
+EOT
   #  deletion_window_in_days = 10
 }
 resource "aws_kms_alias" "ebs" {
