@@ -17,4 +17,7 @@ resource "aws_dx_private_virtual_interface" "private_vif" {
 resource "aws_dx_gateway_association" "dxg_assoc" {
   dx_gateway_id         = aws_dx_gateway.dxg.id
   associated_gateway_id = aws_ec2_transit_gateway.tgw.id
+  allowed_prefixes = [
+    "130.1.0.0/16"
+  ]
 }
