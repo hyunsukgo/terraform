@@ -21,3 +21,11 @@ resource "aws_dx_gateway_association" "dxg_assoc" {
     "130.1.0.0/16"
   ]
 }
+
+resource "aws_vpn_gateway" "vpn_gw" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = "DX Gateway"
+  }
+}
