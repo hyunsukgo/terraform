@@ -18,6 +18,9 @@ resource "aws_dx_gateway_association" "dxg_assoc" {
   dx_gateway_id         = aws_dx_gateway.dxg.id
   #associated_gateway_id = aws_vpn_gateway.vpn_gw.id
   associated_gateway_id = aws_ec2_transit_gateway.tgw.id
+   allowed_prefixes = [
+    "10.200.0.0/16"
+  ]
 }
 /*
 resource "aws_vpn_gateway" "vpn_gw" {
