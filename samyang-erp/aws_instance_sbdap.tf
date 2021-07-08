@@ -73,13 +73,14 @@ resource "aws_ebs_volume" "sbdap_usrsap_add" {
     cz-ext1   = "sy-sbdap"
   }
 }
+/*
 ## /usr/sap/trans Partitioning
 resource "aws_volume_attachment" "sbdap_usrsaptrans_att" {
   device_name = "/dev/sdd"
   volume_id   = aws_ebs_volume.sbdap_usrsaptrans_add.id
   instance_id = aws_instance.sbdap.id
 }
-
+*/
 resource "aws_ebs_volume" "sbdap_usrsaptrans_add" {
   availability_zone = "${var.region}a"
   size              = 50
@@ -92,14 +93,14 @@ resource "aws_ebs_volume" "sbdap_usrsaptrans_add" {
     Partition = "/usr/sap/trans(EFS)"
     cz-ext1   = "sy-sbdap"
   }
-}
+}/*
 ## /SAPCD Partitioning
 resource "aws_volume_attachment" "sbdap_sapcd_att" {
   device_name = "/dev/sde"
   volume_id   = aws_ebs_volume.sbdap_sapcd_add.id
   instance_id = aws_instance.sbdap.id
 }
-
+*/
 resource "aws_ebs_volume" "sbdap_sapcd_add" {
   availability_zone = "${var.region}a"
   size              = 300

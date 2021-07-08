@@ -116,14 +116,14 @@ resource "aws_ebs_volume" "sbddb_hanashared_add" {
     cz-ext1   = "sy-sbddb"
   }
 }
-
+/*
 ## /SAPCD Partitioning
 resource "aws_volume_attachment" "sbddb_sapcd_att" {
   device_name = "/dev/sdf"
   volume_id   = aws_ebs_volume.sbddb_sapcd_add.id
   instance_id = aws_instance.sbddb.id
 }
-
+*/
 resource "aws_ebs_volume" "sbddb_sapcd_add" {
   availability_zone = "${var.region}a"
   size              = 300
