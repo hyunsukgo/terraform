@@ -51,7 +51,7 @@ resource "aws_ebs_volume" "spqap_add_1" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqap"
+    Name      = "sy-spo-spqap"
     Partition = "/sybase"
     cz-ext1   = "sy-spqap"
   }
@@ -73,7 +73,7 @@ resource "aws_ebs_volume" "spqap_add_2" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqap-swap"
+    Name      = "sy-spo-spqap"
     Partition = "/swap"
     cz-ext1   = "sy-spqap"
   }

@@ -48,7 +48,7 @@ resource "aws_ebs_volume" "sbdap_sapmnt_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-b4h-sbdap"
     Partition = "/sapmnt"
     cz-ext1   = "sy-sbdap"
   }
@@ -68,7 +68,7 @@ resource "aws_ebs_volume" "sbdap_usrsap_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-b4h-sbdap"
     Partition = "/usr/sap"
     cz-ext1   = "sy-sbdap"
   }
@@ -88,7 +88,7 @@ resource "aws_ebs_volume" "sbdap_usrsaptrans_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-b4h-sbdap"
     Partition = "/usr/sap/trans(EFS)"
     cz-ext1   = "sy-sbdap"
   }
@@ -106,7 +106,7 @@ resource "aws_ebs_volume" "sbdap_sapcd_add" {
   type              = "gp2"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-b4h-sbdap"
     Partition = "sbdap_sapcd_add(EFS)"
     cz-ext1   = "sy-sbdap"
   }
@@ -126,7 +126,7 @@ resource "aws_ebs_volume" "sbdap_swap_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbdap"
+    Name      = "sy-b4h-sbdap"
     Partition = "/swap"
     cz-ext1   = "sy-sbdap"
   }

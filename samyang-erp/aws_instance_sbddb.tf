@@ -49,7 +49,7 @@ resource "aws_ebs_volume" "sbddb_usrsap_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "/usr/sap"
     cz-ext1   = "sy-sbddb"
   }
@@ -69,7 +69,7 @@ resource "aws_ebs_volume" "sbddb_hanadata_add" {
   throughput        = 500
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "/hana/data"
     cz-ext1   = "sy-sbddb"
   }
@@ -90,7 +90,7 @@ resource "aws_ebs_volume" "sbddb_hanalog_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "/hana/log"
     cz-ext1   = "sy-sbddb"
   }
@@ -111,7 +111,7 @@ resource "aws_ebs_volume" "sbddb_hanashared_add" {
   iops              = 3000
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "/hana/shared"
     cz-ext1   = "sy-sbddb"
   }
@@ -130,7 +130,7 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
   type              = "gp2"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "sbddb_sapcd_add(EFS)"
     cz-ext1   = "sy-sbddb"
   }
@@ -151,7 +151,7 @@ resource "aws_ebs_volume" "sbddb_swap_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbddb"
+    Name      = "sy-b4h-sbddb"
     Partition = "/swap"
     cz-ext1   = "sy-sbddb"
   }
