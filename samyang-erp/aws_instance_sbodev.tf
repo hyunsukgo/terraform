@@ -43,7 +43,7 @@ resource "aws_volume_attachment" "sbodev_att" {
 resource "aws_ebs_volume" "sbodev_add" {
   availability_zone = "${var.region}a"
   size              = 300
-  type              = "gp2"
+  type              = "gp3"
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbodev"
