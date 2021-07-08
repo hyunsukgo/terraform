@@ -55,3 +55,7 @@ variable "ksnet-cgw" {
 variable "ksnet" {
   type = string
 }
+
+variable "newvpn" {
+  type = string
+}
