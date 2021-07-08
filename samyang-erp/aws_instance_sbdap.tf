@@ -13,7 +13,7 @@ resource "aws_instance" "sbdap" {
     throughput  = 125
     volume_size = 30
     tags = {
-      Name      = "sy-sbdap"
+      Name      = "sy-b4h-sbdap"
       Partition = "/root"
       cz-ext1   = "sy-sbdap"
     }

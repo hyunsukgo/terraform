@@ -15,7 +15,7 @@ resource "aws_instance" "spqap" {
     encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
-      Name      = "sy-spqap"
+      Name      = "sy-spo-spqap"
       Partition = "/root"
       cz-ext1   = "sy-spqap"
     }

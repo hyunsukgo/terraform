@@ -13,7 +13,7 @@ resource "aws_instance" "spqdb" {
     encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
-      Name      = "sy-spqdb"
+      Name      = "sy-spo-spqdb"
       Partition = "/root"
       cz-ext1   = "sy-spqdb"
     }
@@ -50,7 +50,7 @@ resource "aws_ebs_volume" "spqdb_add_1" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqdb"
+    Name      = "sy-spo-spqdb"
     Partition = "/sapmnt(EFS)"
     cz-ext1   = "sy-spqdb"
   }
@@ -72,7 +72,7 @@ resource "aws_ebs_volume" "spqdb_add_2" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqdb"
+    Name      = "sy-spo-spqdb"
     Partition = "/usr/sap"
     cz-ext1   = "sy-spqdb"
   }
@@ -93,7 +93,7 @@ resource "aws_ebs_volume" "spqdb_add_3" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-spqdb-swap"
+    Name      = "sy-spo-spqdb"
     Partition = "/swap"
     cz-ext1   = "sy-spqdb"
   }

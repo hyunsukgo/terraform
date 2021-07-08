@@ -13,7 +13,7 @@ resource "aws_instance" "sbddb" {
     iops        = 3000
     throughput  = 125
     tags = {
-      Name      = "sy-sbddb"
+      Name      = "sy-b4h-sbddb"
       Partition = "/root"
       cz-ext1   = "sy-sbddb"
     }
