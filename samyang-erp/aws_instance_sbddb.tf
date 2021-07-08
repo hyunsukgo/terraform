@@ -123,7 +123,7 @@ resource "aws_volume_attachment" "sbddb_sapcd_att" {
   volume_id   = aws_ebs_volume.sbddb_sapcd_add.id
   instance_id = aws_instance.sbddb.id
 }
-*/
+
 resource "aws_ebs_volume" "sbddb_sapcd_add" {
   availability_zone = "${var.region}a"
   size              = 300
@@ -135,7 +135,7 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
     cz-ext1   = "sy-sbddb"
   }
 }
-
+*/
 ## Swap Partitioning
 resource "aws_volume_attachment" "sbddb_swap_att" {
   device_name = "/dev/sdg"

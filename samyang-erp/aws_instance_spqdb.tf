@@ -39,7 +39,7 @@ resource "aws_volume_attachment" "spqdb_att_1" {
   volume_id   = aws_ebs_volume.spqdb_add_1.id
   instance_id = aws_instance.spqdb.id
 }
-*/
+
 resource "aws_ebs_volume" "spqdb_add_1" {
   availability_zone = "${var.region}a"
   size              = 10
@@ -55,7 +55,7 @@ resource "aws_ebs_volume" "spqdb_add_1" {
     cz-ext1   = "sy-spqdb"
   }
 }
-
+*/
 resource "aws_volume_attachment" "spqdb_att_2" {
   device_name = "/dev/sdc"
   volume_id   = aws_ebs_volume.spqdb_add_2.id
