@@ -13,7 +13,7 @@ resource "aws_instance" "seqdb" {
     encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
-      Name      = "sy-seqdb"
+      Name      = "sy-s4h-seqdb"
       Partition = "/root"
       cz-ext1   = "sy-seqdb"
     }
@@ -50,7 +50,7 @@ resource "aws_ebs_volume" "seqdb_add_1" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqdb"
+    Name      = "sy-s4h-seqdb"
     Partition = "/usr/sap"
     cz-ext1   = "sy-seqdb"
   }
@@ -72,7 +72,7 @@ resource "aws_ebs_volume" "seqdb_add_2" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqdb"
+    Name      = "sy-s4h-seqdb"
     Partition = "/hana/data"
     cz-ext1   = "sy-seqdb"
   }
@@ -93,7 +93,7 @@ resource "aws_ebs_volume" "seqdb_add_3" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqdb"
+    Name      = "sy-s4h-seqdb"
     Partition = "/hana/log"
     cz-ext1   = "sy-seqdb"
   }
@@ -114,7 +114,7 @@ resource "aws_ebs_volume" "seqdb_add_4" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqdb"
+    Name      = "sy-s4h-seqdb"
     Partition = "/hana/shared"
     cz-ext1   = "sy-seqdb"
   }
@@ -136,7 +136,7 @@ resource "aws_ebs_volume" "seqdb_add_5" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqdb-swap"
+    Name      = "sy-s4h-seqdb"
     Partition = "/swap"
     cz-ext1   = "sy-seqdb"
   }

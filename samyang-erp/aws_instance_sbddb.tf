@@ -131,7 +131,7 @@ resource "aws_ebs_volume" "sbddb_sapcd_add" {
   tags = {
     Snapshot  = "true"
     Name      = "sy-sbddb"
-    Partition = "sbddb_sapcd_add"
+    Partition = "sbddb_sapcd_add(EFS)"
     cz-ext1   = "sy-sbddb"
   }
 }

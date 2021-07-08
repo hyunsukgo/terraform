@@ -13,7 +13,7 @@ resource "aws_instance" "seqap" {
     encrypted   = true
     kms_key_id  = aws_kms_key.ebs_kms.arn
     tags = {
-      Name      = "sy-seqap"
+      Name      = "sy-s4h-seqap"
       Partition = "/root"
       cz-ext1   = "sy-seqap"
     }
@@ -50,7 +50,7 @@ resource "aws_ebs_volume" "seqap_add_1" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqap"
+    Name      = "sy-s4h-seqap"
     Partition = "/sapmnt"
     cz-ext1   = "sy-seqap"
   }
@@ -72,7 +72,7 @@ resource "aws_ebs_volume" "seqap_add_2" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqap"
+    Name      = "sy-s4h-seqap"
     Partition = "/usr/sap"
     cz-ext1   = "sy-seqap"
   }
@@ -93,7 +93,7 @@ resource "aws_ebs_volume" "seqap_add_3" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqap-swap"
+    Name      = "sy-s4h-seqap"
     Partition = "/swap"
     cz-ext1   = "sy-seqap"
   }
@@ -115,7 +115,7 @@ resource "aws_ebs_volume" "endb_add" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-seqap-endb"
+    Name      = "sy-s4h-seqap"
     Partition = "/EnDB"
     cz-ext1   = "sy-seqap"
   }
