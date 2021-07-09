@@ -39,7 +39,13 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+  ingress {
+    description     = "EACC Web Service(admin)"
+    from_port       = -1
+    to_port         = -1
+    protocol        = "icmp"
+    prefix_list_ids = "172.16.16.0/24"
+  }
   egress {
     from_port   = 0
     to_port     = 0
