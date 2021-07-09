@@ -1,3 +1,4 @@
+/*
 resource "aws_vpn_connection" "vpn" {
   customer_gateway_id = aws_customer_gateway.cgw.id
   transit_gateway_id  = aws_ec2_transit_gateway.tgw.id
@@ -7,7 +8,7 @@ resource "aws_vpn_connection" "vpn" {
     Name = "${var.service_name}-VPN"
   }
 }
-
+*/
 resource "aws_vpn_connection" "ksnet-vpn" {
   customer_gateway_id = aws_customer_gateway.ksnet_cgw.id
   transit_gateway_id  = aws_ec2_transit_gateway.tgw.id
