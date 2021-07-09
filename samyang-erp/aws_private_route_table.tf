@@ -14,12 +14,12 @@ resource "aws_route_table" "private_route" {
     cidr_block         = "130.1.0.0/16"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
-  */
+  
   route {
     cidr_block         = "10.20.0.0/16"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
-
+*/
   route {
     cidr_block         = var.ksnet
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
@@ -28,11 +28,13 @@ resource "aws_route_table" "private_route" {
     cidr_block         = "129.200.9.0/24"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
+
+  /*
   route {
     cidr_block         = "172.16.16.0/24"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
-
+*/
   tags = {
     Name = "${var.service_name}-private-rt"
   }
