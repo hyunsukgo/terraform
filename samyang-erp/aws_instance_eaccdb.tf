@@ -51,3 +51,12 @@ resource "aws_ebs_volume" "eaccdb_add" {
     cz-ext1   = "sy-eaccdb"
   }
 }
+
+resource "aws_eip" "eaccdb_eip" {
+  vpc      = true
+  instance = aws_instance.eaccdb.id
+  tags = {
+    Name        = "${var.service_name}-eaccdb-EIP"
+    Description = "중계 서버 공인 IP"
+  }
+}
