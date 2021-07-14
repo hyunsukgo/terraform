@@ -44,7 +44,13 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     from_port       = -1
     to_port         = -1
     protocol        = "icmp"
-    cidr_blocks = ["172.16.16.0/24"]
+    cidr_blocks = ["130.1.0.0/16"]
+  }
+  ingress {
+    from_port       = -1
+    to_port         = -1
+    protocol        = "icmp"
+    cidr_blocks = ["10.20.0.0/16"]
   }
   egress {
     from_port   = 0
