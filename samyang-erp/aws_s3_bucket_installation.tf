@@ -7,3 +7,13 @@ resource "aws_s3_bucket" "installationbucket" {
     Environment = "Prd"
   }
 }
+
+resource "aws_s3_bucket" "installationbucket" {
+  bucket        = "${var.service_name}-launchwizard-bucket"
+  force_destroy = true
+
+  tags = {
+    Name        = "${var.service_name}-launchwizard-bucket"
+    Environment = "Prd"
+  }
+}
