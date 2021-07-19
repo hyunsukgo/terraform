@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "installationbucket" {
   }
 }
 
-resource "aws_s3_bucket" "installationbucket" {
+resource "aws_s3_bucket" "launchwizard" {
   bucket        = "${var.service_name}-launchwizard-bucket"
   force_destroy = true
 
