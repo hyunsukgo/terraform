@@ -9,11 +9,11 @@ resource "aws_s3_bucket" "installationbucket" {
 }
 
 resource "aws_s3_bucket" "launchwizard" {
-  bucket        = "${var.service_name}-launchwizard-bucket"
+  bucket        = "launchwizard-${var.service_name}-bucket"
   force_destroy = true
 
   tags = {
-    Name        = "${var.service_name}-launchwizard-bucket"
+    Name        = "launchwizard-${var.service_name}-bucket"
     Environment = "Prd"
   }
 }
