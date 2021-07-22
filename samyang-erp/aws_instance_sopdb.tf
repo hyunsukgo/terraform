@@ -1,6 +1,6 @@
 
 resource "aws_instance" "sopdb" {
-  ami                  = "ami-0fc1ba861e48fc890" # ap-northeast-2
+  ami                  = "ami-0bbac56d527e97165" # ap-northeast-2
   instance_type        = "r5.4xlarge"
   ebs_optimized        = true
   private_ip           = "10.200.40.11"
