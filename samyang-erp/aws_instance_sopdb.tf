@@ -32,23 +32,3 @@ resource "aws_instance" "sopdb" {
     cz-ext1     = "sy-sopdb"
   }
 }
-
-resource "aws_volume_attachment" "sopdb_att" {
-  device_name = "/dev/sdb"
-  volume_id   = aws_ebs_volume.sopdb_add.id
-  instance_id = aws_instance.sopdb.id
-}
-
-resource "aws_ebs_volume" "sopdb_add" {
-  availability_zone = "${var.region}a"
-  size              = 60
-  iops              = 3000
-  throughput        = 125
-  type              = "gp3"
-  tags = {
-    Snapshot  = "true"
-    Name      = "sy-sopdb"
-    Partition = "sopdb_D"
-    cz-ext1   = "sy-sopdb"
-  }
-}
