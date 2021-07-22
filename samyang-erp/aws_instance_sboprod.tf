@@ -20,7 +20,7 @@ resource "aws_instance" "sboprod" {
   }
   disable_api_termination = "true"
   vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_sboprod.id]
-  subnet_id               = aws_subnet.SAPDB_A.id
+  subnet_id               = aws_subnet.SAPDB1_A.id
 
   tags = {
     Name        = "sy-sboprod"

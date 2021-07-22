@@ -20,7 +20,7 @@ resource "aws_instance" "sopap" {
   }
   disable_api_termination = "true"
   vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_sopap.id]
-  subnet_id               = aws_subnet.LEGAAP_A.id
+  subnet_id               = aws_subnet.LEGAAP1_A.id
 
   tags = {
     Name        = "sy-sopap"
