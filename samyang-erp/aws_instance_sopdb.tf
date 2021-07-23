@@ -11,7 +11,7 @@ resource "aws_instance" "sopdb" {
     volume_type = "gp3"
     iops        = 3000
     throughput  = 125
-    volume_size = 40
+    volume_size = 50
     tags = {
       Name      = "sy-sopdb"
       Partition = "sopdb_C"
@@ -30,5 +30,28 @@ resource "aws_instance" "sopdb" {
     Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
     cz-ext1     = "sy-sopdb"
+  }
+}
+
+
+resource "aws_volume_attachment" "sopdb_att" {
+  device_name = "/dev/sdb"
+  volume_id   = aws_ebs_volume.sopdb_add.id
+  instance_id = aws_instance.sopdb.id
+}
+
+resource "aws_ebs_volume" "sopdb_add" {
+  availability_zone = "${var.region}a"
+  size              = 2000
+  type              = "gp3"
+  iops              = 3000
+  throughput        = 125
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
+  tags = {
+    Snapshot  = "true"
+    Name      = "sy-sopdb"
+    Partition = "SOPDB D:"
+    cz-ext1   = "sy-sopdb"
   }
 }
