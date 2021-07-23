@@ -18,13 +18,12 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "EAI interface"
     from_port       = 8088
     to_port         = 8088
     protocol        = "tcp"
-    security_groups = [aws_security_group.allow_from_trust_to_drawbkap.id]
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
