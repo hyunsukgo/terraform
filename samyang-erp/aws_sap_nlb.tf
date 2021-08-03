@@ -43,7 +43,20 @@ resource "aws_lb" "sep_nlb" {
   }
 }
 
-resource "aws_lb_listener" "front_end" {
+resource "aws_lb_listener" "ascs_msg_server" {
+  load_balancer_arn = aws_lb.sep_nlb.arn
+  port              = "50013"
+  protocol          = "TCP"
+
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.ascs_msg_server.arn
+  }
+}
+
+
+resource "aws_lb_listener" "sap_start" {
   load_balancer_arn = aws_lb.sep_nlb.arn
   port              = "3610"
   protocol          = "TCP"
@@ -51,6 +64,32 @@ resource "aws_lb_listener" "front_end" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.ascs_msg_server.arn
+    target_group_arn = aws_lb_target_group.sap_start.arn
+  }
+}
+
+
+resource "aws_lb_listener" "jdbc_port" {
+  load_balancer_arn = aws_lb.sep_nlb.arn
+  port              = "30015"
+  protocol          = "TCP"
+
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.jdbc_port.arn
+  }
+}
+
+
+resource "aws_lb_listener" "sap_hana" {
+  load_balancer_arn = aws_lb.sep_nlb.arn
+  port              = "30013"
+  protocol          = "TCP"
+
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.sap_hana.arn
   }
 }
