@@ -28,7 +28,7 @@ resource "aws_instance" "seqap" {
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours-extend"
+    #Schedule    = "samyang-office-hours-extend"
     Snapshot = "Yes"
     cz-ext1  = "sy-seqap"
   }
