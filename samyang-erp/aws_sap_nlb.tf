@@ -56,18 +56,6 @@ resource "aws_lb_listener" "ascs_msg_server" {
 }
 
 
-resource "aws_lb_listener" "sap_start" {
-  load_balancer_arn = aws_lb.sep_nlb.arn
-  port              = "50013"
-  protocol          = "TCP"
-
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.sap_start.arn
-  }
-}
-
 
 resource "aws_lb_listener" "jdbc_port" {
   load_balancer_arn = aws_lb.sep_nlb.arn
