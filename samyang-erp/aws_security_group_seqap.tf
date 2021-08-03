@@ -28,6 +28,8 @@ resource "aws_security_group" "allow_from_trust_to_seqap" {
 
   ingress {
     description     = ""
+    from_port       = -1
+    to_port         = -1
     protocol        = "icmp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
