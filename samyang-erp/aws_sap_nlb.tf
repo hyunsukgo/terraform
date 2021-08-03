@@ -45,7 +45,7 @@ resource "aws_lb" "sep_nlb" {
 
 resource "aws_lb_listener" "ascs_msg_server" {
   load_balancer_arn = aws_lb.sep_nlb.arn
-  port              = "50013"
+  port              = "3610"
   protocol          = "TCP"
 
 
