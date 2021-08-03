@@ -29,6 +29,35 @@ resource "aws_route_table" "private_route" {
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
+  route {
+    cidr_block         = "10.150.110.10/32"
+    network_interface_id = "eni-065bccc4a14646929"
+  }
+
+  route {
+    cidr_block         = "10.150.110.70/32"
+    network_interface_id = "eni-07c388fae5403ec95"
+  }
+
+  route {
+    cidr_block         = "10.150.220.10/32"
+    network_interface_id = "eni-0f8ca819e334558cb"
+  }
+
+  route {
+    cidr_block         = "10.150.220.15/32"
+    network_interface_id = "eni-10.150.220.15"
+  }
+
+  route {
+    cidr_block         = "10.150.220.20/32"
+    network_interface_id = "eni-0dd815f601a66a574"
+  }
+
+  route {
+    cidr_block         = "10.150.220.25/32"
+    network_interface_id = "eni-0dd815f601a66a574"
+  }
   /*
   route {
     cidr_block         = "172.16.16.0/24"
