@@ -28,7 +28,7 @@ resource "aws_instance" "seqdb" {
     Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    #Schedule    = "samyang-office-hours-extend"
+    Schedule    = ""
     Snapshot    = "Yes"
     cz-ext1     = "sy-seqdb"
   }

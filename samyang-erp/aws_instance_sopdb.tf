@@ -27,7 +27,7 @@ resource "aws_instance" "sopdb" {
     Description = "S&OP(DB)"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    #Schedule    = "samyang-office-hours"
+    Schedule    = ""
     Snapshot    = "Yes"
     cz-ext1     = "sy-sopdb"
   }
