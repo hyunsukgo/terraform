@@ -31,33 +31,40 @@ resource "aws_route_table" "private_route" {
 
   route {
     cidr_block         = "10.150.110.10/32"
+    instance_id        = "i-0d600d31681de2bb2"
     network_interface_id = "eni-065bccc4a14646929"
   }
 
   route {
     cidr_block         = "10.150.110.70/32"
+    instance_id        = "i-09873436d53a8c421"
     network_interface_id = "eni-07c388fae5403ec95"
   }
 
   route {
     cidr_block         = "10.150.220.10/32"
+    instance_id        = "i-0a1c79c8d70997fbc"
     network_interface_id = "eni-0f8ca819e334558cb"
   }
 
   route {
     cidr_block         = "10.150.220.15/32"
+    instance_id        = "i-0262a7a8c467645bd"
     network_interface_id = "eni-01a386fafe97e7251"
   }
 
   route {
     cidr_block         = "10.150.220.20/32"
+    instance_id        = "i-0f6f843bf0144dd96"
     network_interface_id = "eni-0dd815f601a66a574"
   }
 
   route {
     cidr_block         = "10.150.220.25/32"
     network_interface_id = "eni-0dd815f601a66a574"
+    instance_id                = "i-0f6f843bf0144dd96"
   }
+  
   /*
   route {
     cidr_block         = "172.16.16.0/24"
