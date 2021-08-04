@@ -28,7 +28,7 @@ resource "aws_route_table" "private_route" {
     cidr_block         = "129.200.9.0/24"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
-
+  /*
   route {
     cidr_block         = "10.150.110.10/32"
     instance_id        = "i-0d600d31681de2bb2"
@@ -64,7 +64,7 @@ resource "aws_route_table" "private_route" {
     network_interface_id = "eni-0dd815f601a66a574"
     instance_id                = "i-0f6f843bf0144dd96"
   }
-  
+  */
   /*
   route {
     cidr_block         = "172.16.16.0/24"
