@@ -38,10 +38,10 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
-    from_port       = -1
-    to_port         = -1
-    protocol        = "icmp"
-    cidr_blocks = ["10.20.0.0/16","130.1.0.0/16"]
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["10.20.0.0/16", "130.1.0.0/16"]
   }
   egress {
     from_port   = 0

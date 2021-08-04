@@ -28,8 +28,8 @@ resource "aws_instance" "sopap" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     #Schedule    = ""
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-sopap"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-sopap"
   }
 }
 

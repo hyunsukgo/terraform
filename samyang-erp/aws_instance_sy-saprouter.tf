@@ -25,7 +25,7 @@ resource "aws_instance" "saprouter" {
     Environment = "Prd"
     cz-product  = "SAP"
     Schedule    = ""
-    cz-ext1 = "sy-saprouter"
+    cz-ext1     = "sy-saprouter"
   }
 }
 

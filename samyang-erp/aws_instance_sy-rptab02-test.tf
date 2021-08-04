@@ -27,7 +27,7 @@ resource "aws_instance" "rptab02c" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     #Schedule    = "" #"samyang-office-hours-noholiday"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-rptap02"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-rptap02"
   }
 }

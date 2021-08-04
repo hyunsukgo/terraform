@@ -28,8 +28,8 @@ resource "aws_instance" "sopdb" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     #Schedule    = ""
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-sopdb"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-sopdb"
   }
 }
 

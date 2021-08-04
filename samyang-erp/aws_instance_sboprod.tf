@@ -28,8 +28,8 @@ resource "aws_instance" "sboprod" {
     Environment = "Prd"
     cz-product  = "Non-SAP"
     #Schedule    = ""
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-sboprod"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-sboprod"
   }
 }
 

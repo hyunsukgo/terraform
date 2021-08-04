@@ -13,7 +13,7 @@ resource "aws_security_group" "allow_from_trust_to_drawbkdb" {
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
-  
+
 
   egress {
     from_port   = 0

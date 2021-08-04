@@ -19,7 +19,7 @@ resource "aws_kms_alias" "efs" {
 }
 resource "aws_kms_key" "ebs_kms" {
   description = "${var.service_name}-ebs-encrytion"
-  policy = <<EOT
+  policy      = <<EOT
 {
     "Version": "2012-10-17",
     "Id": "key-default-1",

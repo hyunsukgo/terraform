@@ -11,10 +11,10 @@ resource "aws_route_table" "public_route" {
     vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
   }
   route {
-    cidr_block                = "10.20.0.0/16"
+    cidr_block = "10.20.0.0/16"
     gateway_id = aws_vpn_gateway.vpn_gw.id
   }
-/*
+  /*
   route {
     cidr_block         = "130.1.0.0/16"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id

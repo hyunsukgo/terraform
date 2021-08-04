@@ -22,7 +22,7 @@ resource "aws_vpn_connection" "ksnet-vpn" {
 
 resource "aws_vpn_connection" "new-vpn" {
   customer_gateway_id = aws_customer_gateway.newvpn_cgw.id
-  vpn_gateway_id  = aws_vpn_gateway.vpn_gw.id
+  vpn_gateway_id      = aws_vpn_gateway.vpn_gw.id
   type                = aws_customer_gateway.cgw.type
   tags = {
     Name = "NEW-VPN"

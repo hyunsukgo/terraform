@@ -29,8 +29,8 @@ resource "aws_instance" "seqap" {
     Environment = "Stg"
     cz-product  = "SAP"
     Schedule    = "samyang-office-hours-test"
-    Snapshot = "Yes"
-    cz-ext1  = "sy-seqap"
+    Snapshot    = "Yes"
+    cz-ext1     = "sy-seqap"
   }
 }
 
