@@ -26,7 +26,7 @@ resource "aws_instance" "mdidb" {
     Description = "중계서버 인스턴스"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = ""
+    Schedule    = "samyang-office-hours-test"
     Snapshot    = "Yes"
     cz-ext1     = "sy-mdidb"
   }

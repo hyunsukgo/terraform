@@ -30,7 +30,7 @@ resource "aws_instance" "spqap" {
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = ""
+    Schedule    = "samyang-office-hours-test"
     Snapshot    = "Yes"
     cz-ext1     = "sy-spqap"
   }

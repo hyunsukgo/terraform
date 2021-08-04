@@ -28,7 +28,7 @@ resource "aws_instance" "spqdb" {
     Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = ""
+    Schedule    = "samyang-office-hours-test"
     Snapshot    = "Yes"
     cz-ext1     = "sy-spqdb"
   }
