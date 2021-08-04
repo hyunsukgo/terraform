@@ -101,29 +101,6 @@ resource "aws_lb_target_group" "sbp_ascs_msg_server" {
   vpc_id      = aws_vpc.vpc.id
 }
 
-resource "aws_lb_target_group" "sbp_sap_start" {
-  name        = "SBP-SAPStartSrv-HTTPPort"
-  port        = 50013
-  protocol    = "TCP"
-  target_type = "ip"
-  vpc_id      = aws_vpc.vpc.id
-}
-
-resource "aws_lb_target_group" "sbp_jdbc_port" {
-  name        = "SBP-JDBC-SQL-Port"
-  port        = 30015
-  protocol    = "TCP"
-  target_type = "ip"
-  vpc_id      = aws_vpc.vpc.id
-}
-
-resource "aws_lb_target_group" "sbp_sap_hana" {
-  name        = "SBP-SAP-HANA"
-  port        = 30013
-  protocol    = "TCP"
-  target_type = "ip"
-  vpc_id      = aws_vpc.vpc.id
-}
 
 resource "aws_lb" "sbp_nlb" {
   name               = "samyang-sbp-lb"
@@ -147,43 +124,5 @@ resource "aws_lb_listener" "sbp_ascs_msg_server" {
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.sbp_ascs_msg_server.arn
-  }
-}
-
-resource "aws_lb_listener" "sbp_sap_start" {
-  load_balancer_arn = aws_lb.sbp_nlb.arn
-  port              = "50013"
-  protocol          = "TCP"
-
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.sbp_sap_start.arn
-  }
-}
-
-
-resource "aws_lb_listener" "sbp_jdbc_port" {
-  load_balancer_arn = aws_lb.sbp_nlb.arn
-  port              = "30015"
-  protocol          = "TCP"
-
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.sbp_jdbc_port.arn
-  }
-}
-
-
-resource "aws_lb_listener" "sbp_sap_hana" {
-  load_balancer_arn = aws_lb.sbp_nlb.arn
-  port              = "30013"
-  protocol          = "TCP"
-
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.sbp_sap_hana.arn
   }
 }
