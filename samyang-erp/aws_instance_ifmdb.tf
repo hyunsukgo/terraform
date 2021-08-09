@@ -23,7 +23,7 @@ resource "aws_instance" "ifmdb" {
   subnet_id               = aws_subnet.LEGADB1_A.id
 
   tags = {
-    Name        = "sy-leg-legifmdb"
+    Name        = "sy-leg-ifmdb"
     Description = "IF관리시스템"
     Environment = "Prd"
     cz-product  = "Non-SAP"

@@ -23,7 +23,7 @@ resource "aws_instance" "eaccapdev" {
   subnet_id               = aws_subnet.LEGADEV_A.id
 
   tags = {
-    Name        = "sy-eaccdev"
+    Name        = "sy-leg-eaccdev"
     Description = "전자전표(AP)"
     Environment = "Dev"
     cz-product  = "Non-SAP"

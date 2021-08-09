@@ -23,7 +23,7 @@ resource "aws_instance" "sboprod" {
   subnet_id               = aws_subnet.SAPDB1_A.id
 
   tags = {
-    Name        = "sy-sboprod"
+    Name        = "sy-leg-sboprod"
     Description = "S&OP(DB)"
     Environment = "Prd"
     cz-product  = "Non-SAP"

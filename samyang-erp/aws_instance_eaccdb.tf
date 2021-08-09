@@ -22,7 +22,7 @@ resource "aws_instance" "eaccdb" {
   subnet_id               = aws_subnet.LEGADMZ_A.id
 
   tags = {
-    Name        = "sy-eaccdb"
+    Name        = "sy-leg-eaccdb"
     Description = "전자전표(DB)"
     Environment = "Dev"
     cz-product  = "Non-SAP"

@@ -23,7 +23,7 @@ resource "aws_instance" "sopdb" {
   subnet_id               = aws_subnet.LEGADB1_A.id
 
   tags = {
-    Name        = "sy-sopdb"
+    Name        = "sy-leg-sopdb"
     Description = "S&OP(DB)"
     Environment = "Prd"
     cz-product  = "Non-SAP"

@@ -24,7 +24,7 @@ resource "aws_instance" "firmbkap" {
   subnet_id               = aws_subnet.LEGAAP1_A.id
 
   tags = {
-    Name        = "sy-firmbkap"
+    Name        = "sy-leg-firmbkap"
     Description = "펌뱅킹"
     Environment = "Prd"
     cz-product  = "Non-SAP"

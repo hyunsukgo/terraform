@@ -21,7 +21,7 @@ resource "aws_instance" "sopdev" {
   subnet_id               = aws_subnet.LEGADEV_A.id
 
   tags = {
-    Name        = "sy-sopdev"
+    Name        = "sy-leg-sopdev"
     Description = "S&OP 인스턴스"
     Environment = "Dev"
     cz-product  = "Non-SAP"

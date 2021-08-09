@@ -27,6 +27,7 @@ resource "aws_db_instance" "drawbkdb" {
   deletion_protection     = true
   tags = {
     Snapshot = "Yes"
+    cz-ext1  = "sy-drawbkap"
   }
   performance_insights_enabled          = true
   performance_insights_retention_period = 7
