@@ -12,7 +12,7 @@ resource "aws_instance" "ifmdb" {
     iops        = 3000
     volume_size = 30
     tags = {
-      Name      = "sy-leg-ifmdb"
+      Name      = "sy-ifmdb"
       Partition = "/root"
       cz-ext1   = "sy-ifmdb"
     }
