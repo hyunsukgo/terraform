@@ -24,7 +24,7 @@ resource "aws_instance" "sbodev" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-sbodev"
+    Name        = "sy-leg-sbodev"
     Description = "BI (SAP BO)"
     Environment = "Dev"
     cz-product  = "Non-SAP"

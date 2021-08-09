@@ -12,7 +12,7 @@ resource "aws_instance" "rptab01" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-rptap01"
+      Name      = "sy-leg-rptap01"
       Partition = "rptap01_C"
       cz-ext1   = "sy-rptap01"
     }
@@ -22,7 +22,7 @@ resource "aws_instance" "rptab01" {
   subnet_id               = aws_subnet.LEGAAP1_A.id
 
   tags = {
-    Name        = "sy-rptap01"
+    Name        = "sy-leg-rptap01"
     Description = "리포트서버"
     Environment = "Prd"
     cz-product  = "Non-SAP"

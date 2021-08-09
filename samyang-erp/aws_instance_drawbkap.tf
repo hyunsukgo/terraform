@@ -24,7 +24,7 @@ resource "aws_instance" "drawbkap" {
   subnet_id               = aws_subnet.LEGADMZ_A.id
 
   tags = {
-    Name        = "sy-drawbkap"
+    Name        = "sy-leg-drawbkap"
     Description = "관세환급 AP"
     Environment = "Prd"
     cz-product  = "Non-SAP"

@@ -23,7 +23,7 @@ resource "aws_instance" "sopap" {
   subnet_id               = aws_subnet.LEGAAP1_A.id
 
   tags = {
-    Name        = "sy-sopap"
+    Name        = "sy-leg-sopap"
     Description = "S&OP(AP)"
     Environment = "Prd"
     cz-product  = "Non-SAP"

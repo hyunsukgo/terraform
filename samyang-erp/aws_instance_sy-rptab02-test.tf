@@ -22,7 +22,7 @@ resource "aws_instance" "rptab02c" {
   subnet_id               = aws_subnet.LEGAAP2_C.id
 
   tags = {
-    Name        = "sy-rptap02"
+    Name        = "sy-leg-rptap02"
     Description = "리포트서버"
     Environment = "Prd"
     cz-product  = "Non-SAP"

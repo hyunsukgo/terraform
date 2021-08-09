@@ -22,7 +22,7 @@ resource "aws_instance" "mdidb" {
   subnet_id               = aws_subnet.LEGADB1_A.id
 
   tags = {
-    Name        = "sy-mdidb"
+    Name        = "sy-leg-mdidb"
     Description = "중계서버 인스턴스"
     Environment = "Prd"
     cz-product  = "Non-SAP"

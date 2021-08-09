@@ -12,7 +12,7 @@ resource "aws_instance" "ifmdb" {
     iops        = 3000
     volume_size = 30
     tags = {
-      Name      = "sy-ifmdb"
+      Name      = "sy-leg-ifmdb"
       Partition = "/root"
       cz-ext1   = "sy-ifmdb"
     }
@@ -23,7 +23,7 @@ resource "aws_instance" "ifmdb" {
   subnet_id               = aws_subnet.LEGADB1_A.id
 
   tags = {
-    Name        = "sy-ifmdb"
+    Name        = "sy-leg-legifmdb"
     Description = "IF관리시스템"
     Environment = "Prd"
     cz-product  = "Non-SAP"
