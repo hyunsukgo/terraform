@@ -4,7 +4,7 @@ resource "aws_security_group" "allow_from_trust_to_spdap" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description     = "spqap Endpoint"
+    description     = "spdap Endpoint"
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
@@ -102,7 +102,7 @@ resource "aws_security_group" "allow_from_trust_to_spdap" {
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
-    description     = "spqap NFS"
+    description     = "spdap NFS"
     from_port       = 2049
     to_port         = 2049
     protocol        = "tcp"
@@ -117,6 +117,6 @@ resource "aws_security_group" "allow_from_trust_to_spdap" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_spqap"
+    Name = "allow_from_trust_to_spdap"
   }
 }
