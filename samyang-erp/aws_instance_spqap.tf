@@ -65,7 +65,7 @@ resource "aws_volume_attachment" "spqap_att_2" {
 
 resource "aws_ebs_volume" "spqap_add_2" {
   availability_zone = "${var.region}a"
-  size              = 64
+  size              = 128
   type              = "gp3"
   iops              = 3000
   throughput        = 125
