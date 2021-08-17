@@ -67,5 +67,6 @@ resource "aws_route_table" "private_route" {
 */
   tags = {
     Name = "${var.service_name}-private-rt"
+    LaunchWizardApplicationType = "SAP"
   }
 }
