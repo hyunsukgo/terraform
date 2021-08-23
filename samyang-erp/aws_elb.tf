@@ -31,7 +31,6 @@ data "aws_subnet_ids" "internal" {
   }
 }
 
-
 resource "aws_lb" "reportlb" {
   name               = "report-alb"
   internal           = true

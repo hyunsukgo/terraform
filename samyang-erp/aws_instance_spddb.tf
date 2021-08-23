@@ -67,7 +67,7 @@ resource "aws_ebs_volume" "spddb_add_2" {
   size              = 160
   iops              = 3000
   type              = "gp3"
-  throughput        = 125
+  throughput        = 500
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
@@ -111,7 +111,7 @@ resource "aws_ebs_volume" "spddb_add_4" {
   size              = 128
   iops              = 3000
   type              = "gp3"
-  throughput        = 125
+  throughput        = 500
   encrypted         = true
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {

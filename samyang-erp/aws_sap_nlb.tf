@@ -6,6 +6,22 @@ resource "aws_lb_target_group" "ascs_msg_server" {
   vpc_id      = aws_vpc.vpc.id
 }
 
+resource "aws_lb_target_group" "sap_interface" {
+  name        = "sap_interface"
+  port        = 8000
+  protocol    = "TCP"
+  target_type = "ip"
+  vpc_id      = aws_vpc.vpc.id
+}
+
+resource "aws_lb_target_group" "po_interface" {
+  name        = "po_interface"
+  port        = 50000
+  protocol    = "TCP"
+  target_type = "ip"
+  vpc_id      = aws_vpc.vpc.id
+}
+
 resource "aws_lb_target_group" "sap_start" {
   name        = "SAPStartSrv-HTTPPort"
   port        = 50013
