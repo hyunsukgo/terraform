@@ -7,7 +7,7 @@ resource "aws_lb_target_group" "ascs_msg_server" {
 }
 
 resource "aws_lb_target_group" "sap_interface" {
-  name        = "sap_interface"
+  name        = "sap-interface"
   port        = 8000
   protocol    = "TCP"
   target_type = "ip"
@@ -15,7 +15,7 @@ resource "aws_lb_target_group" "sap_interface" {
 }
 
 resource "aws_lb_target_group" "po_interface" {
-  name        = "po_interface"
+  name        = "po-interface"
   port        = 50000
   protocol    = "TCP"
   target_type = "ip"
