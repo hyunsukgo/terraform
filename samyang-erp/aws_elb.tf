@@ -18,11 +18,6 @@ resource "aws_lb_target_group" "sap-web" {
     envirornment = "SAP"
   }
 
-  stickiness {
-    #enabled = true
-    type = lb_cookie
-    cookie_duration = 1800
-  }
 }
 
 resource "aws_lb_target_group" "po-web" {
@@ -33,12 +28,7 @@ resource "aws_lb_target_group" "po-web" {
   tags = {
     envirornment = "SAP"
   }
-  
-  stickiness {
-    #enabled = true
-    type = lb_cookie
-    cookie_duration = 1800
-  }
+
 }
 
 data "aws_instances" "sap-web" {
