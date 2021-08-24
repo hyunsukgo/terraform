@@ -110,6 +110,14 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
 
   ingress {
     description     = "HTTP for PO-Interface"
+    from_port       = 8000
+    to_port         = 8000
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "HTTP for PO-Interface"
     from_port       = 50000
     to_port         = 50000
     protocol        = "tcp"
