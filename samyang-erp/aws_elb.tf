@@ -31,7 +31,26 @@ resource "aws_lb_target_group" "po-web" {
   tags = {
     envirornment = "SAP"
   }
+  stickiness = {
+    type = lb_cookie
+    cookie_duration = 1800
+  }
 }
+
+data "aws_instances" "sap-web" {
+  instance_tags = {
+    ALB = "sap-interface"
+  }
+  instance_state_names = ["running"]
+}
+
+resource "aws_lb_target_group_attachment" "sap-web-tga" {
+  count            = length(data.aws_instances.sap-web.ids)
+  target_group_arn = aws_lb_target_group.sap-web.arn
+  target_id        = data.aws_instances.sap-web.ids[count.index]
+  port             = 50000
+}
+
 data "aws_instances" "po-web" {
   instance_tags = {
     ALB = "po-interface"
@@ -146,5 +165,15 @@ resource "aws_lb_listener" "po-web-listener" {
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.po-web.arn
+  }
+}
+
+resource "aws_lb_listener" "sap-web-listener" {
+  load_balancer_arn = aws_lb.reportlb.arn
+  port              = "50000"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.sap-web.arn
   }
 }
