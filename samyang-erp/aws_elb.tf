@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "po-web" {
 }
 data "aws_instances" "po-web" {
   instance_tags = {
-    LaunchWizardResourceGroupID = "a14d9f9f-50be-4c2b-a7a9-125a6b1e7268"
+    ALB = "po-interface"
   }
   instance_state_names = ["running"]
 }
