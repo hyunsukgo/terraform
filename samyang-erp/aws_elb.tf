@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "po-web" {
 }
 data "aws_instances" "po-web" {
   instance_tags = {
-    aws:cloudformation:stack-name = "LaunchWizard-PO-SAPASCSStack-OWDKL7PTWUFY"
+    LaunchWizard-pcmksppap = *
   }
 }
 
