@@ -18,7 +18,6 @@ resource "aws_lb_target_group" "sap-web" {
     envirornment = "SAP"
   }
   stickiness = {
-    enabled = true
     type = lb_cookie
     cookie_duration = 1800
   }
@@ -95,6 +94,15 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
+  ingress {
+    description     = "HTTP for PO-Interface"
+    from_port       = 50000
+    to_port         = 50000
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
