@@ -197,7 +197,7 @@ resource "aws_lb_listener_rule" "sap-web" {
 
 resource "aws_lb_listener_rule" "sap-int" {
   listener_arn = aws_lb_listener.sap-web-listener.arn
-  priority     = 100
+  priority     = 101
 
   action {
     type             = "forward"
@@ -231,7 +231,7 @@ resource "aws_lb_listener_rule" "po-web" {
 
 resource "aws_lb_listener_rule" "po-int" {
   listener_arn = aws_lb_listener.po-web-listener.arn
-  priority     = 100
+  priority     = 101
 
   action {
     type             = "forward"
