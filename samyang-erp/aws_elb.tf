@@ -33,12 +33,13 @@ resource "aws_lb_target_group" "po-web" {
   tags = {
     envirornment = "SAP"
   }
+  /*
   stickiness {
     enabled = true
     type = lb_cookie
     cookie_name = po-cookie
     cookie_duration = 1800
-  }
+  }*/
 }
 
 data "aws_instances" "sap-web" {
