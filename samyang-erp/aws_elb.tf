@@ -177,3 +177,70 @@ resource "aws_lb_listener" "sap-web-listener" {
     target_group_arn = aws_lb_target_group.sap-web.arn
   }
 }
+
+resource "aws_lb_listener_rule" "sap-web" {
+  listener_arn = aws_lb_listener.sap-web-listener.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.sap-web.arn
+  }
+
+  condition {
+    host_header {
+      values = [var.sap-weburl]
+    }
+  }
+}
+
+
+resource "aws_lb_listener_rule" "sap-int" {
+  listener_arn = aws_lb_listener.sap-web-listener.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.sap-web.arn
+  }
+
+  condition {
+    host_header {
+      values = [var.sap-inturl]
+    }
+  }
+}
+
+
+resource "aws_lb_listener_rule" "po-web" {
+  listener_arn = aws_lb_listener.po-web-listener.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.po-web.arn
+  }
+
+  condition {
+    host_header {
+      values = [var.po-weburl]
+    }
+  }
+}
+
+
+resource "aws_lb_listener_rule" "po-int" {
+  listener_arn = aws_lb_listener.po-web-listener.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.po-web.arn
+  }
+
+  condition {
+    host_header {
+      values = [var.po-inturl]
+    }
+  }
+}
