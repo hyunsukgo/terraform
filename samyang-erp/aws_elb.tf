@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "po-web" {
 }
 data "aws_instances" "po-web" {
   instance_tags = {
-    LaunchWizard-pcmksppap = *
+    LaunchWizard-pcmksppap = ["sppap01", "sppap02"]
   }
 }
 
