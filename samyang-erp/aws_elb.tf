@@ -32,6 +32,7 @@ data "aws_instances" "po-web" {
   instance_tags = {
     LaunchWizard-pcmksppap = ["sppap01", "sppap02"]
   }
+  instance_state_names = ["running"]
 }
 
 resource "aws_lb_target_group_attachment" "po-web-tga" {
