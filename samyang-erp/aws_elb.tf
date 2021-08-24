@@ -125,3 +125,13 @@ resource "aws_lb_listener_rule" "rttab" {
     }
   }
 }
+
+resource "aws_lb_listener" "reportlb" {
+  load_balancer_arn = aws_lb.reportlb.arn
+  port              = "50000"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.po-web-tga.arn
+  }
+}
