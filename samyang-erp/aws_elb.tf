@@ -38,7 +38,7 @@ data "aws_instances" "po-web" {
 resource "aws_lb_target_group_attachment" "po-web-tga" {
   count            = length(data.aws_instances.report.ids)
   target_group_arn = aws_lb_target_group.po-web.arn
-  target_id        = data.aws_instances.report.ids[count.index]
+  target_id        = data.aws_instances.po-web.ids[count.index]
   port             = 50000
 }
 
