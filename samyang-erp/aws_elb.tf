@@ -17,10 +17,6 @@ resource "aws_lb_target_group" "sap-web" {
   tags = {
     envirornment = "SAP"
   }
-  stickiness {
-    cookie_duration = 1800
-    enabled         = true
-  }
 }
 
 resource "aws_lb_target_group" "po-web" {
@@ -30,10 +26,6 @@ resource "aws_lb_target_group" "po-web" {
   vpc_id   = aws_vpc.vpc.id
   tags = {
     envirornment = "SAP"
-  }
-  stickiness {
-    cookie_duration = 1800
-    enabled         = true
   }
 }
 

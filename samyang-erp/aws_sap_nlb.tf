@@ -108,37 +108,3 @@ resource "aws_lb_listener" "sap_hana" {
     target_group_arn = aws_lb_target_group.sap_hana.arn
   }
 }
-
-resource "aws_lb_target_group" "sbp_ascs_msg_server" {
-  name        = "SBP-ASCS-Message-server-port"
-  port        = 3610
-  protocol    = "TCP"
-  target_type = "ip"
-  vpc_id      = aws_vpc.vpc.id
-}
-
-
-resource "aws_lb" "sbp_nlb" {
-  name               = "samyang-sbp-lb"
-  internal           = true
-  load_balancer_type = "network"
-  subnets            = [aws_subnet.SAPAP1_A.id, aws_subnet.SAPAP2_C.id]
-
-  enable_deletion_protection = true
-
-  tags = {
-    Environment = "production"
-  }
-}
-
-resource "aws_lb_listener" "sbp_ascs_msg_server" {
-  load_balancer_arn = aws_lb.sbp_nlb.arn
-  port              = "3610"
-  protocol          = "TCP"
-
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.sbp_ascs_msg_server.arn
-  }
-}
