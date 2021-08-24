@@ -35,13 +35,13 @@ resource "aws_instance" "spqap" {
     cz-ext1     = "sy-spqdb"
   }
 }
-
+/*
 resource "aws_volume_attachment" "spqap_att_1" {
   device_name = "/dev/sdb"
   volume_id   = aws_ebs_volume.spqap_add_1.id
   instance_id = aws_instance.spqap.id
 }
-/*
+
 resource "aws_ebs_volume" "spqap_add_1" {
   availability_zone = "${var.region}a"
   size              = 100
