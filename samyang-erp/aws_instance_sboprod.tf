@@ -52,6 +52,6 @@ resource "aws_ebs_volume" "sboprod_add" {
     Snapshot  = "true"
     Name      = "sy-sbo-sboprod"
     Partition = "sboprod D:"
-    cz-ext1   = "sy-sbo-sboprod"
+    cz-ext1   = "sy-sboprod"
   }
 }

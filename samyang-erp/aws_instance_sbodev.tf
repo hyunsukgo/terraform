@@ -48,6 +48,6 @@ resource "aws_ebs_volume" "sbodev_add" {
     Snapshot  = "true"
     Name      = "sy-sbo-sbodev"
     Partition = "sbodev_D"
-    cz-ext1   = "sy-sbo-sbodev"
+    cz-ext1   = "sy-sbodev"
   }
 }
