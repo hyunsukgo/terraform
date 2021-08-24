@@ -15,7 +15,7 @@ resource "aws_instance" "sboprod" {
     tags = {
       Name      = "sy-sbo-sboprod"
       Partition = "sboprod_C"
-      cz-ext1   = "sy-sbo-sboprod"
+      cz-ext1   = "sy-sboprod"
     }
   }
   disable_api_termination = "true"

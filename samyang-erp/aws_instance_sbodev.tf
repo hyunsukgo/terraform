@@ -15,7 +15,7 @@ resource "aws_instance" "sbodev" {
     tags = {
       Name      = "sy-sbo-sbodev"
       Partition = "sbodev_C"
-      cz-ext1   = "sy-sbo-sbodev"
+      cz-ext1   = "sy-sbodev"
     }
   }
   user_data               = file("./scripts/wininst.sh")
