@@ -59,3 +59,19 @@ variable "ksnet" {
 variable "newvpn" {
   type = string
 }
+
+variable "sap-weburl" {
+  type = string
+}
+
+variable "sap-inturl" {
+  type = string
+}
+
+variable "po-weburl" {
+  type = string
+}
+
+variable "po-inturl" {
+  type = string
+}
