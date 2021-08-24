@@ -27,6 +27,14 @@ resource "aws_security_group" "allow_from_trust_to_sboprod" {
   }
 
   ingress {
+    description     = "bo cms"
+    from_port       = 6400
+    to_port         = 6410
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
     description     = "RDP from On-Prem"
     from_port       = 3389
     to_port         = 3389

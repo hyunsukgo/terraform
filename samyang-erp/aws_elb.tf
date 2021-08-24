@@ -8,6 +8,27 @@ resource "aws_lb_target_group" "reporttg" {
     envirornment = "Non SAP"
   }
 }
+
+resource "aws_lb_target_group" "sap-web" {
+  name     = "sap-web-tg"
+  port     = 8000
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.vpc.id
+  tags = {
+    envirornment = "SAP"
+  }
+}
+
+resource "aws_lb_target_group" "po-web" {
+  name     = "po-web-tg"
+  port     = 50000
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.vpc.id
+  tags = {
+    envirornment = "SAP"
+  }
+}
+
 # Setting Target Instances
 data "aws_instances" "report" {
   instance_tags = {

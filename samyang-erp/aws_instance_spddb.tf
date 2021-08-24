@@ -1,5 +1,5 @@
 
-resource "aws_instance" "spddb" {
+/*resource "aws_instance" "spddb" {
   ami           = "ami-097fc5cd098dd20d5" # ap-northeast-2
   instance_type = "r5.4xlarge"
 
@@ -143,3 +143,5 @@ resource "aws_ebs_volume" "spddb_add_5" {
     cz-ext1   = "sy-spddb"
   }
 }
+
+*/

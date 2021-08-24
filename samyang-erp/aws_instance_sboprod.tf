@@ -13,9 +13,9 @@ resource "aws_instance" "sboprod" {
     throughput  = 125
     volume_size = 100
     tags = {
-      Name      = "sy-sboprod"
+      Name      = "sy-sbo-sboprod"
       Partition = "sboprod_C"
-      cz-ext1   = "sy-sboprod"
+      cz-ext1   = "sy-sbo-sboprod"
     }
   }
   disable_api_termination = "true"
@@ -23,7 +23,7 @@ resource "aws_instance" "sboprod" {
   subnet_id               = aws_subnet.SAPDB1_A.id
 
   tags = {
-    Name        = "sy-leg-sboprod"
+    Name        = "sy-sbo-sboprod"
     Description = "S&OP(DB)"
     Environment = "Prd"
     cz-product  = "Non-SAP"
@@ -50,8 +50,8 @@ resource "aws_ebs_volume" "sboprod_add" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sboprod"
+    Name      = "sy-sbo-sboprod"
     Partition = "sboprod D:"
-    cz-ext1   = "sy-sboprod"
+    cz-ext1   = "sy-sbo-sboprod"
   }
 }

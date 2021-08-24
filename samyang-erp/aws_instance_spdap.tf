@@ -96,7 +96,7 @@ resource "aws_ebs_volume" "spdap_add_3" {
   tags = {
     Snapshot  = "true"
     Name      = "sy-spo-spdap"
-    Partition = "/usr/sap"
+    Partition = "heapdump"
     cz-ext1   = "sy-spdap"
   }
 }

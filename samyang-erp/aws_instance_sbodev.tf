@@ -13,9 +13,9 @@ resource "aws_instance" "sbodev" {
     throughput  = 125
     volume_size = 100
     tags = {
-      Name      = "sy-sbodev"
+      Name      = "sy-sbo-sbodev"
       Partition = "sbodev_C"
-      cz-ext1   = "sy-sbodev"
+      cz-ext1   = "sy-sbo-sbodev"
     }
   }
   user_data               = file("./scripts/wininst.sh")
@@ -24,7 +24,7 @@ resource "aws_instance" "sbodev" {
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
-    Name        = "sy-leg-sbodev"
+    Name        = "sy-sbo-sbodev"
     Description = "BI (SAP BO)"
     Environment = "Dev"
     cz-product  = "Non-SAP"
@@ -46,8 +46,8 @@ resource "aws_ebs_volume" "sbodev_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sbodev"
+    Name      = "sy-sbo-sbodev"
     Partition = "sbodev_D"
-    cz-ext1   = "sy-sbodev"
+    cz-ext1   = "sy-sbo-sbodev"
   }
 }
