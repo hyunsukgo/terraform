@@ -172,7 +172,7 @@ resource "aws_lb_listener" "po-web-listener" {
 
 resource "aws_lb_listener" "sap-web-listener" {
   load_balancer_arn = aws_lb.reportlb.arn
-  port              = "50000"
+  port              = "8000"
   protocol          = "HTTP"
   default_action {
     type             = "forward"
