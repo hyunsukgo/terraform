@@ -126,7 +126,7 @@ resource "aws_lb_listener_rule" "rttab" {
   }
 }
 
-resource "aws_lb_listener" "reportlb" {
+resource "aws_lb_listener" "po-web-listener" {
   load_balancer_arn = aws_lb.reportlb.arn
   port              = "50000"
   protocol          = "HTTP"
