@@ -29,11 +29,25 @@ resource "aws_lb_target_group" "po-web" {
   }
 }
 
-data "aws_instances" "sap-web" {
-  instance_tags = {
-    ALB = "sap-interface"
+
+resource "aws_lb_target_group" "sap-int" {
+  name     = "sap-int-tg"
+  port     = 8000
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.vpc.id
+  tags = {
+    envirornment = "SAP"
   }
-  instance_state_names = ["running"]
+}
+
+resource "aws_lb_target_group" "po-int" {
+  name     = "po-int-tg"
+  port     = 50000
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.vpc.id
+  tags = {
+    envirornment = "SAP"
+  }
 }
 
 resource "aws_lb_target_group_attachment" "sap-web-tga" {
@@ -42,6 +56,30 @@ resource "aws_lb_target_group_attachment" "sap-web-tga" {
   target_id        = data.aws_instances.sap-web.ids[count.index]
   port             = 8000
 }
+
+
+data "aws_instances" "sap-web" {
+  instance_tags = {
+    ALB = "sap-interface"
+  }
+  instance_state_names = ["running"]
+}
+
+resource "aws_lb_target_group_attachment" "sap-int-tga" {
+  count            = length(data.aws_instances.sap-web.ids)
+  target_group_arn = aws_lb_target_group.sap-int.arn
+  target_id        = data.aws_instances.sap-web.ids[count.index]
+  port             = 8000
+}
+
+
+resource "aws_lb_target_group_attachment" "po-int-tga" {
+  count            = length(data.aws_instances.po-web.ids)
+  target_group_arn = aws_lb_target_group.po-int.arn
+  target_id        = data.aws_instances.po-web.ids[count.index]
+  port             = 50000
+}
+
 
 data "aws_instances" "po-web" {
   instance_tags = {
@@ -201,7 +239,7 @@ resource "aws_lb_listener_rule" "sap-int" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.sap-web.arn
+    target_group_arn = aws_lb_target_group.sap-int.arn
   }
 
   condition {
@@ -235,7 +273,7 @@ resource "aws_lb_listener_rule" "po-int" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.po-web.arn
+    target_group_arn = aws_lb_target_group.po-int.arn
   }
 
   condition {
