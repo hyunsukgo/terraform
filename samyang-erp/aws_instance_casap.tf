@@ -1,7 +1,7 @@
 
 resource "aws_instance" "casap" {
   ami           = "ami-01dd8a88a17ff5466" # ap-northeast-2 / 20210830
-  instance_type = "m5.large"
+  instance_type = "c5.2xlarge"
 
   private_ip           = "10.200.50.21"
   key_name             = "samyangerp"
@@ -45,7 +45,7 @@ resource "aws_volume_attachment" "casap_att" {
 
 resource "aws_ebs_volume" "casap_add" {
   availability_zone = "${var.region}a"
-  size              = 100
+  size              = 150
   iops              = 3000
   throughput        = 125
   type              = "gp3"
