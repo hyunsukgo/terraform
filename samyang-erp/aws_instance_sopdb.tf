@@ -13,7 +13,7 @@ resource "aws_instance" "sopdb" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-sopdb"
+      Name      = "sy-leg-sopdb"
       Partition = "sopdb_C"
       cz-ext1   = "sy-sopdb"
     }
@@ -50,8 +50,8 @@ resource "aws_ebs_volume" "sopdb_add" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sopdb"
-    Partition = "SOPDB D:"
+    Name      = "sy-leg-sopdb"
+    Partition = "sopdb_D"
     cz-ext1   = "sy-sopdb"
   }
 }

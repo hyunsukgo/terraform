@@ -13,7 +13,7 @@ resource "aws_instance" "firmbkap" {
     iops        = 3000
     volume_size = 100
     tags = {
-      Name      = "sy-firmbkap"
+      Name      = "sy-leg-firmbkap"
       Partition = "/root"
       cz-ext1   = "sy-firmbkap"
     }

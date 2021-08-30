@@ -12,7 +12,7 @@ resource "aws_instance" "ifmdb" {
     iops        = 3000
     volume_size = 30
     tags = {
-      Name      = "sy-ifmdb"
+      Name      = "sy-leg-ifmdb"
       Partition = "/root"
       cz-ext1   = "sy-ifmdb"
     }
@@ -47,7 +47,7 @@ resource "aws_ebs_volume" "ifmdb_db_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-ifmdb"
+    Name      = "sy-leg-ifmdb"
     Partition = "ifmdb_postgresSQL"
     cz-ext1   = "sy-ifmdb"
   }
@@ -67,7 +67,7 @@ resource "aws_ebs_volume" "ifmdb_weblog_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-ifmdb"
+    Name      = "sy-leg-ifmdb"
     Partition = "ifmdb_weblog"
     cz-ext1   = "sy-ifmdb"
   }
@@ -87,7 +87,7 @@ resource "aws_ebs_volume" "ifmdb_app_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-ifmdb"
+    Name      = "sy-leg-ifmdb"
     Partition = "ifmdb_app"
     cz-ext1   = "sy-ifmdb"
   }
@@ -107,7 +107,7 @@ resource "aws_ebs_volume" "ifmdb_wilyem_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-ifmdb"
+    Name      = "sy-leg-ifmdb"
     Partition = "ifmdb_app"
     cz-ext1   = "sy-ifmdb"
   }

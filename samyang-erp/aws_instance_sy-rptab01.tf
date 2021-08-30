@@ -12,7 +12,7 @@ resource "aws_instance" "rptab01" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-rptap01"
+      Name      = "sy-leg-rptap01"
       Partition = "rptap01_C"
       cz-ext1   = "sy-rptap01"
     }
@@ -46,7 +46,7 @@ resource "aws_ebs_volume" "rptab01_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-rptap01"
+    Name      = "sy-leg-rptap01"
     Partition = "rptap01_D"
     cz-ext1   = "sy-rptap01"
   }

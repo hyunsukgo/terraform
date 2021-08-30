@@ -13,7 +13,7 @@ resource "aws_instance" "sopap" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-sopap"
+      Name      = "sy-leg-sopap"
       Partition = "sopap_C"
       cz-ext1   = "sy-sopap"
     }
@@ -50,8 +50,8 @@ resource "aws_ebs_volume" "sopap_add" {
   kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sopap"
-    Partition = "SOPAP D:"
+    Name      = "sy-leg-sopap"
+    Partition = "sopap_D"
     cz-ext1   = "sy-sopap"
   }
 }

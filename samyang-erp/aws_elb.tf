@@ -125,7 +125,8 @@ resource "aws_lb" "reportlb" {
   # Configure at next block
   security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
   subnets         = data.aws_subnet_ids.internal.ids
-
+  enable_deletion_protection = true
+  idle_timeout = 1800
   tags = {
     Environment = "Production"
   }

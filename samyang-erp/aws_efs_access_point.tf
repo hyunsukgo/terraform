@@ -13,7 +13,7 @@ resource "aws_efs_access_point" "b4h_trans_access_point" {
     Name = "${var.service_name}-s4h-access-point"
   }
 }
-
+/*
 resource "aws_efs_access_point" "po_access_point" {
   file_system_id = aws_efs_file_system.po-trans.id
 
@@ -21,7 +21,7 @@ resource "aws_efs_access_point" "po_access_point" {
     Name = "${var.service_name}-bo-access-point"
   }
 }
-
+*/
 resource "aws_efs_access_point" "sapcd_access_point" {
   file_system_id = aws_efs_file_system.sapcd.id
 

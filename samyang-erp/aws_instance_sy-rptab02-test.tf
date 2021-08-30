@@ -12,7 +12,7 @@ resource "aws_instance" "rptab02c" {
     iops        = 3000
     throughput  = 125
     tags = {
-      Name      = "sy-rptap02"
+      Name      = "sy-leg-rptap02"
       Partition = "rptap02_C"
       cz-ext1   = "sy-rptap02"
     }

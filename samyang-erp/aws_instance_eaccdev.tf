@@ -13,7 +13,7 @@ resource "aws_instance" "eaccapdev" {
     throughput  = 125
     volume_size = 40
     tags = {
-      Name      = "sy-eaccdev"
+      Name      = "sy-leg-eaccdev"
       Partition = "ecccdev_C"
       cz-ext1   = "sy-eaccdev"
     }
@@ -47,7 +47,7 @@ resource "aws_ebs_volume" "eaccapdev_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-eaccdev"
+    Name      = "sy-leg-eaccdev"
     Partition = "ecccdev_D"
     cz-ext1   = "sy-eaccdev"
   }

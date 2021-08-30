@@ -12,7 +12,7 @@ resource "aws_instance" "mdidb" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-mdidb"
+      Name      = "sy-leg-mdidb"
       Partition = "mdidb_C"
       cz-ext1   = "sy-mdidb"
     }
@@ -46,7 +46,7 @@ resource "aws_ebs_volume" "mdidb_add" {
   throughput        = 125
   tags = {
     Snapshot  = "true"
-    Name      = "sy-mdidb"
+    Name      = "sy-leg-mdidb"
     Partition = "mdidb_D"
     cz-ext1   = "sy-mdidb"
   }

@@ -12,7 +12,7 @@ resource "aws_instance" "eaccdb" {
     throughput  = 125
     volume_size = 50
     tags = {
-      Name      = "sy-eaccdb"
+      Name      = "sy-leg-eaccdb"
       Partition = "ecccdb_C"
       cz-ext1   = "sy-eaccdb"
     }
@@ -46,7 +46,7 @@ resource "aws_ebs_volume" "eaccdb_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-eaccdb"
+    Name      = "sy-leg-eaccdb"
     Partition = "ecccdb_D"
     cz-ext1   = "sy-eaccdb"
   }

@@ -13,7 +13,7 @@ resource "aws_instance" "drawbkap" {
     iops        = 3000
     throughput  = 125
     tags = {
-      Name      = "sy-drawbkap"
+      Name      = "sy-leg-drawbkap"
       Partition = "drawbkap_C"
       cz-ext1   = "sy-drawbkap"
     }
@@ -48,7 +48,7 @@ resource "aws_ebs_volume" "drawbkap_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-drawbkap"
+    Name      = "sy-leg-drawbkap"
     Partition = "drawbkap_D"
     cz-ext1   = "sy-drawbkap"
   }

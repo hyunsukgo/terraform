@@ -11,7 +11,7 @@ resource "aws_instance" "sopdev" {
     volume_type = "gp3"
     volume_size = 50
     tags = {
-      Name      = "sy-sopdev"
+      Name      = "sy-leg-sopdev"
       Partition = "sopdev_C"
       cz-ext1   = "sy-sopdev"
     }
@@ -43,7 +43,7 @@ resource "aws_ebs_volume" "sopdev_add" {
   type              = "gp3"
   tags = {
     Snapshot  = "true"
-    Name      = "sy-sopdev"
+    Name      = "sy-leg-sopdev"
     Partition = "sopdev_D"
     cz-ext1   = "sy-sopdev"
   }

@@ -24,10 +24,11 @@ resource "aws_efs_file_system" "sapcd" {
     Snapshot    = "Yes"
   }
 }
-
+/*
 resource "aws_efs_file_system" "po-mnt-qas" {
   tags = {
     Name = "${var.service_name}-po-mnt-qas-efs"
     Snapshot    = "Yes"
   }
 }
+*/

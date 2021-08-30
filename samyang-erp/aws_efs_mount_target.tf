@@ -56,7 +56,7 @@ resource "aws_efs_mount_target" "sapcd-c" {
   security_groups = [aws_security_group.allow_from_trust_to_sapcd_efs.id]
   ip_address      = "10.200.0.179"
 }
-
+/*
 resource "aws_efs_mount_target" "po-mnt-qas-a" {
   file_system_id  = aws_efs_file_system.po-mnt-qas.id
   subnet_id       = aws_subnet.NAS1_A.id
@@ -70,3 +70,4 @@ resource "aws_efs_mount_target" "po-mnt-qas-c" {
   security_groups = [aws_security_group.allow_from_trust_to_po_mnt_qas_efs.id]
   ip_address      = "10.200.0.177"
 }
+*/
