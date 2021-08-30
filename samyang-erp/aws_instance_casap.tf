@@ -1,6 +1,6 @@
 
 resource "aws_instance" "casap" {
-  ami           = "ami-0133b1a5b9ca9be36" # ap-northeast-2
+  ami           = "ami-01dd8a88a17ff5466" # ap-northeast-2 / 20210830
   instance_type = "m5.large"
 
   private_ip           = "10.200.50.21"
