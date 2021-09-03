@@ -50,6 +50,41 @@ resource "aws_lb_target_group" "po-int" {
   }
 }
 
+resource "aws_lb_target_group" "po" {
+  name     = "po-int-tg"
+  port     = 8120
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.vpc.id
+  tags = {
+    envirornment = "SAP"
+  }
+}
+
+
+resource "aws_lb_target_group_attachment" "po-tga" {
+  count            = length(data.aws_instances.sap-web.ids)
+  target_group_arn = aws_lb_target_group.sap-web.arn
+  target_id        = data.aws_instances.sap-web.ids[count.index]
+  port             = 8120
+}
+
+
+resource "aws_lb_listener_rule" "po" {
+  listener_arn = aws_lb_listener.reportlb.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.po.arn
+  }
+
+  condition {
+    host_header {
+      values = [var.pourl]
+    }
+  }
+}
+
 resource "aws_lb_target_group_attachment" "sap-web-tga" {
   count            = length(data.aws_instances.sap-web.ids)
   target_group_arn = aws_lb_target_group.sap-web.arn
@@ -155,6 +190,14 @@ resource "aws_security_group" "allow_from_trust_to_report_alb" {
 
   ingress {
     description     = "HTTP for PO-Interface"
+    from_port       = 8120
+    to_port         = 8120
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "HTTP for PO-Interface"
     from_port       = 50000
     to_port         = 50000
     protocol        = "tcp"
@@ -181,6 +224,7 @@ resource "aws_lb_listener" "reportlb" {
     target_group_arn = aws_lb_target_group.reporttg.arn
   }
 }
+
 resource "aws_lb_listener_rule" "rttab" {
   listener_arn = aws_lb_listener.reportlb.arn
   priority     = 100

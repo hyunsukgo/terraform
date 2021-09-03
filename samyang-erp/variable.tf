@@ -68,6 +68,11 @@ variable "sap-inturl" {
   type = string
 }
 
+variable "pourl" {
+  type = string
+}
+
+
 variable "po-weburl" {
   type = string
 }
