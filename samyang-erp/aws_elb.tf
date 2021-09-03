@@ -74,7 +74,7 @@ resource "aws_lb_listener" "po-listener" {
 }
 
 resource "aws_lb_listener_rule" "po" {
-  listener_arn = aws_lb_listener.reportlb.arn
+  listener_arn = aws_lb_listener.po-listener.arn
   priority     = 102
 
   action {
