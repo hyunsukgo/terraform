@@ -45,15 +45,15 @@ resource "aws_route_table" "private_route" {
   route {
     cidr_block         = "10.150.220.10/32"
     #instance_id        = "i-0262a7a8c467645bd"
-    network_interface_id = "eni-0f8ca819e334558cb"
-    #network_interface_id = "eni-01a386fafe97e7251"
+    #network_interface_id = "eni-0f8ca819e334558cb"
+    network_interface_id = "eni-01a386fafe97e7251"
   }
 
   route {
     cidr_block         = "10.150.220.15/32"
     #instance_id        = "i-0a1c79c8d70997fbc"
-    #network_interface_id = "eni-0f8ca819e334558cb"
-    network_interface_id = "eni-01a386fafe97e7251"
+    network_interface_id = "eni-0f8ca819e334558cb"
+    #network_interface_id = "eni-01a386fafe97e7251"
   }
 
   route {

@@ -11,6 +11,15 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
+  ingress {
+    description     = "Ddeveloping for MDI"
+    from_port       = 8070
+    to_port         = 8070
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+  
   ingress {
     description     = "Application Port"
     from_port       = 8080
@@ -18,6 +27,7 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "Application Port(Admin)"
     from_port       = 8090

@@ -27,7 +27,7 @@ resource "aws_instance" "sopap" {
     Description = "S&OP(AP)"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    #Schedule    = ""
+    Schedule    = "samyang-office-hours"
     Snapshot = "Yes"
     cz-ext1  = "sy-sopap"
   }

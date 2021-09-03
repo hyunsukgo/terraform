@@ -5,12 +5,21 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
+    description     = ""
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
     description     = "SMB dialects that communicate over NetBIOS"
     from_port       = 139
     to_port         = 139
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "newer versions of SMB (after Windows 2000) on top of a TCP stack"
     from_port       = 445
