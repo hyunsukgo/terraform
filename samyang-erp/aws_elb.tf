@@ -62,9 +62,9 @@ resource "aws_lb_target_group" "po" {
 
 
 resource "aws_lb_target_group_attachment" "po-tga" {
-  count            = length(data.aws_instances.sap-web.ids)
-  target_group_arn = aws_lb_target_group.sap-web.arn
-  target_id        = data.aws_instances.sap-web.ids[count.index]
+  count            = length(data.aws_instances.po-web.ids)
+  target_group_arn = aws_lb_target_group.po.arn
+  target_id        = data.aws_instances.po-web.ids[count.index]
   port             = 8120
 }
 
