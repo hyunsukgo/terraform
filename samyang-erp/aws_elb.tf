@@ -50,23 +50,18 @@ resource "aws_lb_target_group" "po-int" {
   }
 }
 
+
 resource "aws_lb_target_group" "po" {
   name     = "po-tg"
   port     = 8120
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc.id
+  target_type = "ip"
   tags = {
     envirornment = "SAP"
   }
 }
 
-
-resource "aws_lb_target_group_attachment" "po-tga" {
-  count            = length(data.aws_instances.po-web.ids)
-  target_group_arn = aws_lb_target_group.po.arn
-  target_id        = data.aws_instances.po-web.ids[count.index]
-  port             = 8120
-}
 
 resource "aws_lb_listener" "po-listener" {
   load_balancer_arn = aws_lb.reportlb.arn
