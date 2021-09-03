@@ -68,6 +68,15 @@ resource "aws_lb_target_group_attachment" "po-tga" {
   port             = 8120
 }
 
+resource "aws_lb_listener" "po-listener" {
+  load_balancer_arn = aws_lb.reportlb.arn
+  port              = "8120"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.po.arn
+  }
+}
 
 resource "aws_lb_listener_rule" "po" {
   listener_arn = aws_lb_listener.reportlb.arn
