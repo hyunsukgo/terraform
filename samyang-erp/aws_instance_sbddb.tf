@@ -31,6 +31,7 @@ resource "aws_instance" "sbddb" {
     Schedule    = "samyang-office-hours-extend"
     Snapshot    = "Yes"
     cz-ext1     = "sy-sbddb"
+    map-sap   = "d-server-03o6dj6cmy1ps6"
   }
 }
 

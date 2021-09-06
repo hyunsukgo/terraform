@@ -31,6 +31,7 @@ resource "aws_instance" "seqap" {
     Schedule    = "samyang-office-hours-test"
     Snapshot    = "Yes"
     cz-ext1     = "sy-seqap"
+    map-sap   = "d-server-03o6dj6cmy1ps6"
   }
 }
 

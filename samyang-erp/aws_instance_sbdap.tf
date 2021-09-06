@@ -31,6 +31,7 @@ resource "aws_instance" "sbdap" {
     Schedule    = "samyang-office-hours-extend"
     Snapshot    = "Yes"
     cz-ext1     = "sy-sbdap"
+    map-sap   = "d-server-03o6dj6cmy1ps6"
   }
 }
 ## /sapmnt Partitioning

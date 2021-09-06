@@ -31,6 +31,7 @@ resource "aws_instance" "spqdb" {
     Schedule    = "samyang-office-hours-test"
     Snapshot    = "Yes"
     cz-ext1     = "sy-spqap"
+    map-sap   = "d-server-03o6dj6cmy1ps6"
   }
 }
 /*
