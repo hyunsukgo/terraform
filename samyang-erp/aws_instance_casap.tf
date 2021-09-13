@@ -30,7 +30,6 @@ resource "aws_instance" "casap" {
     Description = "연결회계"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
     cz-ext1     = "sy-casap"
   }

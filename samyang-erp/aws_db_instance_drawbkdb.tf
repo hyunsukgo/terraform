@@ -28,6 +28,7 @@ resource "aws_db_instance" "drawbkdb" {
   tags = {
     Snapshot = "Yes"
     cz-ext1  = "sy-drawbkap"
+    cz-product = "Non-SAP"
   }
   performance_insights_enabled          = true
   performance_insights_retention_period = 7

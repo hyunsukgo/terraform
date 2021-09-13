@@ -6,7 +6,7 @@ resource "aws_db_instance" "casdb" {
   engine_version = "19.0.0.0.ru-2021-04.rur-2021-04.r1"
   #family               = "oracle-se-18.0" # DB parameter group
   #major_engine_version = "12.1"           # DB option group
-  instance_class = "db.m5.4xlarge"
+  instance_class = "db.m5.2xlarge"
   license_model  = "license-included"
 
   allocated_storage     = 100
@@ -28,6 +28,7 @@ resource "aws_db_instance" "casdb" {
   tags = {
     Snapshot = "Yes"
     cz-ext1  = "sy-casdb"
+    cz-product = "Non-SAP"
   }
   performance_insights_enabled          = true
   performance_insights_retention_period = 7

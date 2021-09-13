@@ -11,7 +11,7 @@ resource "aws_instance" "sopdb" {
     volume_type = "gp3"
     iops        = 3000
     throughput  = 125
-    volume_size = 50
+    volume_size = 100
     tags = {
       Name      = "sy-leg-sopdb"
       Partition = "sopdb_C"
