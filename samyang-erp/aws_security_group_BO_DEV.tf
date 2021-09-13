@@ -9,7 +9,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 139
     to_port         = 139
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
@@ -17,7 +17,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 445
     to_port         = 445
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
@@ -25,7 +25,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 1433
     to_port         = 1433
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
@@ -33,7 +33,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 3389
     to_port         = 3389
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
@@ -41,7 +41,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 8080
     to_port         = 8080
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   ingress {
@@ -49,7 +49,7 @@ resource "aws_security_group" "BO_DEV" {
     from_port       = 6400
     to_port         = 6499
     protocol        = "tcp"
-    self            = true
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
   egress {
