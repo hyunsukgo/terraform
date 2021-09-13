@@ -1,7 +1,7 @@
 
-resource "aws_security_group" "PO_PRD_AP" {
-  name        = "PO_PRD_AP"
-  description = "PO_PRD_AP"
+resource "aws_security_group" "PO_PRD_DB" {
+  name        = "PO_PRD_DB"
+  description = "PO_PRD_DB"
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
