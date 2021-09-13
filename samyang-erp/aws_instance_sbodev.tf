@@ -28,9 +28,9 @@ resource "aws_instance" "sbodev" {
     Description = "BI (SAP BO)"
     Environment = "Dev"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-sbodev"
+    #Schedule    = "samyang-office-hours"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-sbodev"
   }
 }
 

@@ -49,8 +49,8 @@ resource "aws_ebs_volume" "casap_add" {
   iops              = 3000
   throughput        = 125
   type              = "gp3"
-  encrypted   = true
-  kms_key_id  = aws_kms_key.ebs_kms.arn
+  encrypted         = true
+  kms_key_id        = aws_kms_key.ebs_kms.arn
   tags = {
     Snapshot  = "true"
     Name      = "sy-casap"

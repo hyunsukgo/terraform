@@ -28,10 +28,10 @@ resource "aws_instance" "seqdb" {
     Description = "DB서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours-test"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-seqdb"
-    map-sap   = "d-server-03o6dj6cmy1ps6"
+    #Schedule    = "samyang-office-hours-test"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-seqdb"
+    map-sap  = "d-server-03o6dj6cmy1ps6"
   }
 }
 

@@ -30,10 +30,10 @@ resource "aws_instance" "spdap" {
     Description = "AP서버"
     Environment = "Stg"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours-extend"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-spdap"
-    map-sap   = "d-server-03o6dj6cmy1ps6"
+    #Schedule    = "samyang-office-hours-extend"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-spdap"
+    map-sap  = "d-server-03o6dj6cmy1ps6"
   }
 }
 

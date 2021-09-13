@@ -11,7 +11,7 @@ resource "aws_security_group" "allow_from_trust_to_sopdb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "newer versions of SMB (after Windows 2000) on top of a TCP stack"
     from_port       = 445

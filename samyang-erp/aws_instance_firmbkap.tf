@@ -28,8 +28,8 @@ resource "aws_instance" "firmbkap" {
     Description = "펌뱅킹"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-firmbkap"
+    #Schedule    = "samyang-office-hours"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-firmbkap"
   }
 }

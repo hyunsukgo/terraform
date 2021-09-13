@@ -9,7 +9,7 @@ resource "aws_instance" "sopdev" {
 
   root_block_device {
     volume_type = "gp3"
-    volume_size = 50
+    volume_size = 100
     tags = {
       Name      = "sy-leg-sopdev"
       Partition = "sopdev_C"
@@ -25,7 +25,6 @@ resource "aws_instance" "sopdev" {
     Description = "S&OP 인스턴스"
     Environment = "Dev"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
     Snapshot    = "Yes"
     cz-ext1     = "sy-sopdev"
   }

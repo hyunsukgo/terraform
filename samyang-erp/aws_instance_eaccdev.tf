@@ -27,9 +27,9 @@ resource "aws_instance" "eaccapdev" {
     Description = "전자전표(AP)"
     Environment = "Dev"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-eaccdev"
+    #Schedule    = "samyang-office-hours"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-eaccdev"
   }
 }
 

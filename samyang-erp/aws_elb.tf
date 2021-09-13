@@ -52,10 +52,10 @@ resource "aws_lb_target_group" "po-int" {
 
 
 resource "aws_lb_target_group" "po" {
-  name     = "po-tg"
-  port     = 8120
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.vpc.id
+  name        = "po-tg"
+  port        = 8120
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.vpc.id
   target_type = "ip"
   tags = {
     envirornment = "SAP"
@@ -162,10 +162,10 @@ resource "aws_lb" "reportlb" {
   internal           = true
   load_balancer_type = "application"
   # Configure at next block
-  security_groups = [aws_security_group.allow_from_trust_to_report_alb.id]
-  subnets         = data.aws_subnet_ids.internal.ids
+  security_groups            = [aws_security_group.allow_from_trust_to_report_alb.id]
+  subnets                    = data.aws_subnet_ids.internal.ids
   enable_deletion_protection = true
-  idle_timeout = 1800
+  idle_timeout               = 1800
   tags = {
     Environment = "Production"
   }

@@ -39,10 +39,10 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
   }
 
   ingress {
-    description     = "OZ Report Schduling"
-    from_port       = 9521
-    to_port         = 9521
-    protocol        = "tcp"
+    description = "OZ Report Schduling"
+    from_port   = 9521
+    to_port     = 9521
+    protocol    = "tcp"
     cidr_blocks = ["130.1.0.0/16"]
   }
 

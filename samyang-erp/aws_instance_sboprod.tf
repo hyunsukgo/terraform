@@ -27,7 +27,7 @@ resource "aws_instance" "sboprod" {
     Description = "S&OP(DB)"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours-extend"
+    #Schedule    = "samyang-office-hours-extend"
     Snapshot = "Yes"
     cz-ext1  = "sy-sboprod"
   }

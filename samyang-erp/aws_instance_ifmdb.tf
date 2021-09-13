@@ -27,9 +27,9 @@ resource "aws_instance" "ifmdb" {
     Description = "IF관리시스템"
     Environment = "Prd"
     cz-product  = "Non-SAP"
-    Schedule    = "samyang-office-hours-extend"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-ifmdb"
+    #Schedule    = "samyang-office-hours-extend"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-ifmdb"
   }
 }
 ## PostgreSQL DB Partition 

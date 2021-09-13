@@ -28,10 +28,10 @@ resource "aws_instance" "sbddb" {
     Description = "DB 서버"
     Environment = "Dev"
     cz-product  = "SAP"
-    Schedule    = "samyang-office-hours-extend"
-    Snapshot    = "Yes"
-    cz-ext1     = "sy-sbddb"
-    map-sap   = "d-server-03o6dj6cmy1ps6"
+    #Schedule    = "samyang-office-hours-extend"
+    Snapshot = "Yes"
+    cz-ext1  = "sy-sbddb"
+    map-sap  = "d-server-03o6dj6cmy1ps6"
   }
 }
 
