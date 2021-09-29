@@ -42,6 +42,6 @@ resource "aws_security_group" "allow_from_trust_to_eaccdb" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_eaccdev"
+    Name = "allow_from_trust_to_eaccdb"
   }
 } 
