@@ -14,6 +14,11 @@ resource "aws_route_table" "public_route" {
     cidr_block = "10.20.0.0/16"
     gateway_id = aws_vpn_gateway.vpn_gw.id
   }
+
+  route {
+    cidr_block = "10.150.220.10/32"
+    network_interface_id = "eni-01a386fafe97e7251"
+  }
   /*
   route {
     cidr_block         = "130.1.0.0/16"
