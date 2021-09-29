@@ -1,7 +1,7 @@
 
 resource "aws_security_group" "PO_DEV_QAS_DB" {
-  name        = "PO_PRD_DB"
-  description = "PO_PRD_DB"
+  name        = "PO_DEV_QAS_DB"
+  description = "PO_DEV_QAS_DB"
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
