@@ -51,7 +51,13 @@ resource "aws_security_group" "PO_PRD_AP" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+  
+  ingress {
+          from_port = 0
+          to_port = 0
+          protocol = -1
+          self = true
+  }
   egress {
     from_port   = 0
     to_port     = 0
