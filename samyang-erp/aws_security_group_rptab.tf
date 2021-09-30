@@ -60,6 +60,6 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_rptab"
+    Name = "allow_from_trust_to_rptap"
   }
 } 
