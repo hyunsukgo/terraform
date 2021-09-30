@@ -46,14 +46,14 @@ resource "aws_efs_mount_target" "po-trans-c" {
 resource "aws_efs_mount_target" "sapcd-a" {
   file_system_id  = aws_efs_file_system.sapcd.id
   subnet_id       = aws_subnet.NAS1_A.id
-  security_groups = [aws_security_group.allow_from_trust_to_sapcd_efs.id]
+  security_groups = [aws_security_group.SAPCD_EFS.id]
   ip_address      = "10.200.0.139"
 }
 
 resource "aws_efs_mount_target" "sapcd-c" {
   file_system_id  = aws_efs_file_system.sapcd.id
   subnet_id       = aws_subnet.NAS2_C.id
-  security_groups = [aws_security_group.allow_from_trust_to_sapcd_efs.id]
+  security_groups = [aws_security_group.SAPCD_EFS.id]
   ip_address      = "10.200.0.179"
 }
 /*
