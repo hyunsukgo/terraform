@@ -22,7 +22,7 @@ resource "aws_instance" "spqap" {
   }
   user_data               = file("./scripts/sapinst.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids  = [aws_security_group.PO_DEV_QAS_AP.id]
+  vpc_security_group_ids  = [aws_security_group.PO_DEV_QAS_DB.id]
   subnet_id               = aws_subnet.SAPDEV_A.id
 
   tags = {
