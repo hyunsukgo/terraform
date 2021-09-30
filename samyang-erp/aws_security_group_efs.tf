@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_from_trust_to_s4h_trans_efs" {
+/*resource "aws_security_group" "allow_from_trust_to_s4h_trans_efs" {
   name        = "s4h-trans allow_traffic_efs"
   description = "Allow NFS inbound traffic"
   vpc_id      = aws_vpc.vpc.id
@@ -76,3 +76,5 @@ resource "aws_security_group" "allow_from_trust_to_po_trans_efs" {
     Name = "allow_from_trust_to_po_trans_efs"
   }
 }
+
+*/
