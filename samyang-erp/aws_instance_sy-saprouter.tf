@@ -16,7 +16,7 @@ resource "aws_instance" "saprouter" {
     }
   }
   disable_api_termination = "true"
-  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_saprouter.id]
+  vpc_security_group_ids  = [aws_security_group.SAPROUTER.id]
   subnet_id               = aws_subnet.COMMON1_A.id
 
   tags = {

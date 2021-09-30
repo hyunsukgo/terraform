@@ -37,7 +37,7 @@ resource "aws_security_group" "PO_DEV_QAS_DB" {
   }
 
   ingress {
-    description     = "SAP HANA AP"
+    description     = "SAP HANA DB"
     from_port       = 30000
     to_port         = 39999
     protocol        = "tcp"

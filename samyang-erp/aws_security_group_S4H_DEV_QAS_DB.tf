@@ -37,7 +37,7 @@ resource "aws_security_group" "S4H_DEV_QAS_DB" {
   }
 
   ingress {
-    description     = "SAP HANA AP"
+    description     = "SAP HANA DB"
     from_port       = 30000
     to_port         = 39999
     protocol        = "tcp"
@@ -53,7 +53,7 @@ resource "aws_security_group" "S4H_DEV_QAS_DB" {
   }
   
   ingress {
-    description     = "sap start service"
+    description     = "HANA Cockpit"
     from_port       = 51026
     to_port         = 59914
     protocol        = "tcp"

@@ -83,7 +83,7 @@ resource "aws_security_group" "S4H_DEV_QAS_AP" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+/*
   ingress {
     description     = "SAP HANA AP"
     from_port       = 30000
@@ -99,7 +99,7 @@ resource "aws_security_group" "S4H_DEV_QAS_AP" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-
+*/
   egress {
     from_port   = 0
     to_port     = 0

@@ -46,8 +46,8 @@ resource "aws_security_group" "PO_DEV_QAS_AP" {
 
   ingress {
     description     = "JAVA ICM"
-    from_port       = 50013
-    to_port         = 59914
+    from_port       = 50000
+    to_port         = 59999
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
