@@ -35,7 +35,7 @@ resource "aws_security_group" "allow_from_trust_to_b4h_trans_efs" {
     to_port         = 2049
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
-    security_groups = [aws_security_group.B4H_PRD_AP.id, S4H_PRD_AP.B4H_DEV_AP.id]
+    security_groups = [aws_security_group.B4H_PRD_AP.id, aws_security_group.B4H_DEV_AP.id]
   }
 
   egress {
