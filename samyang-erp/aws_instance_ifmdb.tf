@@ -19,7 +19,7 @@ resource "aws_instance" "ifmdb" {
   }
   user_data               = file("./scripts/init.sh")
   disable_api_termination = "true"
-  vpc_security_group_ids  = [aws_security_group.B4H_DEV_DB.id]
+  vpc_security_group_ids  = [aws_security_group.allow_from_trust_to_ifmdb.id]
   subnet_id               = aws_subnet.LEGADB1_A.id
 
   tags = {
