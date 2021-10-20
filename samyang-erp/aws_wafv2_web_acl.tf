@@ -65,12 +65,6 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
         }
       }
 
-      condition {
-        label_name_condition {
-          label_name = "awswaf:111122223333:rulegroup:testRules:LabelNameZ"
-        }
-      }
-
       requirement = "MEETS_ALL"
     }
 
@@ -90,17 +84,5 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
     single_header {
       name = "user-agent"
     }
-  }
-}
-
-resource "aws_wafv2_rule_group" "waf" {
-  name     = "${var.service_name}-rule"
-  scope    = "REGIONAL"
-  capacity = 5
-
-  visibility_config {
-    cloudwatch_metrics_enabled = false
-    metric_name                = "${var.service_name}-metric-name"
-    sampled_requests_enabled   = false
   }
 }
