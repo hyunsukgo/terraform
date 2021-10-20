@@ -67,7 +67,7 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
 
       condition {
         label_name_condition {
-          label_name = "awswaf:111122223333:rulegroup:testRules:LabelNameZ"
+          label_name = [aws_wafv2_rule_group.waf.arn]
         }
       }
 
@@ -94,8 +94,13 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
 }
 
 resource "aws_wafv2_rule_group" "waf" {
-  name     = "waf-rule"
+  name     = "${var.service_name}-rule"
   scope    = "REGIONAL"
   capacity = 5
 
+  visibility_config {
+    cloudwatch_metrics_enabled = false
+    metric_name                = "${var.service_name}-metric-name"
+    sampled_requests_enabled   = false
+  }
 }
