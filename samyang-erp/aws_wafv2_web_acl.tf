@@ -92,3 +92,10 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
     }
   }
 }
+
+resource "aws_wafv2_rule_group" "waf" {
+  name     = "waf-rule"
+  scope    = "REGIONAL"
+  capacity = 5
+
+}
