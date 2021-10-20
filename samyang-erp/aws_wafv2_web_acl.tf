@@ -30,10 +30,10 @@ resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
     processing_configuration {
       enabled = "true"
 
-      }
     }
   }
 }
+
 
 resource "aws_iam_role" "firehose_role" {
   name = "firehose_test_role"
@@ -58,5 +58,5 @@ EOF
 resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
   log_destination_configs = [aws_kinesis_firehose_delivery_stream.extended_s3_stream.arn]
   resource_arn            = aws_wafv2_web_acl.web_acl.arn
-  
+
 }
