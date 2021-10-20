@@ -9,7 +9,7 @@ resource "aws_security_group" "SAPROUTER" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["3.36.176.77/32"]
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
     description = "SapRouter Access"
