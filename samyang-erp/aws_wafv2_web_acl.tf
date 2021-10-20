@@ -57,7 +57,38 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
     single_header {
       name = "user-agent"
     }
-    method {}
-    uri_path {}
+    logging_filter {
+      default_behavior = "KEEP"
+
+      filter {
+        behavior = "DROP"
+
+        condition {
+          action_condition {
+            action = "COUNT"
+          }
+        }
+
+        condition {
+          label_name_condition {
+            label_name = "awswaf:111122223333:rulegroup:testRules:LabelNameZ"
+          }
+        }
+
+        requirement = "MEETS_ALL"
+      }
+
+      filter {
+        behavior = "KEEP"
+
+        condition {
+          action_condition {
+            action = "ALLOW"
+          }
+        }
+
+        requirement = "MEETS_ANY"
+      }
+    }
   }
 }
