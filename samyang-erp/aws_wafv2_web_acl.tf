@@ -57,5 +57,7 @@ resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
     single_header {
       name = "user-agent"
     }
+    method {}
+    uri_path {}
   }
 }
