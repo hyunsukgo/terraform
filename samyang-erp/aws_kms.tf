@@ -13,6 +13,11 @@ resource "aws_kms_key" "efs_kms" {
   #  deletion_window_in_days = 10
 }
 
+resource "aws_kms_key" "guardduty_kms" {
+  description = "${var.service_name}-guardduty-encrytion"
+  #  deletion_window_in_days = 10
+}
+
 resource "aws_kms_alias" "efs" {
   name          = "alias/efs"
   target_key_id = aws_kms_key.efs_kms.key_id
