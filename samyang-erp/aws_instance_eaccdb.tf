@@ -57,6 +57,6 @@ resource "aws_eip" "eaccdb_eip" {
   #instance = aws_instance.eaccdb.id
   tags = {
     Name        = "${var.service_name}-eaccdb-EIP"
-    Description = "중계 서버 공인 IP"
+    Description = "전자전표 공인 IP"
   }
 }
