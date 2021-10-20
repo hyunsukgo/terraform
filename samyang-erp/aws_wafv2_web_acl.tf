@@ -20,7 +20,7 @@ resource "aws_wafv2_web_acl_association" "web_acl_assoc" {
 }
 
 resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
-  name        = "terraform-kinesis-firehose-extended-s3-waf-stream"
+  name        = "aws-waf-logs-kinesis-firehose-extended-s3-waf-stream"
   destination = "extended_s3"
 
   extended_s3_configuration {
@@ -51,7 +51,7 @@ EOF
 }
 
 resource "aws_wafv2_web_acl_logging_configuration" "extended_s3_stream" {
-  log_destination_configs = "arn:aws:firehose:ap-northeast-2:969470234861:deliverystream/terraform-kinesis-firehose-extended-s3-waf-stream"
+  log_destination_configs = [aws_kinesis_firehose_delivery_stream.extended_s3_stream.arn]
   resource_arn            = aws_wafv2_web_acl.web_acl.arn
   redacted_fields {
     single_header {
