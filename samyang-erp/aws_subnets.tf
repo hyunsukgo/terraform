@@ -109,7 +109,7 @@ resource "aws_subnet" "LEGADMZ_A" {
   tags = {
     Name       = "LEGADMZ_A"
     Enviroment = "PRD"
-    RT         = "public"
+    RT         = "private"
   }
 }
 resource "aws_subnet" "LEGADMZ_C" {
@@ -120,7 +120,7 @@ resource "aws_subnet" "LEGADMZ_C" {
   tags = {
     Name       = "LEGADMZ_C"
     Enviroment = "PRD"
-    RT         = "public"
+    RT         = "private"
   }
 }
 

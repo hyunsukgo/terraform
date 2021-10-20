@@ -47,6 +47,14 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
   }
 
   ingress {
+    description     = "SECUVE"
+    from_port       = 53000
+    to_port         = 53008
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
@@ -60,6 +68,6 @@ resource "aws_security_group" "allow_from_trust_to_rptab" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_rptap"
+    Name = "LEG_rptap"
   }
 } 

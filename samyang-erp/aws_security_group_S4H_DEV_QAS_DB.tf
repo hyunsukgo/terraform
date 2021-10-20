@@ -51,7 +51,7 @@ resource "aws_security_group" "S4H_DEV_QAS_DB" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "HANA Cockpit"
     from_port       = 51026

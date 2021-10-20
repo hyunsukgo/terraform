@@ -29,7 +29,6 @@ resource "aws_kms_key" "ebs_kms" {
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::969470234861:role/samyang-ec2-scheduler-SchedulerRole-FXACZHD6B4EU",
                     "arn:aws:iam::969470234861:root"
                 ]
             },
@@ -41,6 +40,7 @@ resource "aws_kms_key" "ebs_kms" {
 EOT
   #  deletion_window_in_days = 10
 }
+
 resource "aws_kms_alias" "ebs" {
   name          = "alias/ebs"
   target_key_id = aws_kms_key.ebs_kms.key_id

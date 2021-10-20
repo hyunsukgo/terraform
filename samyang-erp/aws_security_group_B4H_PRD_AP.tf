@@ -67,7 +67,7 @@ resource "aws_security_group" "B4H_PRD_AP" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
-  
+
   ingress {
     description     = "abap http"
     from_port       = 8000
@@ -85,12 +85,12 @@ resource "aws_security_group" "B4H_PRD_AP" {
   }
 
   ingress {
-          from_port = 0
-          to_port = 0
-          protocol = -1
-          self = true
-  }    
-/*
+    from_port = 0
+    to_port   = 0
+    protocol  = -1
+    self      = true
+  }
+  /*
   ingress {
     description     = "SAP HANA AP"
     from_port       = 30000

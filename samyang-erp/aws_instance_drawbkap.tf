@@ -55,8 +55,8 @@ resource "aws_ebs_volume" "drawbkap_add" {
 }
 
 resource "aws_eip" "drawbkap_eip" {
-  vpc      = true
-  instance = aws_instance.drawbkap.id
+  vpc = true
+  #instance = aws_instance.drawbkap.id
   tags = {
     Name        = "${var.service_name}-drawbkap-EIP"
     Description = "관세환급 공인 IP(국세청 등록)"

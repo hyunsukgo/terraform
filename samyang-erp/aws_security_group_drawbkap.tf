@@ -29,6 +29,14 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
   }
 
   ingress {
+    description     = "newer versions of SMB (after Windows 2000) on top of a TCP stack"
+    from_port       = 445
+    to_port         = 445
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
     description     = "EAI interface"
     from_port       = 8088
     to_port         = 8088
@@ -44,6 +52,14 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
 
+  ingress {
+    description     = "SECUVE"
+    from_port       = 53000
+    to_port         = 53008
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -52,6 +68,6 @@ resource "aws_security_group" "allow_from_trust_to_drawbkap" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_drawbkap"
+    Name = "LEG_drawbkap_PUBLIC"
   }
 } 

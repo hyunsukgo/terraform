@@ -16,7 +16,7 @@ resource "aws_route_table" "public_route" {
   }
 
   route {
-    cidr_block = "10.150.220.10/32"
+    cidr_block           = "10.150.220.10/32"
     network_interface_id = "eni-01a386fafe97e7251"
   }
   /*

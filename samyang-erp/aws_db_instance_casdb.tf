@@ -3,7 +3,7 @@ resource "aws_db_instance" "casdb" {
   identifier = "casdb"
 
   engine         = "oracle-se2"
-  engine_version = "19.0.0.0.ru-2021-04.rur-2021-04.r1"
+  engine_version = "19.0.0.0.ru-2021-07.rur-2021-07.r1"
   #family               = "oracle-se-18.0" # DB parameter group
   #major_engine_version = "12.1"           # DB option group
   instance_class = "db.m5.2xlarge"
@@ -26,8 +26,8 @@ resource "aws_db_instance" "casdb" {
   skip_final_snapshot     = true
   deletion_protection     = true
   tags = {
-    Snapshot = "Yes"
-    cz-ext1  = "sy-casdb"
+    Snapshot   = "Yes"
+    cz-ext1    = "sy-casdb"
     cz-product = "Non-SAP"
   }
   performance_insights_enabled          = true

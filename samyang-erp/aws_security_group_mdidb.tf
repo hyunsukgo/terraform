@@ -78,6 +78,71 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
+  ingress {
+    description     = "DBSAFER"
+    from_port       = 21113
+    to_port         = 21114
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "DBSAFER"
+    from_port       = 21113
+    to_port         = 21114
+    protocol        = "udp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "DBSAFER"
+    from_port       = 3139
+    to_port         = 3141
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "DBSAFER"
+    from_port       = 3139
+    to_port         = 3141
+    protocol        = "udp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "DBSAFER"
+    from_port       = 4000
+    to_port         = 4999
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "SECUVE"
+    from_port       = 53000
+    to_port         = 53008
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "Vormetric"
+    from_port       = 7024
+    to_port         = 7024
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
+    description     = "Test"
+    from_port       = -1
+    to_port         = -1
+    protocol        = "icmp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -86,6 +151,6 @@ resource "aws_security_group" "allow_from_trust_to_mdidb" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_mdidb"
+    Name = "LEG_mdidb"
   }
 } 

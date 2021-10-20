@@ -53,8 +53,8 @@ resource "aws_ebs_volume" "eaccdb_add" {
 }
 
 resource "aws_eip" "eaccdb_eip" {
-  vpc      = true
-  instance = aws_instance.eaccdb.id
+  vpc = true
+  #instance = aws_instance.eaccdb.id
   tags = {
     Name        = "${var.service_name}-eaccdb-EIP"
     Description = "중계 서버 공인 IP"

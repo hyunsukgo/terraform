@@ -21,6 +21,6 @@ resource "aws_security_group" "allow_from_trust_to_casdb" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_casdb"
+    Name = "LEG_casdb"
   }
 } 

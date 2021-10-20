@@ -29,6 +29,14 @@ resource "aws_security_group" "PO_DEV_QAS_AP" {
   }
 
   ingress {
+    description     = "sap gateway"
+    from_port       = 3300
+    to_port         = 3399
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
+  ingress {
     description     = "sapinst"
     from_port       = 4237
     to_port         = 4238

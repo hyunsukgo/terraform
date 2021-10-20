@@ -5,18 +5,18 @@ resource "aws_security_group" "SAPROUTER" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description     = "SSH"
-    from_port       = 22
-    to_port         = 22
-    protocol        = "tcp"
-    cidr_blocks     = ["3.36.176.77/32"]
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["3.36.176.77/32"]
   }
   ingress {
     description = "SapRouter Access"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks     = ["3.36.176.77/32"]
+    cidr_blocks = ["3.36.176.77/32"]
   }
 
   ingress {
@@ -24,7 +24,7 @@ resource "aws_security_group" "SAPROUTER" {
     from_port   = 3200
     to_port     = 3299
     protocol    = "tcp"
-    cidr_blocks     = ["3.36.176.77/32"]
+    cidr_blocks = ["3.36.176.77/32"]
   }
 
   egress {

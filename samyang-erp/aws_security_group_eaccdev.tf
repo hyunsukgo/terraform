@@ -11,6 +11,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "newer versions of SMB (after Windows 2000) on top of a TCP stack"
     from_port       = 445
@@ -18,6 +19,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "RDP from On-Prem"
     from_port       = 3389
@@ -25,6 +27,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "EACC Web Service"
     from_port       = 80
@@ -32,6 +35,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description     = "EACC Web Service(admin)"
     from_port       = 8082
@@ -39,6 +43,7 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
+
   ingress {
     description = "EACC Web Service(admin)"
     from_port   = -1
@@ -46,12 +51,22 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
     protocol    = "icmp"
     cidr_blocks = ["130.1.0.0/16"]
   }
+
   ingress {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
     cidr_blocks = ["10.20.0.0/16"]
   }
+
+  ingress {
+    description     = "SECUVE"
+    from_port       = 53000
+    to_port         = 53008
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -60,6 +75,6 @@ resource "aws_security_group" "allow_from_trust_to_eaccap" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_eaccap"
+    Name = "LEG_eaccdev"
   }
 } #

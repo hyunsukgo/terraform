@@ -89,6 +89,15 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
     protocol    = "tcp"
     cidr_blocks = ["129.200.9.11/32", "129.200.9.18/32"]
   }
+
+  ingress {
+    description     = "SECUVE"
+    from_port       = 53000
+    to_port         = 53008
+    protocol        = "tcp"
+    prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -97,6 +106,6 @@ resource "aws_security_group" "allow_from_trust_to_firmbkap" {
   }
 
   tags = {
-    Name = "allow_from_trust_to_firmbkap"
+    Name = "LEG_firmbkap"
   }
 } 
