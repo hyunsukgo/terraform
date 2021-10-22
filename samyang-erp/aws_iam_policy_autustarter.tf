@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "auto_policy" {
   name        = "auto_starter_policy"
   path        = "/"
-  description = "AutoStarter policy"
+  description = "Auto Starter policy"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
