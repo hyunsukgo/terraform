@@ -5,10 +5,10 @@ resource "aws_security_group" "SAPROUTER" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    description     = "SSH"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
     prefix_list_ids = [aws_ec2_managed_prefix_list.trusted.id]
   }
   ingress {
