@@ -16,7 +16,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesAdminProtectionRuleSet"
     priority = 6
+    override_action {
 
+    }
     statement {
       managed_rule_group_statement {
         name        = "AWSAWSManagedRulesAdminProtectionRuleSet"
@@ -33,7 +35,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesAmazonIpReputationList"
     priority = 5
+    override_action {
 
+    }
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesAmazonIpReputationList"
@@ -50,7 +54,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesAnonymousIpList"
     priority = 4
-
+    override_action {}
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesAnonymousIpList"
@@ -67,7 +71,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesCommonRuleSet"
     priority = 3
-
+    override_action {}
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesCommonRuleSet"
@@ -167,7 +171,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesSQLiRuleSet"
     priority = 2
-
+    override_action {}
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesSQLiRuleSet"
@@ -184,7 +188,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
   rule {
     name     = "AWS-AWSManagedRulesLinuxRuleSet"
     priority = 1
-
+    override_action {}
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesLinuxRuleSet"
